@@ -1,0 +1,9 @@
+References:
+http://www.ogldev.org/
+https://open.gl/
+
+3rd Party Libraries:
+libGLEW
+libglfw
+SOIL - http://www.lonesock.net/soil.html
+Open Asset Import Library - http://www.assimp.org/
