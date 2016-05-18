@@ -50,11 +50,16 @@ int main(int argc, const char * argv[])
     Mesh* mesh = new Mesh();
     mesh->Create();
     mesh->SetMaterial(mat);
+    Model* model = new Model();
+    model->LoadModel("./Resources/Models/phoenix_ugv.md2");
     
     while(!glfwWindowShouldClose(window))
     {
         Renderer::GetInstance()->BeginRender();
-        //Renderer::GetInstance()->RenderMesh(mesh);
+       // mesh->Render();
+        mat->Bind();
+        
+        model->Render();
         mesh->Render();
         Renderer::GetInstance()->EndRender();
         glfwSwapBuffers(window);

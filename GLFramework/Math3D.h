@@ -14,6 +14,20 @@
 #define ToRadian(x) ((x) * M_PI / 180.0f)
 #define ToDegree(x) ((x) * 180.0f / M_PI)
 
+struct Vector2 {
+    float x;
+    float y;
+    
+public:
+    
+    Vector2(float _x, float _y)
+    {
+        x = _x;
+        y = _y;
+    }
+    
+};
+
 struct Vector3 {
     float x;
     float y;
@@ -47,6 +61,18 @@ public:
         z /= Length;
         
         return *this;
+    }
+    
+};
+
+struct Vertex {
+    Vector3 pos;
+    Vector3 color;
+    Vector2 uv;
+    
+    Vertex(Vector3 _pos, Vector3 _color, Vector2 _uv) : pos(_pos), color(_color), uv(_uv)
+    {
+        
     }
     
 };

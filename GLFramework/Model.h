@@ -9,6 +9,23 @@
 #ifndef __GLFramework__Model__
 #define __GLFramework__Model__
 
-#include <iostream>
+#include <assimp/scene.h>
+
+#include "Mesh.h"
+
+class Model
+{
+    std::vector<Mesh> meshes;
+    
+    bool AddMeshFromScene(unsigned int index, const aiMesh* paiMesh);
+    bool ReadScene(const aiScene* pScene, const std::string& filename);
+    
+public:
+    Model();
+    ~Model();
+    
+    bool LoadModel(const std::string& filename);
+    void Render();
+};
 
 #endif /* defined(__GLFramework__Model__) */

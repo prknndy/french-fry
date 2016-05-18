@@ -19,6 +19,10 @@ void Renderer::Initialize(int _screenWidth, int _screenHeight)
 {
     screenWidth = _screenWidth;
     screenHeight = _screenHeight;
+    
+    GLuint vao;
+    glGenVertexArrays(1, &vao);
+    glBindVertexArray(vao);
 }
 
 void Renderer::SetCamera(Camera* camera)

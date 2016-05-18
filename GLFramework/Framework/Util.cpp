@@ -36,3 +36,9 @@ bool ReadFile(const char* fileName, string &outContents)
     
     return ret;
 }
+
+void LogError(const char* error)
+{
+    fprintf(stderr, "%s\n", error);
+}
+

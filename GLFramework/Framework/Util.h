@@ -18,4 +18,6 @@ using namespace std;
 
 bool ReadFile(const char* fileName, string &outContents);
 
+void LogError(const char* error);
+
 #endif /* defined(__GLFramework__Util__) */
