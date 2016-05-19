@@ -11,12 +11,14 @@
 
 #include "Math3D.h"
 #include "Camera.h"
-#include "Renderer.h"
 #include "Material.h"
 #include "Shader.h"
 #include "Mesh.h"
 #include "Texture.h"
 #include "Model.h"
+
+#include "Renderer.h"
+#include "MaterialManager.h"
 
 
 #endif

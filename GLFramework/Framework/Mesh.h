@@ -17,6 +17,7 @@
 class Mesh
 {
     Material* mat;
+    int matIndex;
     GLuint vbo;
     GLuint vao;
     GLuint ibo;
@@ -26,9 +27,14 @@ class Mesh
 public:
     void Create();
     void Create(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices);
+    
+    void Render(Material* mat);
+    void Render();
+    
     Material* GetMaterial();
     void SetMaterial(Material* _material);
-    void Render();
+    int GetMaterialIndex();
+    void SetMaterialIndex(int _matIndex);
 };
 
 #endif /* defined(__GLFramework__Mesh__) */

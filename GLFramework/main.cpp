@@ -38,18 +38,21 @@ int main(int argc, const char * argv[])
     
     Renderer::GetInstance()->SetCamera(cam);
     
-    Shader* s = new Shader();
+    MaterialManager::GetInstance()->Initialize();
+    
+    /*Shader* s = new Shader();
     s->CreateShader("./Resources/Shaders/SimpleVert.glsl", "./Resources/Shaders/SimpleFrag.glsl");
     
     Texture* t = new Texture();
     t->Create("./Resources/Textures/sample.png");
     
     Material* mat = new Material;
-    mat->Create(s, t);
+    mat->Create(s, t);*/
     
-    Mesh* mesh = new Mesh();
+    /*Mesh* mesh = new Mesh();
     mesh->Create();
-    mesh->SetMaterial(mat);
+    mesh->SetMaterial(mat);*/
+    
     Model* model = new Model();
     model->LoadModel("./Resources/Models/phoenix_ugv.md2");
     
@@ -57,10 +60,10 @@ int main(int argc, const char * argv[])
     {
         Renderer::GetInstance()->BeginRender();
        // mesh->Render();
-        mat->Bind();
+        //mat->Bind();
         
         model->Render();
-        mesh->Render();
+        //mesh->Render(mat);
         Renderer::GetInstance()->EndRender();
         glfwSwapBuffers(window);
         glfwPollEvents();

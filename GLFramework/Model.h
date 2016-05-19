@@ -17,8 +17,10 @@ class Model
 {
     std::vector<Mesh> meshes;
     
-    bool AddMeshFromScene(unsigned int index, const aiMesh* paiMesh);
+    //bool AddMaterialsFromScene(const aiScene* pScene, const std::string& filename);
+    bool AddMeshFromScene(unsigned int index, const aiMesh* paiMesh, Material* mat);
     bool ReadScene(const aiScene* pScene, const std::string& filename);
+    Material* CreateMaterial(const aiMaterial* pMaterial);
     
 public:
     Model();

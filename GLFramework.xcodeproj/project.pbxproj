@@ -30,6 +30,8 @@
 		202322EF1CEC1A1100C8F63A /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 202322EE1CEC1A1100C8F63A /* libSOIL.a */; };
 		202322F21CEC1EEE00C8F63A /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202322F01CEC1EEE00C8F63A /* Model.cpp */; };
 		202322F61CEC2FCF00C8F63A /* phoenix_ugv.md2 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322F41CEC2FB500C8F63A /* phoenix_ugv.md2 */; };
+		202322F91CED97E000C8F63A /* MaterialManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202322F71CED97E000C8F63A /* MaterialManager.cpp */; };
+		202322FB1CEDA9B900C8F63A /* phoenix.pcx in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322FA1CEDA9A100C8F63A /* phoenix.pcx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,7 @@
 			dstPath = Resources/Textures;
 			dstSubfolderSpec = 7;
 			files = (
+				202322FB1CEDA9B900C8F63A /* phoenix.pcx in CopyFiles */,
 				202322E91CEC123D00C8F63A /* sample.png in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +128,9 @@
 		202322F01CEC1EEE00C8F63A /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
 		202322F11CEC1EEE00C8F63A /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		202322F41CEC2FB500C8F63A /* phoenix_ugv.md2 */ = {isa = PBXFileReference; lastKnownFileType = file; name = phoenix_ugv.md2; path = Resources/Models/phoenix_ugv.md2; sourceTree = "<group>"; };
+		202322F71CED97E000C8F63A /* MaterialManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MaterialManager.cpp; path = Framework/MaterialManager.cpp; sourceTree = "<group>"; };
+		202322F81CED97E000C8F63A /* MaterialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialManager.h; path = Framework/MaterialManager.h; sourceTree = "<group>"; };
+		202322FA1CEDA9A100C8F63A /* phoenix.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; name = phoenix.pcx; path = Resources/Textures/phoenix.pcx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +243,8 @@
 				202322E21CEAE76B00C8F63A /* Texture.h */,
 				202322F01CEC1EEE00C8F63A /* Model.cpp */,
 				202322F11CEC1EEE00C8F63A /* Model.h */,
+				202322F71CED97E000C8F63A /* MaterialManager.cpp */,
+				202322F81CED97E000C8F63A /* MaterialManager.h */,
 			);
 			name = Framework;
 			sourceTree = "<group>";
@@ -263,6 +271,7 @@
 		202322E61CEC11EB00C8F63A /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				202322FA1CEDA9A100C8F63A /* phoenix.pcx */,
 				202322E71CEC11F800C8F63A /* sample.png */,
 			);
 			name = Textures;
@@ -398,6 +407,7 @@
 				202322D11CE7A7F900C8F63A /* Material.cpp in Sources */,
 				202322D41CE7A81600C8F63A /* Shader.cpp in Sources */,
 				202322F21CEC1EEE00C8F63A /* Model.cpp in Sources */,
+				202322F91CED97E000C8F63A /* MaterialManager.cpp in Sources */,
 				2023226A1CCAB77300C8F63A /* main.cpp in Sources */,
 				202322DA1CEACAD200C8F63A /* Util.cpp in Sources */,
 			);

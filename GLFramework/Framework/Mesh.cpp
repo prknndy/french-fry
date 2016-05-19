@@ -60,10 +60,23 @@ void Mesh::SetMaterial(Material* _material)
     this->mat = _material;
 }
 
+int Mesh::GetMaterialIndex()
+{
+    return matIndex;
+}
+
+void Mesh::SetMaterialIndex(int _matIndex)
+{
+    this->matIndex = _matIndex;
+}
+
 void Mesh::Render()
 {
-    //mat->Bind();
-    
+    Render(mat);
+}
+
+void Mesh::Render(Material* _mat)
+{
     /*glBindVertexArray(vao);
     
     glDrawArrays(GL_TRIANGLES, 0, 3);
@@ -73,6 +86,8 @@ void Mesh::Render()
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+    
+    _mat->Bind();
     
     glDrawElements(GL_TRIANGLES, numIndices, GL_UNSIGNED_INT, 0);
 }

@@ -128,9 +128,7 @@ void Shader::Activate()
     glUseProgram(shaderProgram);
     
     glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE,  8*sizeof(float), 0);
-    
     glVertexAttribPointer(colorAttrib, 3, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)(3*sizeof(float)));
-    
     glVertexAttribPointer(uvAttrib, 2, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)(6*sizeof(float)));
     
     glEnableVertexAttribArray(posAttrib);

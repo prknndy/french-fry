@@ -50,11 +50,7 @@ void Renderer::EndRender()
 
 void Renderer::RenderMesh(Mesh* mesh)
 {
-    Shader* curShader = mesh->GetMaterial()->GetShader();
-    curShader->SetWVP(wvp);
-    curShader->Activate();
-    mesh->GetMaterial()->Bind();
-    mesh->Render();
+
 }
 
 Matrix4f& Renderer::GetWVP()

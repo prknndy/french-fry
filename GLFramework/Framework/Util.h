@@ -20,4 +20,6 @@ bool ReadFile(const char* fileName, string &outContents);
 
 void LogError(const char* error);
 
+void LogDebug(const char* str);
+
 #endif /* defined(__GLFramework__Util__) */

@@ -14,6 +14,7 @@
 class Texture
 {
     GLuint texID;
+
 public:
     void Create(const char* filename);
     void Bind(GLenum textureUnit);
