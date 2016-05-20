@@ -23,9 +23,11 @@ class Shader
     GLint posAttrib;
     GLint uvAttrib;
     GLint colorAttrib;
+    GLint normalAttrib;
     
     // Uniforms
     GLuint WVPLocation;
+    GLuint WorldLocation;
     GLuint Texture0;
     
     
@@ -37,6 +39,7 @@ public:
     bool CreateShader(const char* vertFilename, const char* fragFilename);
     bool CompileShader(const char* vertFilename, const char* fragFilename);
     void SetWVP(const Matrix4f& WVP);
+    void SetWorld(const Matrix4f &world);
     void Activate();
     
 };

@@ -10,6 +10,7 @@
 #include "Math3D.h"
 #include "Util.h"
 #include "MaterialManager.h"
+#include "Renderer.h"
 
 #include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
@@ -72,13 +73,12 @@ bool Model::AddMeshFromScene(unsigned int index, const aiMesh* paiMesh, Material
     
     for (int i = 0; i < paiMesh->mNumVertices; i++)
     {
-        // TODO: ignoring normals
         const aiVector3D* pPos = &(paiMesh->mVertices[i]);
         const aiVector3D* pNormal = paiMesh->HasNormals() ? &(paiMesh->mNormals[i]) : &Zero3D;
         const aiVector3D* pTexCoord = paiMesh->HasTextureCoords(0) ? &(paiMesh->mTextureCoords[0][i]) : &Zero3D;
         const aiColor4D* pColor = paiMesh->HasVertexColors(0) ? &(paiMesh->mColors[0][i]) : &White;
         
-        Vertex v(Vector3(pPos->x, pPos->y, pPos->z), Vector3(pColor->r, pColor->g, pColor->b), Vector2(pTexCoord->x, pTexCoord->y));
+        Vertex v(Vector3(pPos->x, pPos->y, pPos->z), Vector3(pColor->r, pColor->g, pColor->b), Vector2(pTexCoord->x, pTexCoord->y), Vector3(pNormal->x, pNormal->y, pNormal->z));
         
         vertices.push_back(v);
     }
@@ -105,8 +105,16 @@ Material* Model::CreateMaterial(const aiMaterial* pMaterial)
         aiString texturePath;
         if (pMaterial->GetTexture(aiTextureType_DIFFUSE, 0, &texturePath) == AI_SUCCESS)
         {
-            string fullPath = "./Textures/";
-            fullPath.append(texturePath.data);
+            string fullPath = "./Resources/Textures/";
+            string fileName = texturePath.C_Str();
+            if (texturePath.data[0] == '.')
+            {
+                fullPath.append(&texturePath.data[2]);
+            }
+            else
+            {
+                fullPath.append(&texturePath.data[0]);
+            }
             
             aiString aiMatName;
             pMaterial->Get(AI_MATKEY_NAME, aiMatName);
@@ -160,6 +168,24 @@ bool Model::LoadModel(const std::string& filename)
 
 void Model::Render()
 {
+    for (int i = 0; i < meshes.size(); i++)
+    {
+        meshes[i].Render();
+    }
+}
+
+void Model::Render(Matrix4f* transform)
+{
+    Renderer::GetInstance()->SetWorldTrans(transform);
+    for (int i = 0; i < meshes.size(); i++)
+    {
+        meshes[i].Render();
+    }
+}
+
+void Model::Render(Vector3 pos, Vector3 rot, Vector3 scale)
+{
+    Renderer::GetInstance()->SetWorldTrans(pos, rot, scale);
     for (int i = 0; i < meshes.size(); i++)
     {
         meshes[i].Render();

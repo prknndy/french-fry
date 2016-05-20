@@ -42,6 +42,13 @@ void LogError(const char* error)
     fprintf(stderr, "%s\n", error);
 }
 
+void LogError(const char* error, const char* s)
+{
+    char buf[1024];
+    sprintf(buf, "%s - %s", error, s);
+    LogDebug(buf);
+}
+
 void LogDebug(const char* str)
 {
     fprintf(stdout, "%s\n", str);

@@ -10,13 +10,17 @@
 #define __GLFramework__Texture__
 
 #include <GL/glew.h>
+#include <string>
 
 class Texture
 {
     GLuint texID;
-
+    std::string name;
 public:
-    void Create(const char* filename);
+    Texture();
+    ~Texture();
+    std::string GetName();
+    bool Create(const char* filename);
     void Bind(GLenum textureUnit);
 };
 

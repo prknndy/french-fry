@@ -16,6 +16,8 @@
 
 int main(int argc, const char * argv[])
 {
+    int screenWidth = 800;
+    int screenHeight = 600;
 
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -25,16 +27,18 @@ int main(int argc, const char * argv[])
     
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
     
-    GLFWwindow* window = glfwCreateWindow(800, 600, "OpenGL", nullptr, nullptr); // Windowed
+    GLFWwindow* window = glfwCreateWindow(screenWidth, screenHeight, "French Fry", nullptr, nullptr); // Windowed
     
     glfwMakeContextCurrent(window);
     
     glewExperimental = GL_TRUE;
+
     glewInit();
     
-    Renderer::GetInstance()->Initialize(800, 600);
+    Renderer::GetInstance()->Initialize(screenWidth, screenHeight);
     
-    Camera* cam = new Camera(Vector3(0.0f, 0.0f, 0.0f), Vector3(0.0f, 1.0f, 0.0f), Vector3(0.0f, 0.0f, 1.0f));
+    Camera* cam = new Camera(Vector3(0.0f, 0.0f, -5.0f), Vector3(0.0f, 1.0f, 0.0f), Vector3(0.0f, 0.0f, 1.0f));
+    Camera* downCam = new Camera(Vector3(0.0f, 10.0f, 0.0f), Vector3(0.0f, 0.0f, 1.0f), Vector3(0.0f, -1.0f, 0.0f));
     
     Renderer::GetInstance()->SetCamera(cam);
     
@@ -54,16 +58,24 @@ int main(int argc, const char * argv[])
     mesh->SetMaterial(mat);*/
     
     Model* model = new Model();
-    model->LoadModel("./Resources/Models/phoenix_ugv.md2");
+    model->LoadModel("./Resources/Models/jeep.obj");
+    //model->LoadModel("./Resources/Models/spider.obj");
+    //model->LoadModel("./Resources/Models/phoenix_ugv.md2");
+    Vector3 pos(0.0f, -50.0f, 200.0f);
+    Vector3 rot(0.0f, 0.0f, 0.0f);
+    Vector3 scale(0.25f, 0.25f, 0.25f);
+    Matrix4f trans;
+    trans.CreateIdentity();
     
     while(!glfwWindowShouldClose(window))
     {
         Renderer::GetInstance()->BeginRender();
-       // mesh->Render();
-        //mat->Bind();
         
-        model->Render();
-        //mesh->Render(mat);
+        // Deferred shading pass
+        Renderer::GetInstance()->BeginGeometryPass();
+        model->Render(pos, rot, scale);
+        Renderer::GetInstance()->BeginLightpass();
+
         Renderer::GetInstance()->EndRender();
         glfwSwapBuffers(window);
         glfwPollEvents();

@@ -27,22 +27,31 @@ void Matrix4f::CreateTranslate(Vector3 trans)
 
 void Matrix4f::CreateRotation(Vector3 rot)
 {
-    m[0][0] = cosf(rot.y) + cosf(rot.z);
-    m[0][1] = -sinf(rot.z);
-    m[0][2] = sinf(rot.y);
-    m[0][3] = 0.0f;
+    Matrix4f xRot, yRot, zRot;
+    xRot.CreateIdentity();
+    yRot.CreateIdentity();
+    zRot.CreateIdentity();
     
-    m[1][0] = sinf(rot.y) + sinf(rot.z);
-    m[1][1] = cosf(rot.x) + cosf(rot.z);
-    m[1][2] = -sinf(rot.x) + cos(rot.y);
-    m[1][3] = 0.0f;
+    float x = ToRadian(rot.x);
+    float y = ToRadian(rot.y);
+    float z = ToRadian(rot.z);
     
-    m[2][0] = 0.0f;
-    m[2][1] = sinf(rot.x);
-    m[2][2] = cosf(rot.x);
-    m[2][3] = 0.0f;
+    xRot.m[1][1] = cosf(x);
+    xRot.m[1][2] = -sinf(x);
+    xRot.m[2][1] = sinf(x);
+    xRot.m[2][2] = cosf(x);
     
-    m[3][0] = 0.0f; m[3][1] = 0.0f; m[3][2] = 0.0f; m[3][3] = 1.0f;
+    yRot.m[0][0] = cosf(y);
+    yRot.m[0][2] = -sinf(y);
+    yRot.m[2][0] = sinf(y);
+    yRot.m[2][2] = cosf(y);
+    
+    zRot.m[0][0] = cosf(z);
+    zRot.m[0][1] = -sinf(z);
+    zRot.m[1][0] = sinf(z);
+    zRot.m[1][1] = cosf(z);
+
+    *this = zRot * yRot * xRot;
 }
 
 void Matrix4f::CreateScale(Vector3 scale)
@@ -51,6 +60,7 @@ void Matrix4f::CreateScale(Vector3 scale)
     m[0][0] = scale.x;
     m[1][1] = scale.y;
     m[2][2] = scale.z;
+    m[3][3] = 1.0f;
 }
 
 void Matrix4f::CreateWVP(Vector3 forward, Vector3 up)

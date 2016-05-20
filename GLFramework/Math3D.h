@@ -69,8 +69,9 @@ struct Vertex {
     Vector3 pos;
     Vector3 color;
     Vector2 uv;
+    Vector3 normal;
     
-    Vertex(Vector3 _pos, Vector3 _color, Vector2 _uv) : pos(_pos), color(_color), uv(_uv)
+    Vertex(Vector3 _pos, Vector3 _color, Vector2 _uv, Vector3 _normal) : pos(_pos), color(_color), uv(_uv), normal(_normal)
     {
         
     }

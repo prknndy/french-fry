@@ -32,6 +32,19 @@
 		202322F61CEC2FCF00C8F63A /* phoenix_ugv.md2 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322F41CEC2FB500C8F63A /* phoenix_ugv.md2 */; };
 		202322F91CED97E000C8F63A /* MaterialManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202322F71CED97E000C8F63A /* MaterialManager.cpp */; };
 		202322FB1CEDA9B900C8F63A /* phoenix.pcx in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322FA1CEDA9A100C8F63A /* phoenix.pcx */; };
+		202322FF1CEDABFC00C8F63A /* spider.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322FD1CEDABF000C8F63A /* spider.mtl */; };
+		202323001CEDABFC00C8F63A /* spider.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322FE1CEDABF000C8F63A /* spider.obj */; };
+		202323011CEDAC0600C8F63A /* SpiderTex.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322FC1CEDABE500C8F63A /* SpiderTex.jpg */; };
+		202323061CEEAD6B00C8F63A /* drkwood2.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323021CEEAD5400C8F63A /* drkwood2.jpg */; };
+		202323071CEEAD6F00C8F63A /* engineflare1.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323031CEEAD5400C8F63A /* engineflare1.jpg */; };
+		202323081CEEAD7500C8F63A /* wal67ar_small.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323041CEEAD5400C8F63A /* wal67ar_small.jpg */; };
+		2023230D1CEEB11B00C8F63A /* jeep_army.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023230B1CEEB11100C8F63A /* jeep_army.jpg */; };
+		2023230E1CEEB11D00C8F63A /* jeep_rood.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023230C1CEEB11100C8F63A /* jeep_rood.jpg */; };
+		2023230F1CEEB12100C8F63A /* jeep.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323091CEEB10400C8F63A /* jeep.mtl */; };
+		202323101CEEB12400C8F63A /* jeep.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023230A1CEEB10400C8F63A /* jeep.obj */; };
+		202323141CEECFD700C8F63A /* GBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323121CEECFD700C8F63A /* GBuffer.cpp */; };
+		202323171CEEDF6300C8F63A /* DRSimpleFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323161CEED91600C8F63A /* DRSimpleFrag.glsl */; };
+		202323191CEEDF6E00C8F63A /* DRSimpleVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323151CEED82700C8F63A /* DRSimpleVert.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +76,8 @@
 			files = (
 				202322C21CCAE1CF00C8F63A /* SimpleFrag.glsl in CopyFiles */,
 				202322C31CCAE1CF00C8F63A /* SimpleVert.glsl in CopyFiles */,
+				202323191CEEDF6E00C8F63A /* DRSimpleVert.glsl in CopyFiles */,
+				202323171CEEDF6300C8F63A /* DRSimpleFrag.glsl in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +87,13 @@
 			dstPath = Resources/Textures;
 			dstSubfolderSpec = 7;
 			files = (
+				202323011CEDAC0600C8F63A /* SpiderTex.jpg in CopyFiles */,
 				202322FB1CEDA9B900C8F63A /* phoenix.pcx in CopyFiles */,
+				202323081CEEAD7500C8F63A /* wal67ar_small.jpg in CopyFiles */,
+				202323071CEEAD6F00C8F63A /* engineflare1.jpg in CopyFiles */,
+				202323061CEEAD6B00C8F63A /* drkwood2.jpg in CopyFiles */,
+				2023230E1CEEB11D00C8F63A /* jeep_rood.jpg in CopyFiles */,
+				2023230D1CEEB11B00C8F63A /* jeep_army.jpg in CopyFiles */,
 				202322E91CEC123D00C8F63A /* sample.png in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +104,10 @@
 			dstPath = Resources/Models;
 			dstSubfolderSpec = 7;
 			files = (
+				202322FF1CEDABFC00C8F63A /* spider.mtl in CopyFiles */,
+				2023230F1CEEB12100C8F63A /* jeep.mtl in CopyFiles */,
+				202323101CEEB12400C8F63A /* jeep.obj in CopyFiles */,
+				202323001CEDABFC00C8F63A /* spider.obj in CopyFiles */,
 				202322F61CEC2FCF00C8F63A /* phoenix_ugv.md2 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +156,20 @@
 		202322F71CED97E000C8F63A /* MaterialManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MaterialManager.cpp; path = Framework/MaterialManager.cpp; sourceTree = "<group>"; };
 		202322F81CED97E000C8F63A /* MaterialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialManager.h; path = Framework/MaterialManager.h; sourceTree = "<group>"; };
 		202322FA1CEDA9A100C8F63A /* phoenix.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; name = phoenix.pcx; path = Resources/Textures/phoenix.pcx; sourceTree = "<group>"; };
+		202322FC1CEDABE500C8F63A /* SpiderTex.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = SpiderTex.jpg; path = Resources/Textures/SpiderTex.jpg; sourceTree = "<group>"; };
+		202322FD1CEDABF000C8F63A /* spider.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = spider.mtl; path = Resources/Models/spider.mtl; sourceTree = "<group>"; };
+		202322FE1CEDABF000C8F63A /* spider.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = spider.obj; path = Resources/Models/spider.obj; sourceTree = "<group>"; };
+		202323021CEEAD5400C8F63A /* drkwood2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = drkwood2.jpg; path = Resources/Textures/drkwood2.jpg; sourceTree = "<group>"; };
+		202323031CEEAD5400C8F63A /* engineflare1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = engineflare1.jpg; path = Resources/Textures/engineflare1.jpg; sourceTree = "<group>"; };
+		202323041CEEAD5400C8F63A /* wal67ar_small.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wal67ar_small.jpg; path = Resources/Textures/wal67ar_small.jpg; sourceTree = "<group>"; };
+		202323091CEEB10400C8F63A /* jeep.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = jeep.mtl; path = Resources/Models/jeep.mtl; sourceTree = "<group>"; };
+		2023230A1CEEB10400C8F63A /* jeep.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = jeep.obj; path = Resources/Models/jeep.obj; sourceTree = "<group>"; };
+		2023230B1CEEB11100C8F63A /* jeep_army.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = jeep_army.jpg; path = Resources/Textures/jeep_army.jpg; sourceTree = "<group>"; };
+		2023230C1CEEB11100C8F63A /* jeep_rood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = jeep_rood.jpg; path = Resources/Textures/jeep_rood.jpg; sourceTree = "<group>"; };
+		202323121CEECFD700C8F63A /* GBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GBuffer.cpp; path = Framework/DeferredRendering/GBuffer.cpp; sourceTree = "<group>"; };
+		202323131CEECFD700C8F63A /* GBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBuffer.h; path = Framework/DeferredRendering/GBuffer.h; sourceTree = "<group>"; };
+		202323151CEED82700C8F63A /* DRSimpleVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRSimpleVert.glsl; path = Resources/Shaders/DRSimpleVert.glsl; sourceTree = "<group>"; };
+		202323161CEED91600C8F63A /* DRSimpleFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRSimpleFrag.glsl; path = Resources/Shaders/DRSimpleFrag.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +253,8 @@
 		2023227F1CCAC40A00C8F63A /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				202323161CEED91600C8F63A /* DRSimpleFrag.glsl */,
+				202323151CEED82700C8F63A /* DRSimpleVert.glsl */,
 				202322841CCAD02C00C8F63A /* SimpleFrag.glsl */,
 				202322831CCAD02000C8F63A /* SimpleVert.glsl */,
 			);
@@ -223,6 +264,7 @@
 		202322C41CE58AB000C8F63A /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				202323111CEECFC200C8F63A /* DeferredRendering */,
 				202322C51CE58AF500C8F63A /* Camera.cpp */,
 				202322C61CE58AF500C8F63A /* Camera.h */,
 				202322C81CE58BDD00C8F63A /* Math3D.h */,
@@ -271,6 +313,12 @@
 		202322E61CEC11EB00C8F63A /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				2023230B1CEEB11100C8F63A /* jeep_army.jpg */,
+				2023230C1CEEB11100C8F63A /* jeep_rood.jpg */,
+				202323021CEEAD5400C8F63A /* drkwood2.jpg */,
+				202323031CEEAD5400C8F63A /* engineflare1.jpg */,
+				202323041CEEAD5400C8F63A /* wal67ar_small.jpg */,
+				202322FC1CEDABE500C8F63A /* SpiderTex.jpg */,
 				202322FA1CEDA9A100C8F63A /* phoenix.pcx */,
 				202322E71CEC11F800C8F63A /* sample.png */,
 			);
@@ -280,9 +328,22 @@
 		202322F31CEC2FA800C8F63A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				202323091CEEB10400C8F63A /* jeep.mtl */,
+				2023230A1CEEB10400C8F63A /* jeep.obj */,
+				202322FD1CEDABF000C8F63A /* spider.mtl */,
+				202322FE1CEDABF000C8F63A /* spider.obj */,
 				202322F41CEC2FB500C8F63A /* phoenix_ugv.md2 */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		202323111CEECFC200C8F63A /* DeferredRendering */ = {
+			isa = PBXGroup;
+			children = (
+				202323121CEECFD700C8F63A /* GBuffer.cpp */,
+				202323131CEECFD700C8F63A /* GBuffer.h */,
+			);
+			name = DeferredRendering;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				202322CE1CE6D07500C8F63A /* Renderer.cpp in Sources */,
+				202323141CEECFD700C8F63A /* GBuffer.cpp in Sources */,
 				202322C71CE58AF500C8F63A /* Camera.cpp in Sources */,
 				202322CB1CE58E3E00C8F63A /* Math3D.cpp in Sources */,
 				202322E31CEAE76B00C8F63A /* Texture.cpp in Sources */,

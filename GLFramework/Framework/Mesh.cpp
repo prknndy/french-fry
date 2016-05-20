@@ -7,6 +7,26 @@
 //
 
 #include "Mesh.h"
+#include "Util.h"
+
+Mesh::Mesh()
+{
+    
+}
+
+Mesh::~Mesh()
+{
+    // TODO: fix
+    /*if (vbo != INVALID_OGL_VALUE)
+    {
+        glDeleteBuffers(1, &vbo);
+    }
+    
+    if (ibo != INVALID_OGL_VALUE)
+    {
+        glDeleteBuffers(1, &ibo);
+    }*/
+}
 
 void Mesh::Create()
 {
@@ -14,9 +34,9 @@ void Mesh::Create()
     //glBindVertexArray(vao);
     
     float vertices[] = {
-        0.0f,  0.5f, 5.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-        0.5f, -0.5f, 5.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-        -0.5f, -0.5f, 5.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+        0.0f,  0.5f, 5.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+        0.5f, -0.5f, 5.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+        -0.5f, -0.5f, 5.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f,
     };
     
     
@@ -74,6 +94,7 @@ void Mesh::Render()
 {
     Render(mat);
 }
+
 
 void Mesh::Render(Material* _mat)
 {

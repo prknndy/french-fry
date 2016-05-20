@@ -15,7 +15,9 @@ MaterialManager* MaterialManager::instance = NULL;
 
 void MaterialManager::Initialize()
 {
-    defaultShader.CreateShader("./Resources/Shaders/SimpleVert.glsl", "./Resources/Shaders/SimpleFrag.glsl");
+    //defaultShader.CreateShader("./Resources/Shaders/SimpleVert.glsl", "./Resources/Shaders/SimpleFrag.glsl");
+    
+    defaultShader.CreateShader("./Resources/Shaders/DRSimpleVert.glsl", "./Resources/Shaders/DRSimpleFrag.glsl");
     
     defaultTexture.Create("./Resources/Textures/sample.png");
     
@@ -25,6 +27,36 @@ void MaterialManager::Initialize()
 MaterialManager::MaterialManager()
 {
     
+}
+
+Texture* MaterialManager::GetTexture(std::string filename)
+{
+    for (int i = 0; i < textures.size(); i++)
+    {
+        if (textures[i].GetName() == filename)
+        {
+            return &textures[i];
+        }
+    }
+    
+    return NULL;
+}
+
+Texture* MaterialManager::CreateTexture(std::string filename)
+{
+    /*unsigned long texSize = textures.size() + 1;
+    textures.resize(texSize);
+    if (!textures[texSize].Create(filename.c_str()))
+    {
+        return NULL;
+    }
+    return &textures[texSize];*/
+    Texture* t = new Texture();
+    if (!t->Create(filename.c_str()))
+    {
+        return NULL;
+    }
+    return t;
 }
 
 Material* MaterialManager::GetMaterial(std::string matID)
@@ -50,12 +82,20 @@ Material* MaterialManager::CreateMaterial(string name, string filename)
     LogDebug(name.c_str());
     LogDebug(filename.c_str());
     
-    unsigned long texSize = textures.size() + 1;
-    textures.resize(texSize);
-    textures[texSize].Create(filename.c_str());
+    Texture* tex = GetTexture(filename);
+    if (tex == NULL)
+    {
+        tex = CreateTexture(filename);
+        
+        if (tex == NULL)
+        {
+            LogError("Failed Creating Material", name.c_str());
+            return NULL;
+        }
+    }
     
     Material* mat = new Material();
-    mat->Create(&defaultShader, &textures[texSize]);
+    mat->Create(&defaultShader, tex);
     
     return mat;
 }

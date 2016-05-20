@@ -39,6 +39,9 @@ public:
     }
     
     void Initialize();
+    Texture* GetTexture(std::string filename);
+    Texture* CreateTexture(std::string filename);
+    
     Material* GetMaterial(std::string matID);
     Material* GetDefaultMaterial();
     Material* CreateMaterial(std::string name, std::string filename);

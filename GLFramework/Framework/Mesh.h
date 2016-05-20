@@ -25,6 +25,8 @@ class Mesh
     unsigned int numIndices;
 
 public:
+    Mesh();
+    ~Mesh();
     void Create();
     void Create(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices);
     

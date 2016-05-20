@@ -28,6 +28,8 @@ public:
     
     bool LoadModel(const std::string& filename);
     void Render();
+    void Render(Matrix4f* transform);
+    void Render(Vector3 pos, Vector3 rot, Vector3 scale);
 };
 
 #endif /* defined(__GLFramework__Model__) */
