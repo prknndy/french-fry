@@ -20,6 +20,10 @@ public:
     void Create(Shader* _shader, Texture* texture);
     void SetShader(Shader* _shader);
     Shader* GetShader();
+    Texture* GetTexture()
+    {
+        return texture;
+    }
     void Bind();
 };
 

@@ -15,6 +15,7 @@
 
 class Model
 {
+    GLuint vao;
     std::vector<Mesh> meshes;
     
     //bool AddMaterialsFromScene(const aiScene* pScene, const std::string& filename);

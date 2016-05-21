@@ -7,6 +7,7 @@
 //
 
 #include "Renderer.h"
+#include "MaterialManager.h"
 
 Renderer* Renderer::instance = NULL;
 
@@ -22,35 +23,22 @@ void Renderer::Initialize(int _screenWidth, int _screenHeight)
     
     projTrans.CreateProj(screenWidth, screenHeight, 60.0f, 0.5f, 10000.0f);
     
-    gBuffer.Initialize(screenWidth, screenHeight);
-    
-    GLuint vao;
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
+    
+    dirLight.Color = Vector3(1.0f, 0.7f, 0.7f);
+    dirLight.Direction = Vector3(1.0f, -0.0f, 1.0f);
+    dirLight.AmbientIntensity = 0.5f;
+    dirLight.DiffuseIntensity = 0.5f;
+    
 }
 
-void Renderer::SetCamera(Camera* camera)
-{
-    this->currentCamera = camera;
-    
-    Matrix4f cameraPosTrans, cameraRotTrans;
-    
-    cameraPosTrans.CreateTranslate(currentCamera->GetLocation());
-    cameraRotTrans.CreateWVP(currentCamera->GetForward(), currentCamera->GetUp());
-    
-    viewTrans = cameraRotTrans * cameraPosTrans;
-}
+/*
+ *  Forward
+ */
 
 void Renderer::BeginRender()
 {
-    //Matrix4f cameraPosTrans, cameraRotTrans, proj;
-    
-    //cameraPosTrans.CreateTranslate(currentCamera->GetLocation());
-    //cameraRotTrans.CreateWVP(currentCamera->GetForward(), currentCamera->GetUp());
-    //proj.CreateProj(screenWidth, screenHeight, 60.0f, 0.5f, 10000.0f);
-    
-    //wvp = proj *  cameraRotTrans * cameraPosTrans;
-    
     vpTrans = projTrans * viewTrans;
     worldTrans.CreateIdentity();
     
@@ -60,28 +48,79 @@ void Renderer::BeginRender()
     
     glEnable(GL_DEPTH_TEST);
     
-    //glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
-    //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void Renderer::EndRender()
 {
+
 }
 
-void Renderer::BeginGeometryPass()
+/*
+ *   End Forward
+ */
+
+/*
+ *   DR
+ */
+
+void Renderer::DRInitialize()
 {
+    gBuffer.Initialize(2.0f * screenWidth, 2.0f * screenHeight);
+    
+    MaterialManager::GetInstance()->DRInitialize();
+    DRLightShader* drLightShader = (DRLightShader*) MaterialManager::GetInstance()->GetDRLightShader();
+    drLightShader->Activate();
+    
+    drLightShader->SetPositionTextureUnit(GBuffer::GBUFFER_TEXTURE_TYPE_POSITION);
+    drLightShader->SetColorTextureUnit(GBuffer::GBUFFER_TEXTURE_TYPE_DIFFUSE);
+    drLightShader->SetNormalTextureUnit(GBuffer::GBUFFER_TEXTURE_TYPE_NORMAL);
+    drLightShader->SetScreenSize(screenWidth*2.0f, screenHeight*2.0f);
+    
+    quad.CreateQuad();
+}
+
+void Renderer::DRBeginGeometryPass()
+{
+    glFrontFace(GL_CW);
+    glCullFace(GL_BACK);
+    glEnable(GL_CULL_FACE);
+    
+    vpTrans = projTrans * viewTrans;
+    worldTrans.CreateIdentity();
+    
     gBuffer.BindForWriting();
+    glDepthMask(GL_TRUE);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glEnable(GL_DEPTH_TEST);
+    
+    glDisable(GL_BLEND);
 }
 
-void Renderer::BeginLightpass()
+void Renderer::DRLightPass()
 {
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    DRBeginLightpass();
+    DRDirectionalLightPass();
+    DREndLightPass();
+}
+
+void Renderer::DRBeginLightpass()
+{
+    glDepthMask(GL_FALSE);
+    
+    glDisable(GL_DEPTH_TEST);
+    
+    glEnable(GL_BLEND);
+   	glBlendEquation(GL_FUNC_ADD);
+   	glBlendFunc(GL_ONE, GL_ONE);
     
     gBuffer.BindForReading();
+    glClear(GL_COLOR_BUFFER_BIT);
     
-    GLint halfWidth = (GLint) (screenWidth / 2.0f);
+    //glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    
+    /*GLint halfWidth = (GLint) (screenWidth / 2.0f);
     GLint halfHeight = (GLint) (screenHeight / 2.0f);
     
     gBuffer.SetReadBuffer(GBuffer::GBUFFER_TEXTURE_TYPE_POSITION);
@@ -102,15 +141,74 @@ void Renderer::BeginLightpass()
     gBuffer.SetReadBuffer(GBuffer::GBUFFER_TEXTURE_TYPE_TEXCOORD);
     glBlitFramebuffer(0, 0, screenWidth, screenHeight,
                       halfWidth, 0, screenWidth, halfHeight,
-                      GL_COLOR_BUFFER_BIT, GL_LINEAR);
+                      GL_COLOR_BUFFER_BIT, GL_LINEAR);*/
 
     
 }
 
+void Renderer::DRDirectionalLightPass()
+{
+    glBindVertexArray(vao);
+    Matrix4f tWVP;
+    tWVP.CreateIdentity();
+
+    Material* m = MaterialManager::GetInstance()->GetDefaultMaterial();
+    m->GetShader()->Activate();
+    //((StandardShader*) m->GetShader())->SetWVP(tWVP);
+
+    DRLightShader* drLightShader = (DRLightShader*) MaterialManager::GetInstance()->GetDRLightShader();
+    drLightShader->Activate();
+    drLightShader->SetWVP(tWVP);
+    drLightShader->SetEyeWorldPos(currentCamera->GetLocation());
+    drLightShader->SetDirectionalLight(dirLight);
+    drLightShader->SetMatSpecularIntensity(0.5f);
+    drLightShader->SetMatSpecularPower(0.5f);
+    
+    quad.DirectRender();
+    glBindVertexArray(0);
+    
+    // Old ref
+    /*(drLightShader.Activate();
+     
+     MaterialManager::GetInstance()->DRlightShader.SetColorTextureUnit(GBuffer::GBUFFER_TEXTURE_TYPE_DIFFUSE);
+     MaterialManager::GetInstance()->DRlightShader.SetNormalTextureUnit(GBuffer::GBUFFER_TEXTURE_TYPE_NORMAL);;
+     MaterialManager::GetInstance()->DRlightShader.SetScreenSize(screenWidth, screenHeight);
+     MaterialManager::GetInstance()->DRlightShader.SetWVP(tWVP);
+     drLightShader.SetEyeWorldPos(currentCamera->GetLocation());
+     drLightShader.SetDirectionalLight(dirLight);*/
+
+}
+
+void Renderer::DREndLightPass()
+{
+    /*gBuffer.SetReadBuffer(GBuffer::GBUFFER_TEXTURE_TYPE_POSITION);
+    glBlitFramebuffer(0, 0, screenWidth, screenHeight,
+                      0, 0, screenWidth, screenHeight,
+                      GL_COLOR_BUFFER_BIT, GL_LINEAR);*/
+}
+
+/*
+ * End DR
+ */
+
 
 void Renderer::RenderMesh(Mesh* mesh)
 {
+    
+}
 
+void Renderer::SetCamera(Camera* camera)
+{
+    this->currentCamera = camera;
+    
+    Matrix4f cameraPosTrans, cameraRotTrans;
+    
+    cameraPosTrans.CreateTranslate(currentCamera->GetLocation());
+    cameraRotTrans.CreateWVP(currentCamera->GetForward(), currentCamera->GetUp());
+    
+    viewTrans = cameraRotTrans * cameraPosTrans;
+    
+    eyePos = currentCamera->GetLocation();
 }
 
 void Renderer::SetWorldTrans(Matrix4f* _worldTrans)
@@ -138,3 +236,14 @@ Matrix4f& Renderer::GetWorldTrans()
 {
     return worldTrans;
 }
+
+Vector3& Renderer::GetEyePos()
+{
+    return eyePos;
+}
+
+DirectionalLight& Renderer::GetDirLight()
+{
+    return dirLight;
+}
+

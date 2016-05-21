@@ -49,6 +49,8 @@ bool GBuffer::Initialize(int screenWidth, int screenHeight)
     {
         glBindTexture(GL_TEXTURE_2D, textures[i]);
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB32F, screenWidth, screenHeight, 0, GL_RGB, GL_FLOAT, NULL);
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, GL_TEXTURE_2D, textures[i], 0);
     }
     
@@ -59,7 +61,7 @@ bool GBuffer::Initialize(int screenWidth, int screenHeight)
     
     GLenum drawBuffers[] = {GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3};
     
-    glDrawBuffers(ARRAY_SIZE_IN_ELEMENTS(textures), drawBuffers);
+    glDrawBuffers(ARRAY_SIZE_IN_ELEMENTS(drawBuffers), drawBuffers);
     
     GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (status != GL_FRAMEBUFFER_COMPLETE)
@@ -81,10 +83,24 @@ void GBuffer::BindForWriting()
 
 void GBuffer::BindForReading()
 {
-    glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
+    glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+    
+    for (int i = 0; i < ARRAY_SIZE_IN_ELEMENTS(textures); i++)
+    {
+        glActiveTexture(GL_TEXTURE0 + i);
+        glBindTexture(GL_TEXTURE_2D, textures[GBUFFER_TEXTURE_TYPE_POSITION + i]);
+    }
+    
+}
+
+void GBuffer::TestBind()
+{
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, textures[0]);
 }
 
 void GBuffer::SetReadBuffer(GBUFFER_TEXTURE_TYPE gBufferTextureType)
 {
+    glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo);
     glReadBuffer(GL_COLOR_ATTACHMENT0 + gBufferTextureType);
 }

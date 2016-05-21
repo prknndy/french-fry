@@ -19,29 +19,22 @@ class Shader
     GLuint fragmentShader;
     GLuint shaderProgram;
     
+protected:
     // Attribs
     GLint posAttrib;
     GLint uvAttrib;
     GLint colorAttrib;
     GLint normalAttrib;
     
-    // Uniforms
-    GLuint WVPLocation;
-    GLuint WorldLocation;
-    GLuint Texture0;
-    
-    
-protected:
     GLint GetUniformLocation(const char* pUniformName);
     GLint GetAttributeLocation(const char* pAttribName);
     
 public:
     bool CreateShader(const char* vertFilename, const char* fragFilename);
     bool CompileShader(const char* vertFilename, const char* fragFilename);
-    void SetWVP(const Matrix4f& WVP);
-    void SetWorld(const Matrix4f &world);
-    void Activate();
-    
+    void Validate();
+    virtual bool Init();
+    virtual void Activate();
 };
 
 #endif /* defined(__GLFramework__Shader__) */

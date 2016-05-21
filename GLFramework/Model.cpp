@@ -93,6 +93,7 @@ bool Model::AddMeshFromScene(unsigned int index, const aiMesh* paiMesh, Material
      }
     
     meshes[index].Create(vertices, indices);
+    
     meshes[index].SetMaterial(mat);
     
     return true;
@@ -147,7 +148,8 @@ Material* Model::CreateMaterial(const aiMaterial* pMaterial)
 
 bool Model::LoadModel(const std::string& filename)
 {
-    
+    glGenVertexArrays(1, &vao);
+    glBindVertexArray(vao);
     bool ret = false;
     
     Assimp::Importer importer;
@@ -161,6 +163,8 @@ bool Model::LoadModel(const std::string& filename)
     {
         LogError("Failed to open model file");
     }
+    
+    glBindVertexArray(0);
     
     return ret;
     
@@ -176,18 +180,27 @@ void Model::Render()
 
 void Model::Render(Matrix4f* transform)
 {
+    glBindVertexArray(vao);
     Renderer::GetInstance()->SetWorldTrans(transform);
     for (int i = 0; i < meshes.size(); i++)
     {
         meshes[i].Render();
     }
+    glBindVertexArray(0);
 }
 
 void Model::Render(Vector3 pos, Vector3 rot, Vector3 scale)
 {
+    glBindVertexArray(vao);
     Renderer::GetInstance()->SetWorldTrans(pos, rot, scale);
     for (int i = 0; i < meshes.size(); i++)
     {
+        StandardShader* s = (StandardShader*) meshes[i].GetMaterial()->GetShader();
+        s->SetDirectionalLight(Renderer::GetInstance()->GetDirLight());
+        s->SetEyeWorldPos(Renderer::GetInstance()->GetEyePos());
+        s->SetMatSpecularIntensity(0.5f);
+        s->SetMatSpecularPower(0.5f);
         meshes[i].Render();
     }
+    glBindVertexArray(0);
 }

@@ -13,20 +13,32 @@ using namespace std;
 
 MaterialManager* MaterialManager::instance = NULL;
 
+MaterialManager::MaterialManager()
+{
+    
+}
+
+MaterialManager::~MaterialManager()
+{
+    
+}
+
+
 void MaterialManager::Initialize()
 {
-    //defaultShader.CreateShader("./Resources/Shaders/SimpleVert.glsl", "./Resources/Shaders/SimpleFrag.glsl");
+    defaultShader.CreateShader("./Resources/Shaders/StandardVert.glsl", "./Resources/Shaders/StandardFrag.glsl");
     
-    defaultShader.CreateShader("./Resources/Shaders/DRSimpleVert.glsl", "./Resources/Shaders/DRSimpleFrag.glsl");
+    DRdefaultShader.CreateShader("./Resources/Shaders/DRSimpleVert.glsl", "./Resources/Shaders/DRSimpleFrag.glsl");
     
     defaultTexture.Create("./Resources/Textures/sample.png");
     
     defaultMaterial.Create(&defaultShader, &defaultTexture);
+    DRdefaultMaterial.Create(&DRdefaultShader, &defaultTexture);
 }
 
-MaterialManager::MaterialManager()
+void MaterialManager::DRInitialize()
 {
-    
+    DRlightShader.CreateShader("./Resources/Shaders/DRLightVert.glsl", "./Resources/Shaders/DRDirLightFrag.glsl");
 }
 
 Texture* MaterialManager::GetTexture(std::string filename)
@@ -98,6 +110,11 @@ Material* MaterialManager::CreateMaterial(string name, string filename)
     mat->Create(&defaultShader, tex);
     
     return mat;
+}
+
+Shader* MaterialManager::GetDRLightShader()
+{
+    return &DRlightShader;
 }
 
 

@@ -28,10 +28,12 @@ public:
     Mesh();
     ~Mesh();
     void Create();
+    void CreateQuad();
     void Create(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices);
     
     void Render(Material* mat);
     void Render();
+    void DirectRender();
     
     Material* GetMaterial();
     void SetMaterial(Material* _material);

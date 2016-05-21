@@ -72,7 +72,7 @@ bool Shader::CompileShader(const char* vertFilename, const char* fragFilename)
     glAttachShader(shaderProgram, vertexShader);
     glAttachShader(shaderProgram, fragmentShader);
     
-    //glBindFragDataLocation(shaderProgram, 0, "outColor");
+    glBindFragDataLocation(shaderProgram, 0, "outColor");
     
     glLinkProgram(shaderProgram);
     
@@ -97,6 +97,19 @@ bool Shader::CompileShader(const char* vertFilename, const char* fragFilename)
     return true;
 }
 
+void Shader::Validate()
+{
+    GLint status;
+    glValidateProgram(shaderProgram);
+    glGetProgramiv(shaderProgram, GL_VALIDATE_STATUS, &status);
+    if (status != GL_TRUE) {
+        char buffer[512];
+        glGetProgramInfoLog(shaderProgram, sizeof(buffer), NULL, buffer);
+        fprintf(stderr, "Invalid shader program: '%s'\n", buffer);
+        //return false;
+    }
+}
+
 bool Shader::CreateShader(const char* vertFilename, const char* fragFilename)
 {
     if (!CompileShader(vertFilename, fragFilename))
@@ -104,15 +117,15 @@ bool Shader::CreateShader(const char* vertFilename, const char* fragFilename)
         return false;
     }
     
-    WVPLocation = GetUniformLocation("gWVP");
-    WorldLocation = GetUniformLocation("gWorld");
-    Texture0 = GetUniformLocation("tex");
-    
-    posAttrib = GetAttributeLocation("position");
+    return Init();
+}
+
+bool Shader::Init()
+{
+    /*posAttrib = GetAttributeLocation("position");
     uvAttrib = GetAttributeLocation("texcoord");
     colorAttrib = GetAttributeLocation("color");
-    normalAttrib = GetAttributeLocation("normal");
-    
+    normalAttrib = GetAttributeLocation("normal");*/
     return true;
 }
 
@@ -131,29 +144,19 @@ GLint Shader::GetAttributeLocation(const char* pAttribName)
 {
    GLuint location = glGetAttribLocation(shaderProgram, pAttribName);
     
+    if (location == INVALID_UNIFORM_LOCATION) {
+        LogError("Unable to get location of attrib", pAttribName);
+    }
+    
     return location;
 }
 
-void Shader::SetWVP(const Matrix4f& WVP)
-{
-    glUniformMatrix4fv(WVPLocation, 1, GL_TRUE, (const GLfloat*)WVP.m);
-}
-
-void Shader::SetWorld(const Matrix4f& world)
-{
-    glUniformMatrix4fv(WorldLocation, 1, GL_TRUE, (const GLfloat*)world.m);
-}
 
 void Shader::Activate()
 {
-    SetWVP(Renderer::GetInstance()->GetWVP());
-    SetWorld(Renderer::GetInstance()->GetWorldTrans());
-    
-    glUniform1i(Texture0, 0);
-    
     glUseProgram(shaderProgram);
     
-    glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE,  11*sizeof(float), 0);
+    /*glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE,  11*sizeof(float), 0);
     glVertexAttribPointer(colorAttrib, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(3*sizeof(float)));
     glVertexAttribPointer(uvAttrib, 2, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(6*sizeof(float)));
     glVertexAttribPointer(normalAttrib, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(9*sizeof(float)));
@@ -161,6 +164,6 @@ void Shader::Activate()
     glEnableVertexAttribArray(posAttrib);
     glEnableVertexAttribArray(uvAttrib);
     glEnableVertexAttribArray(colorAttrib);
-    glEnableVertexAttribArray(normalAttrib);
+    glEnableVertexAttribArray(normalAttrib);*/
     
 }

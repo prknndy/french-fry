@@ -16,8 +16,8 @@
 
 int main(int argc, const char * argv[])
 {
-    int screenWidth = 800;
-    int screenHeight = 600;
+    int screenWidth = 1024;
+    int screenHeight = 512;
 
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -36,22 +36,13 @@ int main(int argc, const char * argv[])
     glewInit();
     
     Renderer::GetInstance()->Initialize(screenWidth, screenHeight);
+    MaterialManager::GetInstance()->Initialize();
+    //Renderer::GetInstance()->DRInitialize();
     
     Camera* cam = new Camera(Vector3(0.0f, 0.0f, -5.0f), Vector3(0.0f, 1.0f, 0.0f), Vector3(0.0f, 0.0f, 1.0f));
     Camera* downCam = new Camera(Vector3(0.0f, 10.0f, 0.0f), Vector3(0.0f, 0.0f, 1.0f), Vector3(0.0f, -1.0f, 0.0f));
     
     Renderer::GetInstance()->SetCamera(cam);
-    
-    MaterialManager::GetInstance()->Initialize();
-    
-    /*Shader* s = new Shader();
-    s->CreateShader("./Resources/Shaders/SimpleVert.glsl", "./Resources/Shaders/SimpleFrag.glsl");
-    
-    Texture* t = new Texture();
-    t->Create("./Resources/Textures/sample.png");
-    
-    Material* mat = new Material;
-    mat->Create(s, t);*/
     
     /*Mesh* mesh = new Mesh();
     mesh->Create();
@@ -69,14 +60,15 @@ int main(int argc, const char * argv[])
     
     while(!glfwWindowShouldClose(window))
     {
-        Renderer::GetInstance()->BeginRender();
-        
         // Deferred shading pass
-        Renderer::GetInstance()->BeginGeometryPass();
+        //Renderer::GetInstance()->DRBeginGeometryPass();
+        //model->Render(pos, rot, scale);
+        //Renderer::GetInstance()->DRLightPass();
+        
+        Renderer::GetInstance()->BeginRender();
         model->Render(pos, rot, scale);
-        Renderer::GetInstance()->BeginLightpass();
-
         Renderer::GetInstance()->EndRender();
+        
         glfwSwapBuffers(window);
         glfwPollEvents();
     }

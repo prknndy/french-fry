@@ -15,6 +15,9 @@
 #include <vector>
 
 #include "Material.h"
+#include "StandardShader.h"
+#include "DRLightShader.h"
+#include "UnlitShader.h"
 
 class MaterialManager
 {
@@ -24,10 +27,15 @@ class MaterialManager
     std::vector<Texture> textures;
     
     Material defaultMaterial;
-    Shader defaultShader;
+    Material DRdefaultMaterial;
+    StandardShader defaultShader;
+    UnlitShader DRdefaultShader;
     Texture defaultTexture;
     
+    DRLightShader DRlightShader;
+    
     MaterialManager();
+    ~MaterialManager();
     
 public:
     static MaterialManager* GetInstance() {
@@ -39,12 +47,16 @@ public:
     }
     
     void Initialize();
+    void DRInitialize();
+    
     Texture* GetTexture(std::string filename);
     Texture* CreateTexture(std::string filename);
     
     Material* GetMaterial(std::string matID);
     Material* GetDefaultMaterial();
     Material* CreateMaterial(std::string name, std::string filename);
+    
+    Shader* GetDRLightShader();
     
 };
 

@@ -41,6 +41,7 @@ public:
     bool Initialize(int screenWidth, int screenHeight);
     void BindForWriting();
     void BindForReading();
+    void TestBind();
     void SetReadBuffer(GBUFFER_TEXTURE_TYPE gBufferTextureType);
     
 };

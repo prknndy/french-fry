@@ -16,6 +16,7 @@
 #include "Mesh.h"
 #include "Texture.h"
 #include "Model.h"
+#include "Lighting.h"
 
 #include "Renderer.h"
 #include "MaterialManager.h"

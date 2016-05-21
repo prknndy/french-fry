@@ -45,6 +45,16 @@
 		202323141CEECFD700C8F63A /* GBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323121CEECFD700C8F63A /* GBuffer.cpp */; };
 		202323171CEEDF6300C8F63A /* DRSimpleFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323161CEED91600C8F63A /* DRSimpleFrag.glsl */; };
 		202323191CEEDF6E00C8F63A /* DRSimpleVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323151CEED82700C8F63A /* DRSimpleVert.glsl */; };
+		2023231E1CF0051C00C8F63A /* DRLightShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2023231C1CF0051C00C8F63A /* DRLightShader.cpp */; };
+		202323221CF00EF500C8F63A /* StandardShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323201CF00EF500C8F63A /* StandardShader.cpp */; };
+		202323251CF0122700C8F63A /* Lighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323231CF0122700C8F63A /* Lighting.cpp */; };
+		202323261CF01A7A00C8F63A /* DRLightVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023231A1CF0024200C8F63A /* DRLightVert.glsl */; };
+		202323271CF01A8200C8F63A /* DRDirLightFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023231B1CF0024200C8F63A /* DRDirLightFrag.glsl */; };
+		2023232A1CF061BD00C8F63A /* DRLightSimpleFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323281CF061B600C8F63A /* DRLightSimpleFrag.glsl */; };
+		2023232B1CF061BF00C8F63A /* DRLightSimpleVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323291CF061B600C8F63A /* DRLightSimpleVert.glsl */; };
+		2023232E1CF101A900C8F63A /* StandardFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023232C1CF100DB00C8F63A /* StandardFrag.glsl */; };
+		2023232F1CF101AC00C8F63A /* StandardVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023232D1CF100DB00C8F63A /* StandardVert.glsl */; };
+		202323321CF1060200C8F63A /* UnlitShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323301CF1060200C8F63A /* UnlitShader.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,9 +85,15 @@
 			dstSubfolderSpec = 7;
 			files = (
 				202322C21CCAE1CF00C8F63A /* SimpleFrag.glsl in CopyFiles */,
+				202323271CF01A8200C8F63A /* DRDirLightFrag.glsl in CopyFiles */,
 				202322C31CCAE1CF00C8F63A /* SimpleVert.glsl in CopyFiles */,
+				202323261CF01A7A00C8F63A /* DRLightVert.glsl in CopyFiles */,
 				202323191CEEDF6E00C8F63A /* DRSimpleVert.glsl in CopyFiles */,
+				2023232A1CF061BD00C8F63A /* DRLightSimpleFrag.glsl in CopyFiles */,
+				2023232B1CF061BF00C8F63A /* DRLightSimpleVert.glsl in CopyFiles */,
 				202323171CEEDF6300C8F63A /* DRSimpleFrag.glsl in CopyFiles */,
+				2023232E1CF101A900C8F63A /* StandardFrag.glsl in CopyFiles */,
+				2023232F1CF101AC00C8F63A /* StandardVert.glsl in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +186,20 @@
 		202323131CEECFD700C8F63A /* GBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBuffer.h; path = Framework/DeferredRendering/GBuffer.h; sourceTree = "<group>"; };
 		202323151CEED82700C8F63A /* DRSimpleVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRSimpleVert.glsl; path = Resources/Shaders/DRSimpleVert.glsl; sourceTree = "<group>"; };
 		202323161CEED91600C8F63A /* DRSimpleFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRSimpleFrag.glsl; path = Resources/Shaders/DRSimpleFrag.glsl; sourceTree = "<group>"; };
+		2023231A1CF0024200C8F63A /* DRLightVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRLightVert.glsl; path = Resources/Shaders/DRLightVert.glsl; sourceTree = "<group>"; };
+		2023231B1CF0024200C8F63A /* DRDirLightFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRDirLightFrag.glsl; path = Resources/Shaders/DRDirLightFrag.glsl; sourceTree = "<group>"; };
+		2023231C1CF0051C00C8F63A /* DRLightShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DRLightShader.cpp; path = Framework/DeferredRendering/DRLightShader.cpp; sourceTree = "<group>"; };
+		2023231D1CF0051C00C8F63A /* DRLightShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRLightShader.h; path = Framework/DeferredRendering/DRLightShader.h; sourceTree = "<group>"; };
+		202323201CF00EF500C8F63A /* StandardShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StandardShader.cpp; path = Framework/Shaders/StandardShader.cpp; sourceTree = "<group>"; };
+		202323211CF00EF500C8F63A /* StandardShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StandardShader.h; path = Framework/Shaders/StandardShader.h; sourceTree = "<group>"; };
+		202323231CF0122700C8F63A /* Lighting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Lighting.cpp; path = Framework/Lighting.cpp; sourceTree = "<group>"; };
+		202323241CF0122700C8F63A /* Lighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lighting.h; path = Framework/Lighting.h; sourceTree = "<group>"; };
+		202323281CF061B600C8F63A /* DRLightSimpleFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRLightSimpleFrag.glsl; path = Resources/Shaders/DRLightSimpleFrag.glsl; sourceTree = "<group>"; };
+		202323291CF061B600C8F63A /* DRLightSimpleVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRLightSimpleVert.glsl; path = Resources/Shaders/DRLightSimpleVert.glsl; sourceTree = "<group>"; };
+		2023232C1CF100DB00C8F63A /* StandardFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = StandardFrag.glsl; path = Resources/Shaders/StandardFrag.glsl; sourceTree = "<group>"; };
+		2023232D1CF100DB00C8F63A /* StandardVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = StandardVert.glsl; path = Resources/Shaders/StandardVert.glsl; sourceTree = "<group>"; };
+		202323301CF1060200C8F63A /* UnlitShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UnlitShader.cpp; path = Framework/Shaders/UnlitShader.cpp; sourceTree = "<group>"; };
+		202323311CF1060200C8F63A /* UnlitShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnlitShader.h; path = Framework/Shaders/UnlitShader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +283,12 @@
 		2023227F1CCAC40A00C8F63A /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				2023232C1CF100DB00C8F63A /* StandardFrag.glsl */,
+				2023232D1CF100DB00C8F63A /* StandardVert.glsl */,
+				202323281CF061B600C8F63A /* DRLightSimpleFrag.glsl */,
+				202323291CF061B600C8F63A /* DRLightSimpleVert.glsl */,
+				2023231A1CF0024200C8F63A /* DRLightVert.glsl */,
+				2023231B1CF0024200C8F63A /* DRDirLightFrag.glsl */,
 				202323161CEED91600C8F63A /* DRSimpleFrag.glsl */,
 				202323151CEED82700C8F63A /* DRSimpleVert.glsl */,
 				202322841CCAD02C00C8F63A /* SimpleFrag.glsl */,
@@ -264,6 +300,7 @@
 		202322C41CE58AB000C8F63A /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				2023231F1CF00EDA00C8F63A /* Shaders */,
 				202323111CEECFC200C8F63A /* DeferredRendering */,
 				202322C51CE58AF500C8F63A /* Camera.cpp */,
 				202322C61CE58AF500C8F63A /* Camera.h */,
@@ -287,6 +324,8 @@
 				202322F11CEC1EEE00C8F63A /* Model.h */,
 				202322F71CED97E000C8F63A /* MaterialManager.cpp */,
 				202322F81CED97E000C8F63A /* MaterialManager.h */,
+				202323231CF0122700C8F63A /* Lighting.cpp */,
+				202323241CF0122700C8F63A /* Lighting.h */,
 			);
 			name = Framework;
 			sourceTree = "<group>";
@@ -344,6 +383,19 @@
 				202323131CEECFD700C8F63A /* GBuffer.h */,
 			);
 			name = DeferredRendering;
+			sourceTree = "<group>";
+		};
+		2023231F1CF00EDA00C8F63A /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				2023231D1CF0051C00C8F63A /* DRLightShader.h */,
+				2023231C1CF0051C00C8F63A /* DRLightShader.cpp */,
+				202323201CF00EF500C8F63A /* StandardShader.cpp */,
+				202323211CF00EF500C8F63A /* StandardShader.h */,
+				202323301CF1060200C8F63A /* UnlitShader.cpp */,
+				202323311CF1060200C8F63A /* UnlitShader.h */,
+			);
+			name = Shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,10 +519,14 @@
 				202322E31CEAE76B00C8F63A /* Texture.cpp in Sources */,
 				202322D71CE7C31A00C8F63A /* Mesh.cpp in Sources */,
 				202322D11CE7A7F900C8F63A /* Material.cpp in Sources */,
+				202323221CF00EF500C8F63A /* StandardShader.cpp in Sources */,
 				202322D41CE7A81600C8F63A /* Shader.cpp in Sources */,
+				202323321CF1060200C8F63A /* UnlitShader.cpp in Sources */,
+				2023231E1CF0051C00C8F63A /* DRLightShader.cpp in Sources */,
 				202322F21CEC1EEE00C8F63A /* Model.cpp in Sources */,
 				202322F91CED97E000C8F63A /* MaterialManager.cpp in Sources */,
 				2023226A1CCAB77300C8F63A /* main.cpp in Sources */,
+				202323251CF0122700C8F63A /* Lighting.cpp in Sources */,
 				202322DA1CEACAD200C8F63A /* Util.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
