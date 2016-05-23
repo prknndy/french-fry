@@ -21,5 +21,8 @@
 #include "Renderer.h"
 #include "MaterialManager.h"
 
+#include "Time.h"
+#include "Input.h"
+
 
 #endif

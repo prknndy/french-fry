@@ -22,17 +22,25 @@ bool StandardShader::Init()
     WorldLocation = GetUniformLocation("gWorld");
     Texture0 = GetUniformLocation("tex");
     
-    // lighting
+    // Lighting
     eyeWorldPosLocation = GetUniformLocation("gEyeWorldPos");
     matSpecularIntensityLocation = GetUniformLocation("gMatSpecularIntensity");
     matSpecularPowerLocation = GetUniformLocation("gMatSpecularPower");
     
     // Dir lighting
-    
     dirLightLocation.Color = GetUniformLocation("gDirectionalLight.Base.Color");
     dirLightLocation.AmbientIntensity = GetUniformLocation("gDirectionalLight.Base.AmbientIntensity");
     dirLightLocation.Direction = GetUniformLocation("gDirectionalLight.Direction");
     dirLightLocation.DiffuseIntensity = GetUniformLocation("gDirectionalLight.Base.DiffuseIntensity");
+    
+    // Point lighting
+    pointLightLocation.Color = GetUniformLocation("gPointLight.Base.Color");
+    pointLightLocation.AmbientIntensity = GetUniformLocation("gPointLight.Base.AmbientIntensity");
+    pointLightLocation.DiffuseIntensity = GetUniformLocation("gPointLight.Base.DiffuseIntensity");
+    pointLightLocation.Position = GetUniformLocation("gPointLight.Position");
+    pointLightLocation.Constant = GetUniformLocation("gPointLight.Atten.Constant");
+    pointLightLocation.Linear = GetUniformLocation("gPointLight.Atten.Linear");
+    pointLightLocation.Exp = GetUniformLocation("gPointLight.Atten.Exp");
     
     return true;
 }
@@ -72,6 +80,19 @@ void StandardShader::SetDirectionalLight(const DirectionalLight& Light)
     glUniform1f(dirLightLocation.DiffuseIntensity, Light.DiffuseIntensity);
 }
 
+void StandardShader::SetPointLight(const PointLight& Light)
+{
+    glUniform3f(pointLightLocation.Color, Light.Color.x, Light.Color.y, Light.Color.z);
+    glUniform1f(pointLightLocation.AmbientIntensity, Light.AmbientIntensity);
+    glUniform1f(pointLightLocation.DiffuseIntensity, Light.DiffuseIntensity);
+    
+    glUniform3f(pointLightLocation.Position, Light.Position.x, Light.Position.y, Light.Position.z);
+    glUniform1f(pointLightLocation.Constant, Light.Attenuation.Constant);
+    glUniform1f(pointLightLocation.Linear, Light.Attenuation.Linear);
+    glUniform1f(pointLightLocation.Exp, Light.Attenuation.Exp);
+    
+}
+
 void StandardShader::Activate()
 {
     SetWVP(Renderer::GetInstance()->GetWVP());
@@ -84,7 +105,7 @@ void StandardShader::Activate()
     glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE,  11*sizeof(float), 0);
     glVertexAttribPointer(colorAttrib, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(3*sizeof(float)));
     glVertexAttribPointer(uvAttrib, 2, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(6*sizeof(float)));
-    glVertexAttribPointer(normalAttrib, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(9*sizeof(float)));
+    glVertexAttribPointer(normalAttrib, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(8*sizeof(float)));
     
     glEnableVertexAttribArray(posAttrib);
     glEnableVertexAttribArray(uvAttrib);

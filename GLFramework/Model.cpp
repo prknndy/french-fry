@@ -78,6 +78,7 @@ bool Model::AddMeshFromScene(unsigned int index, const aiMesh* paiMesh, Material
         const aiVector3D* pTexCoord = paiMesh->HasTextureCoords(0) ? &(paiMesh->mTextureCoords[0][i]) : &Zero3D;
         const aiColor4D* pColor = paiMesh->HasVertexColors(0) ? &(paiMesh->mColors[0][i]) : &White;
         
+        //Vertex v(Vector3(pPos->x, pPos->y, pPos->z), Vector3(pColor->r, pColor->g, pColor->b), Vector2(pTexCoord->x, pTexCoord->y), Vector3(pNormal->x, pNormal->y, pNormal->z));
         Vertex v(Vector3(pPos->x, pPos->y, pPos->z), Vector3(pColor->r, pColor->g, pColor->b), Vector2(pTexCoord->x, pTexCoord->y), Vector3(pNormal->x, pNormal->y, pNormal->z));
         
         vertices.push_back(v);
@@ -197,6 +198,7 @@ void Model::Render(Vector3 pos, Vector3 rot, Vector3 scale)
     {
         StandardShader* s = (StandardShader*) meshes[i].GetMaterial()->GetShader();
         s->SetDirectionalLight(Renderer::GetInstance()->GetDirLight());
+        s->SetPointLight(Renderer::GetInstance()->GetPointLight());
         s->SetEyeWorldPos(Renderer::GetInstance()->GetEyePos());
         s->SetMatSpecularIntensity(0.5f);
         s->SetMatSpecularPower(0.5f);

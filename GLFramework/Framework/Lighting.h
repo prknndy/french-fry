@@ -34,4 +34,15 @@ public:
     };
 };
 
+class PointLight : public Light
+{
+public:
+    Vector3 Position;
+    struct {
+        float Constant;
+        float Linear;
+        float Exp;
+    } Attenuation;
+};
+
 #endif /* defined(__GLFramework__Lighting__) */

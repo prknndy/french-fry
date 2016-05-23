@@ -38,6 +38,7 @@ class Renderer
     Mesh quad;
     // temp
     DirectionalLight dirLight;
+    PointLight pointLight;
     
     Renderer();
     static Renderer* instance;
@@ -73,6 +74,7 @@ public:
     Matrix4f& GetWorldTrans();
     Vector3& GetEyePos();
     DirectionalLight& GetDirLight();
+    PointLight& GetPointLight();
     
 };
 

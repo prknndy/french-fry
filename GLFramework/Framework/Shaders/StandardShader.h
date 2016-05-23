@@ -29,6 +29,17 @@ class StandardShader : public Shader
         GLuint DiffuseIntensity;
         GLuint Direction;
     } dirLightLocation;
+    
+    struct {
+        GLuint Color;
+        GLuint AmbientIntensity;
+        GLuint DiffuseIntensity;
+        GLuint Position;
+        GLuint Constant;
+        GLuint Linear;
+        GLuint Exp;
+    } pointLightLocation;
+    
 public:
     virtual bool Init();
     void SetWVP(const Matrix4f& WVP);
@@ -38,6 +49,7 @@ public:
     void SetMatSpecularIntensity(float matIntensity);
     void SetMatSpecularPower(float matPower);
     void SetDirectionalLight(const DirectionalLight& Light);
+    void SetPointLight(const PointLight& Light);
     
     virtual void Activate();
 };

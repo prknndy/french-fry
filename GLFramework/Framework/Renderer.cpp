@@ -31,6 +31,14 @@ void Renderer::Initialize(int _screenWidth, int _screenHeight)
     dirLight.AmbientIntensity = 0.5f;
     dirLight.DiffuseIntensity = 0.5f;
     
+    pointLight.Color = Vector3(1.0f, 1.0f, 1.0f);
+    pointLight.Position = Vector3(0.0f, 50.0f, 0.0f);
+    pointLight.AmbientIntensity = 0.8f;
+    pointLight.DiffuseIntensity = 0.8f;
+    pointLight.Attenuation.Linear = 0.2f;
+    pointLight.Attenuation.Exp = 0.0f;
+    pointLight.Attenuation.Constant = 0.01f;
+    
 }
 
 /*
@@ -245,5 +253,10 @@ Vector3& Renderer::GetEyePos()
 DirectionalLight& Renderer::GetDirLight()
 {
     return dirLight;
+}
+
+PointLight& Renderer::GetPointLight()
+{
+    return pointLight;
 }
 

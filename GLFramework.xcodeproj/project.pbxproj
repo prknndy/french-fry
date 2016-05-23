@@ -55,6 +55,10 @@
 		2023232E1CF101A900C8F63A /* StandardFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023232C1CF100DB00C8F63A /* StandardFrag.glsl */; };
 		2023232F1CF101AC00C8F63A /* StandardVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023232D1CF100DB00C8F63A /* StandardVert.glsl */; };
 		202323321CF1060200C8F63A /* UnlitShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323301CF1060200C8F63A /* UnlitShader.cpp */; };
+		202323351CF2912100C8F63A /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323331CF2912100C8F63A /* App.cpp */; };
+		202323381CF2961800C8F63A /* TestApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323361CF2961800C8F63A /* TestApp.cpp */; };
+		2023233B1CF29EDD00C8F63A /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323391CF29EDD00C8F63A /* Time.cpp */; };
+		2023233E1CF2A13400C8F63A /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2023233C1CF2A13400C8F63A /* Input.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +204,14 @@
 		2023232D1CF100DB00C8F63A /* StandardVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = StandardVert.glsl; path = Resources/Shaders/StandardVert.glsl; sourceTree = "<group>"; };
 		202323301CF1060200C8F63A /* UnlitShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UnlitShader.cpp; path = Framework/Shaders/UnlitShader.cpp; sourceTree = "<group>"; };
 		202323311CF1060200C8F63A /* UnlitShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnlitShader.h; path = Framework/Shaders/UnlitShader.h; sourceTree = "<group>"; };
+		202323331CF2912100C8F63A /* App.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = App.cpp; path = Framework/App.cpp; sourceTree = "<group>"; };
+		202323341CF2912100C8F63A /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = App.h; path = Framework/App.h; sourceTree = "<group>"; };
+		202323361CF2961800C8F63A /* TestApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestApp.cpp; sourceTree = "<group>"; };
+		202323371CF2961800C8F63A /* TestApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestApp.h; sourceTree = "<group>"; };
+		202323391CF29EDD00C8F63A /* Time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Time.cpp; path = Framework/Time.cpp; sourceTree = "<group>"; };
+		2023233A1CF29EDD00C8F63A /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Time.h; path = Framework/Time.h; sourceTree = "<group>"; };
+		2023233C1CF2A13400C8F63A /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Input.cpp; path = Framework/Input.cpp; sourceTree = "<group>"; };
+		2023233D1CF2A13400C8F63A /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Input.h; path = Framework/Input.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +278,8 @@
 				202322C41CE58AB000C8F63A /* Framework */,
 				202322691CCAB77300C8F63A /* main.cpp */,
 				2023226B1CCAB77300C8F63A /* GLFramework.1 */,
+				202323361CF2961800C8F63A /* TestApp.cpp */,
+				202323371CF2961800C8F63A /* TestApp.h */,
 			);
 			path = GLFramework;
 			sourceTree = "<group>";
@@ -326,6 +340,12 @@
 				202322F81CED97E000C8F63A /* MaterialManager.h */,
 				202323231CF0122700C8F63A /* Lighting.cpp */,
 				202323241CF0122700C8F63A /* Lighting.h */,
+				202323331CF2912100C8F63A /* App.cpp */,
+				202323341CF2912100C8F63A /* App.h */,
+				202323391CF29EDD00C8F63A /* Time.cpp */,
+				2023233A1CF29EDD00C8F63A /* Time.h */,
+				2023233C1CF2A13400C8F63A /* Input.cpp */,
+				2023233D1CF2A13400C8F63A /* Input.h */,
 			);
 			name = Framework;
 			sourceTree = "<group>";
@@ -522,10 +542,14 @@
 				202323221CF00EF500C8F63A /* StandardShader.cpp in Sources */,
 				202322D41CE7A81600C8F63A /* Shader.cpp in Sources */,
 				202323321CF1060200C8F63A /* UnlitShader.cpp in Sources */,
+				202323351CF2912100C8F63A /* App.cpp in Sources */,
+				2023233B1CF29EDD00C8F63A /* Time.cpp in Sources */,
 				2023231E1CF0051C00C8F63A /* DRLightShader.cpp in Sources */,
 				202322F21CEC1EEE00C8F63A /* Model.cpp in Sources */,
+				2023233E1CF2A13400C8F63A /* Input.cpp in Sources */,
 				202322F91CED97E000C8F63A /* MaterialManager.cpp in Sources */,
 				2023226A1CCAB77300C8F63A /* main.cpp in Sources */,
+				202323381CF2961800C8F63A /* TestApp.cpp in Sources */,
 				202323251CF0122700C8F63A /* Lighting.cpp in Sources */,
 				202322DA1CEACAD200C8F63A /* Util.cpp in Sources */,
 			);
