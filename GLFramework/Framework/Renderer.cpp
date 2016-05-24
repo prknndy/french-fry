@@ -13,7 +13,7 @@ Renderer* Renderer::instance = NULL;
 
 Renderer::Renderer()
 {
-    
+    isInDR = false;
 }
 
 void Renderer::Initialize(int _screenWidth, int _screenHeight)
@@ -26,18 +26,6 @@ void Renderer::Initialize(int _screenWidth, int _screenHeight)
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
     
-    /*dirLight.Color = Vector3(1.0f, 0.7f, 0.7f);
-    dirLight.Direction = Vector3(1.0f, -0.0f, 1.0f);
-    dirLight.AmbientIntensity = 0.5f;
-    dirLight.DiffuseIntensity = 0.5f;
-    
-    pointLight.Color = Vector3(1.0f, 1.0f, 1.0f);
-    pointLight.Position = Vector3(0.0f, 50.0f, 0.0f);
-    pointLight.AmbientIntensity = 0.8f;
-    pointLight.DiffuseIntensity = 0.8f;
-    pointLight.Attenuation.Linear = 0.2f;
-    pointLight.Attenuation.Exp = 0.0f;
-    pointLight.Attenuation.Constant = 0.01f;*/
     
 }
 
@@ -79,18 +67,23 @@ void Renderer::DRInitialize()
     
     MaterialManager::GetInstance()->DRInitialize();
     DRLightShader* drLightShader = (DRLightShader*) MaterialManager::GetInstance()->GetDRLightShader();
+    
+    glBindVertexArray(vao);
+    quad.CreateQuad();
+
     drLightShader->Activate();
     
     drLightShader->SetPositionTextureUnit(GBuffer::GBUFFER_TEXTURE_TYPE_POSITION);
     drLightShader->SetColorTextureUnit(GBuffer::GBUFFER_TEXTURE_TYPE_DIFFUSE);
     drLightShader->SetNormalTextureUnit(GBuffer::GBUFFER_TEXTURE_TYPE_NORMAL);
     drLightShader->SetScreenSize(screenWidth*2.0f, screenHeight*2.0f);
-    
-    quad.CreateQuad();
+
+    glBindVertexArray(0);
 }
 
 void Renderer::DRBeginGeometryPass()
 {
+    isInDR = true;
     glFrontFace(GL_CW);
     glCullFace(GL_BACK);
     glEnable(GL_CULL_FACE);
@@ -109,8 +102,10 @@ void Renderer::DRBeginGeometryPass()
 void Renderer::DRLightPass()
 {
     DRBeginLightpass();
-    DRDirectionalLightPass();
+    //DRDirectionalLightPass();
+    DRPointLightPass();
     DREndLightPass();
+    isInDR = false;
 }
 
 void Renderer::DRBeginLightpass()
@@ -187,6 +182,35 @@ void Renderer::DRDirectionalLightPass()
 
 }
 
+void Renderer::DRPointLightPass()
+{
+    glBindVertexArray(vao);
+    Matrix4f tWVP;
+    tWVP.CreateIdentity();
+    
+    //Material* m = MaterialManager::GetInstance()->GetDefaultMaterial();
+    
+    //m->GetShader()->Activate();
+    //StandardShader* drLightShader = (StandardShader*) m->GetShader();
+    //m->Bind();
+    
+    DRLightShader* drLightShader = (DRLightShader*) MaterialManager::GetInstance()->GetDRLightShader();
+    drLightShader->Activate();
+    drLightShader->SetWVP(tWVP);
+    drLightShader->SetEyeWorldPos(currentCamera->GetLocation());
+    
+    drLightShader->SetDirectionalLight(GetDirLight());
+    
+    drLightShader->SetPointLightCount(GetPointLightCount());
+    for (int i = 0; i < GetPointLightCount(); i++)
+    {
+        drLightShader->SetPointLight(i, GetPointLight(i));
+    }
+    
+    quad.DirectRender();
+    glBindVertexArray(0);
+}
+
 void Renderer::DREndLightPass()
 {
     /*gBuffer.SetReadBuffer(GBuffer::GBUFFER_TEXTURE_TYPE_POSITION);
@@ -227,10 +251,29 @@ void Renderer::RemovePointLight(PointLight *pointLight)
     }
 }
 
+void Renderer::RenderModel(Model* model)
+{
+    
+}
+
 
 void Renderer::RenderMesh(Mesh* mesh)
 {
+    Material* m = mesh->GetMaterial();
+    Shader* s;
+    if (!isInDR)
+    {
+        s = m->GetShader();
+    }
+    else
+    {
+        s = MaterialManager::GetInstance()->GetDRDefaultShader();
+    }
+    s->UseMaterial(m);
+    s->Activate();
+    m->Bind();
     
+    mesh->Render();
 }
 
 void Renderer::SetCamera(Camera* camera)

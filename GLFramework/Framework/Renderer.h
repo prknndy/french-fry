@@ -16,6 +16,7 @@
 #include "GBuffer.h"
 #include "Camera.h"
 #include "Mesh.h"
+#include "Model.h"
 #include "DRLightShader.h"
 
 class Renderer
@@ -37,11 +38,14 @@ class Renderer
     GBuffer gBuffer;
     DRLightShader drLightShader;
     Mesh quad;
+    bool isInDR;
     
     // Lights
     DirectionalLight* dirLight;
     
     std::vector<PointLight*> pointLights;
+    
+    
     
     Renderer();
     static Renderer* instance;
@@ -57,9 +61,11 @@ public:
 
     void SetCamera(Camera* camera);
     
+    void RenderModel(Model* model);
+    void RenderMesh(Mesh* mesh);
+    
     // Forward Rendering
     void BeginRender();
-    void RenderMesh(Mesh* mesh);
     void EndRender();
     
     // Deferred Rendering
@@ -68,6 +74,7 @@ public:
     void DRLightPass();
     void DRBeginLightpass();
     void DRDirectionalLightPass();
+    void DRPointLightPass();
     void DREndLightPass();
     
     // Lighting

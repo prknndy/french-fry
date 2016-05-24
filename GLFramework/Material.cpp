@@ -26,6 +26,6 @@ Shader* Material::GetShader()
 
 void Material::Bind()
 {
-    shader->Activate();
+    //shader->Activate();
     texture->Bind(GL_TEXTURE0);
 }

@@ -10,11 +10,21 @@
 
 void TestApp::PostInitialize()
 {
+    Renderer::GetInstance()->DRInitialize();
+    
     camera = new Camera(Vector3(0.0f, 0.0f, -5.0f), Vector3(0.0f, 1.0f, 0.0f), Vector3(0.0f, 0.0f, 1.0f));
     
     pos = Vector3(0.0f, -50.0f, 200.0f);
     rot = Vector3(0.0f, 0.0f, 0.0f);
     scale = Vector3(0.25f, 0.25f, 0.25f);
+    
+    pos2 = Vector3(0.0f, 0.0f, 150.0f);
+    scale2 = Vector3(0.5f, 0.5f, 0.5f);
+    
+    model2 = new Model();
+    model2->LoadModel("./Resources/Models/hheli.obj");
+    //model2->LoadModel("./Resources/Models/monkey.obj");
+    //model2->LoadModel("./Resources/Models/spider.obj");
     
     model = new Model();
     model->LoadModel("./Resources/Models/jeep.obj");
@@ -63,13 +73,18 @@ void TestApp::PostInitialize()
 
 void TestApp::Update()
 {
-    // Deferred shading pass
-    //Renderer::GetInstance()->DRBeginGeometryPass();
-    //model->Render(pos, rot, scale);
-    //Renderer::GetInstance()->DRLightPass();
     Renderer::GetInstance()->SetCamera(camera);
-    Renderer::GetInstance()->BeginRender();
+    
+    // Deferred shading pass
+    Renderer::GetInstance()->DRBeginGeometryPass();
     model->Render(pos, rot, scale);
-    Renderer::GetInstance()->EndRender();
+    model2->Render(pos2, rot, scale2);
+    model->Render(pos, rot, scale);
+    Renderer::GetInstance()->DRLightPass();
+    
+    /*Renderer::GetInstance()->BeginRender();
+    model->Render(pos, rot, scale);
+    model2->Render(pos2, rot, scale2);
+    Renderer::GetInstance()->EndRender();*/
 }
 

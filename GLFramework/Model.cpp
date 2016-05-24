@@ -165,6 +165,16 @@ bool Model::LoadModel(const std::string& filename)
         LogError("Failed to open model file");
     }
     
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), 0);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(3*sizeof(float)));
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(6*sizeof(float)));
+    glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(8*sizeof(float)));
+    
+    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(2);
+    glEnableVertexAttribArray(3);
+    
     glBindVertexArray(0);
     
     return ret;
@@ -196,7 +206,7 @@ void Model::Render(Vector3 pos, Vector3 rot, Vector3 scale)
     Renderer::GetInstance()->SetWorldTrans(pos, rot, scale);
     for (int i = 0; i < meshes.size(); i++)
     {
-        StandardShader* s = (StandardShader*) meshes[i].GetMaterial()->GetShader();
+        /*StandardShader* s = (StandardShader*) meshes[i].GetMaterial()->GetShader();
         s->SetDirectionalLight(Renderer::GetInstance()->GetDirLight());
         int pLCount = Renderer::GetInstance()->GetPointLightCount();
         s->SetPointLightCount(pLCount);
@@ -205,9 +215,9 @@ void Model::Render(Vector3 pos, Vector3 rot, Vector3 scale)
             s->SetPointLight(i, Renderer::GetInstance()->GetPointLight(i));
         }
         s->SetEyeWorldPos(Renderer::GetInstance()->GetEyePos());
-        s->SetMatSpecularIntensity(0.5f);
-        s->SetMatSpecularPower(0.5f);
-        meshes[i].Render();
+
+        meshes[i].Render();*/
+        Renderer::GetInstance()->RenderMesh(&meshes[i]);
     }
     glBindVertexArray(0);
 }

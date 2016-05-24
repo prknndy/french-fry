@@ -17,7 +17,7 @@ class StandardShader : public Shader
 public:
     static const unsigned int MAX_POINT_LIGHTS = 4;
     
-private:
+protected:
     // Uniforms
     GLuint WVPLocation;
     GLuint WorldLocation;
@@ -57,6 +57,7 @@ public:
     void SetDirectionalLight(const DirectionalLight& Light);
     void SetPointLight(int index, const PointLight& Light);
     void SetPointLightCount(int count);
+    virtual void UseMaterial(Material * mat);
     
     virtual void Activate();
 };

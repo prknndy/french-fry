@@ -59,6 +59,12 @@
 		202323381CF2961800C8F63A /* TestApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323361CF2961800C8F63A /* TestApp.cpp */; };
 		2023233B1CF29EDD00C8F63A /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323391CF29EDD00C8F63A /* Time.cpp */; };
 		2023233E1CF2A13400C8F63A /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2023233C1CF2A13400C8F63A /* Input.cpp */; };
+		202323441CF42A6F00C8F63A /* hheli.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323431CF42A6500C8F63A /* hheli.bmp */; };
+		202323451CF42A7600C8F63A /* monkey.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323411CF42A5700C8F63A /* monkey.mtl */; };
+		202323461CF42A7900C8F63A /* monkey.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323421CF42A5700C8F63A /* monkey.obj */; };
+		202323471CF42A8600C8F63A /* hheli.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023233F1CF42A5700C8F63A /* hheli.mtl */; };
+		202323481CF42A8800C8F63A /* hheli.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323401CF42A5700C8F63A /* hheli.obj */; };
+		2023234A1CF42B7900C8F63A /* white.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323491CF42B6E00C8F63A /* white.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,7 +116,9 @@
 				202323011CEDAC0600C8F63A /* SpiderTex.jpg in CopyFiles */,
 				202322FB1CEDA9B900C8F63A /* phoenix.pcx in CopyFiles */,
 				202323081CEEAD7500C8F63A /* wal67ar_small.jpg in CopyFiles */,
+				202323441CF42A6F00C8F63A /* hheli.bmp in CopyFiles */,
 				202323071CEEAD6F00C8F63A /* engineflare1.jpg in CopyFiles */,
+				2023234A1CF42B7900C8F63A /* white.png in CopyFiles */,
 				202323061CEEAD6B00C8F63A /* drkwood2.jpg in CopyFiles */,
 				2023230E1CEEB11D00C8F63A /* jeep_rood.jpg in CopyFiles */,
 				2023230D1CEEB11B00C8F63A /* jeep_army.jpg in CopyFiles */,
@@ -125,7 +133,11 @@
 			dstSubfolderSpec = 7;
 			files = (
 				202322FF1CEDABFC00C8F63A /* spider.mtl in CopyFiles */,
+				202323451CF42A7600C8F63A /* monkey.mtl in CopyFiles */,
+				202323461CF42A7900C8F63A /* monkey.obj in CopyFiles */,
 				2023230F1CEEB12100C8F63A /* jeep.mtl in CopyFiles */,
+				202323481CF42A8800C8F63A /* hheli.obj in CopyFiles */,
+				202323471CF42A8600C8F63A /* hheli.mtl in CopyFiles */,
 				202323101CEEB12400C8F63A /* jeep.obj in CopyFiles */,
 				202323001CEDABFC00C8F63A /* spider.obj in CopyFiles */,
 				202322F61CEC2FCF00C8F63A /* phoenix_ugv.md2 in CopyFiles */,
@@ -212,6 +224,12 @@
 		2023233A1CF29EDD00C8F63A /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Time.h; path = Framework/Time.h; sourceTree = "<group>"; };
 		2023233C1CF2A13400C8F63A /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Input.cpp; path = Framework/Input.cpp; sourceTree = "<group>"; };
 		2023233D1CF2A13400C8F63A /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Input.h; path = Framework/Input.h; sourceTree = "<group>"; };
+		2023233F1CF42A5700C8F63A /* hheli.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hheli.mtl; path = Resources/Models/hheli.mtl; sourceTree = "<group>"; };
+		202323401CF42A5700C8F63A /* hheli.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hheli.obj; path = Resources/Models/hheli.obj; sourceTree = "<group>"; };
+		202323411CF42A5700C8F63A /* monkey.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = monkey.mtl; path = Resources/Models/monkey.mtl; sourceTree = "<group>"; };
+		202323421CF42A5700C8F63A /* monkey.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = monkey.obj; path = Resources/Models/monkey.obj; sourceTree = "<group>"; };
+		202323431CF42A6500C8F63A /* hheli.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = hheli.bmp; path = Resources/Textures/hheli.bmp; sourceTree = "<group>"; };
+		202323491CF42B6E00C8F63A /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white.png; path = Resources/Textures/white.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +390,8 @@
 		202322E61CEC11EB00C8F63A /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				202323491CF42B6E00C8F63A /* white.png */,
+				202323431CF42A6500C8F63A /* hheli.bmp */,
 				2023230B1CEEB11100C8F63A /* jeep_army.jpg */,
 				2023230C1CEEB11100C8F63A /* jeep_rood.jpg */,
 				202323021CEEAD5400C8F63A /* drkwood2.jpg */,
@@ -387,6 +407,10 @@
 		202322F31CEC2FA800C8F63A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2023233F1CF42A5700C8F63A /* hheli.mtl */,
+				202323401CF42A5700C8F63A /* hheli.obj */,
+				202323411CF42A5700C8F63A /* monkey.mtl */,
+				202323421CF42A5700C8F63A /* monkey.obj */,
 				202323091CEEB10400C8F63A /* jeep.mtl */,
 				2023230A1CEEB10400C8F63A /* jeep.obj */,
 				202322FD1CEDABF000C8F63A /* spider.mtl */,

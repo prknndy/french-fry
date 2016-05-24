@@ -30,7 +30,7 @@ void MaterialManager::Initialize()
     
     DRdefaultShader.CreateShader("./Resources/Shaders/DRSimpleVert.glsl", "./Resources/Shaders/DRSimpleFrag.glsl");
     
-    defaultTexture.Create("./Resources/Textures/sample.png");
+    defaultTexture.Create("./Resources/Textures/white.png");
     
     defaultMaterial.Create(&defaultShader, &defaultTexture);
     DRdefaultMaterial.Create(&DRdefaultShader, &defaultTexture);

@@ -127,15 +127,14 @@ void Mesh::Render()
 
 void Mesh::Render(Material* _mat)
 {
+    //_mat->Bind();
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
     
     //glBindVertexArray(vao);
     
-    _mat->Bind();
-    
     glDrawElements(GL_TRIANGLES, numIndices, GL_UNSIGNED_INT, 0);
+
     
     //glBindVertexArray(0);
 }

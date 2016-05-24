@@ -12,6 +12,8 @@
 #include <GL/glew.h>
 #include "Math3D.h"
 
+class Material;
+
 class Shader
 {
     // Progams
@@ -35,6 +37,7 @@ public:
     void Validate();
     virtual bool Init();
     virtual void Activate();
+    virtual void UseMaterial(Material * mat) {}
 };
 
 #endif /* defined(__GLFramework__Shader__) */

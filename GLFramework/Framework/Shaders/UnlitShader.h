@@ -24,6 +24,7 @@ public:
     void SetWorld(const Matrix4f &world);
     
     virtual void Activate();
+    virtual void UseMaterial(Material * mat);
 };
 
 #endif /* defined(__GLFramework__File__) */

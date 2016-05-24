@@ -124,12 +124,18 @@ void StandardShader::Activate()
 {
     SetWVP(Renderer::GetInstance()->GetWVP());
     SetWorld(Renderer::GetInstance()->GetWorldTrans());
-    
-    glUniform1i(Texture0, 0);
+    SetDirectionalLight(Renderer::GetInstance()->GetDirLight());
+    int pLCount = Renderer::GetInstance()->GetPointLightCount();
+    SetPointLightCount(pLCount);
+    for (int i = 0; i < pLCount; i++)
+    {
+        SetPointLight(i, Renderer::GetInstance()->GetPointLight(i));
+    }
+    SetEyeWorldPos(Renderer::GetInstance()->GetEyePos());
     
     Shader::Activate();
     
-    glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE,  11*sizeof(float), 0);
+    /*glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE,  11*sizeof(float), 0);
     glVertexAttribPointer(colorAttrib, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(3*sizeof(float)));
     glVertexAttribPointer(uvAttrib, 2, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(6*sizeof(float)));
     glVertexAttribPointer(normalAttrib, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(8*sizeof(float)));
@@ -137,6 +143,15 @@ void StandardShader::Activate()
     glEnableVertexAttribArray(posAttrib);
     glEnableVertexAttribArray(uvAttrib);
     glEnableVertexAttribArray(colorAttrib);
-    glEnableVertexAttribArray(normalAttrib);
+    glEnableVertexAttribArray(normalAttrib);*/
     
+}
+
+void StandardShader::UseMaterial(Material * mat)
+{
+    // FIX
+    SetMatSpecularIntensity(0.5f);
+    SetMatSpecularPower(0.5f);
+    
+    glUniform1i(Texture0, 0);
 }

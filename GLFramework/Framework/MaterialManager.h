@@ -57,6 +57,9 @@ public:
     Material* CreateMaterial(std::string name, std::string filename);
     
     Shader* GetDRLightShader();
+    Shader* GetDRDefaultShader() {
+        return &DRdefaultShader;
+    }
     
 };
 

@@ -14,38 +14,58 @@ bool DRLightShader::Init()
     Shader::Init();
     
     posAttrib = GetAttributeLocation("position");
-    
-    WVPLocation = GetUniformLocation("gWVP");
-    //WorldLocation = GetUniformLocation("gWorld");
-    posTextureUnitLocation = GetUniformLocation("gPositionMap");
+    uvAttrib = GetAttributeLocation("texcoord");
+    colorAttrib = GetAttributeLocation("color");
+    normalAttrib = GetAttributeLocation("normal");
+
     colorTextureUnitLocation = GetUniformLocation("gColorMap");
+    posTextureUnitLocation = GetUniformLocation("gPositionMap");
     normalTextureUnitLocation = GetUniformLocation("gNormalMap");
     screenSizeLocation = GetUniformLocation("gScreenSize");
     
+    WVPLocation = GetUniformLocation("gWVP");
+    
+    // Lighting
     eyeWorldPosLocation = GetUniformLocation("gEyeWorldPos");
     matSpecularIntensityLocation = GetUniformLocation("gMatSpecularIntensity");
     matSpecularPowerLocation = GetUniformLocation("gMatSpecularPower");
     
-    
     // Dir lighting
-    
     dirLightLocation.Color = GetUniformLocation("gDirectionalLight.Base.Color");
     dirLightLocation.AmbientIntensity = GetUniformLocation("gDirectionalLight.Base.AmbientIntensity");
     dirLightLocation.Direction = GetUniformLocation("gDirectionalLight.Direction");
     dirLightLocation.DiffuseIntensity = GetUniformLocation("gDirectionalLight.Base.DiffuseIntensity");
     
+    // Point lighting
+    for (int i = 0; i < MAX_POINT_LIGHTS; i++)
+    {
+        char buffer[128];
+        memset(buffer, 0, sizeof(buffer));
+        
+        sprintf(buffer, "gPointLight[%d].Base.Color", i);
+        pointLightLocation[i].Color = GetUniformLocation(buffer);
+        
+        sprintf(buffer, "gPointLight[%d].Base.AmbientIntensity", i);
+        pointLightLocation[i].AmbientIntensity = GetUniformLocation(buffer);
+        
+        sprintf(buffer, "gPointLight[%d].Base.DiffuseIntensity", i);
+        pointLightLocation[i].DiffuseIntensity = GetUniformLocation(buffer);
+        
+        sprintf(buffer, "gPointLight[%d].Position", i);
+        pointLightLocation[i].Position = GetUniformLocation(buffer);
+        
+        sprintf(buffer, "gPointLight[%d].Atten.Constant", i);
+        pointLightLocation[i].Constant = GetUniformLocation(buffer);
+        
+        sprintf(buffer, "gPointLight[%d].Atten.Linear", i);
+        pointLightLocation[i].Linear = GetUniformLocation(buffer);
+        
+        sprintf(buffer, "gPointLight[%d].Atten.Exp", i);
+        pointLightLocation[i].Exp = GetUniformLocation(buffer);
+    }
+    pointLightCount = GetUniformLocation("gNumPointLights");
     
     return true;
-}
-
-void DRLightShader::SetWVP(const Matrix4f& WVP)
-{
-    glUniformMatrix4fv(WVPLocation, 1, GL_TRUE, (const GLfloat*)WVP.m);
-}
-
-void DRLightShader::SetWorld(const Matrix4f& world)
-{
-    //glUniformMatrix4fv(WorldLocation, 1, GL_TRUE, (const GLfloat*)world.m);
 }
 
 void DRLightShader::SetPositionTextureUnit(unsigned int textureUnit)
@@ -63,46 +83,32 @@ void DRLightShader::SetNormalTextureUnit(unsigned int textureUnit)
     glUniform1i(normalTextureUnitLocation, textureUnit);
 }
 
-void DRLightShader::SetEyeWorldPos(const Vector3 eyeWorldPos)
-{
-    glUniform3f(eyeWorldPosLocation, eyeWorldPos.x, eyeWorldPos.y, eyeWorldPos.z);
-}
-
-void DRLightShader::SetMatSpecularIntensity(float matIntensity)
-{
-    glUniform1f(matSpecularIntensityLocation, matIntensity);
-}
-
-void DRLightShader::SetMatSpecularPower(float matPower)
-{
-    glUniform1f(matSpecularPowerLocation, matPower);
-}
-
 void DRLightShader::SetScreenSize(float width, float height)
 {
     glUniform2f(screenSizeLocation, width, height);
 }
 
-void DRLightShader::SetDirectionalLight(const DirectionalLight& Light)
-{
-    glUniform3f(dirLightLocation.Color, Light.Color.x, Light.Color.y, Light.Color.z);
-    glUniform1f(dirLightLocation.AmbientIntensity, Light.AmbientIntensity);
-    Vector3 Direction = Light.Direction;
-    Direction.Normalize();
-    glUniform3f(dirLightLocation.Direction, Direction.x, Direction.y, Direction.z);
-    glUniform1f(dirLightLocation.DiffuseIntensity, Light.DiffuseIntensity);
-}
-
 void DRLightShader::Activate()
 {
-    SetWVP(Renderer::GetInstance()->GetWVP());
-    //SetWorld(Renderer::GetInstance()->GetWorldTrans());
+    //SetWVP(Renderer::GetInstance()->GetWVP());
+    /*SetDirectionalLight(Renderer::GetInstance()->GetDirLight());
+    int pLCount = Renderer::GetInstance()->GetPointLightCount();
+    SetPointLightCount(pLCount);
+    for (int i = 0; i < pLCount; i++)
+    {
+        SetPointLight(i, Renderer::GetInstance()->GetPointLight(i));
+    }
+    SetEyeWorldPos(Renderer::GetInstance()->GetEyePos());*/
     
-    glUniform1i(posTextureUnitLocation, 0);
+    SetMatSpecularIntensity(0.5f);
+    SetMatSpecularPower(0.5f);
     
     Shader::Activate();
-    
-    glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE,  11*sizeof(float), 0);
-    
-    glEnableVertexAttribArray(posAttrib);
+}
+
+void DRLightShader::UseMaterial(Material * mat)
+{
+    // FIX
+    SetMatSpecularIntensity(0.5f);
+    SetMatSpecularPower(0.5f);
 }
