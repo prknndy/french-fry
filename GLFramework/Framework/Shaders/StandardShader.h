@@ -14,6 +14,10 @@
 
 class StandardShader : public Shader
 {
+public:
+    static const unsigned int MAX_POINT_LIGHTS = 4;
+    
+private:
     // Uniforms
     GLuint WVPLocation;
     GLuint WorldLocation;
@@ -38,9 +42,11 @@ class StandardShader : public Shader
         GLuint Constant;
         GLuint Linear;
         GLuint Exp;
-    } pointLightLocation;
+    } pointLightLocation[MAX_POINT_LIGHTS];
+    GLuint pointLightCount;
     
 public:
+    
     virtual bool Init();
     void SetWVP(const Matrix4f& WVP);
     void SetWorld(const Matrix4f &world);
@@ -49,7 +55,8 @@ public:
     void SetMatSpecularIntensity(float matIntensity);
     void SetMatSpecularPower(float matPower);
     void SetDirectionalLight(const DirectionalLight& Light);
-    void SetPointLight(const PointLight& Light);
+    void SetPointLight(int index, const PointLight& Light);
+    void SetPointLightCount(int count);
     
     virtual void Activate();
 };

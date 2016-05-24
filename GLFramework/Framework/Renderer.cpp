@@ -26,7 +26,7 @@ void Renderer::Initialize(int _screenWidth, int _screenHeight)
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
     
-    dirLight.Color = Vector3(1.0f, 0.7f, 0.7f);
+    /*dirLight.Color = Vector3(1.0f, 0.7f, 0.7f);
     dirLight.Direction = Vector3(1.0f, -0.0f, 1.0f);
     dirLight.AmbientIntensity = 0.5f;
     dirLight.DiffuseIntensity = 0.5f;
@@ -37,7 +37,7 @@ void Renderer::Initialize(int _screenWidth, int _screenHeight)
     pointLight.DiffuseIntensity = 0.8f;
     pointLight.Attenuation.Linear = 0.2f;
     pointLight.Attenuation.Exp = 0.0f;
-    pointLight.Attenuation.Constant = 0.01f;
+    pointLight.Attenuation.Constant = 0.01f;*/
     
 }
 
@@ -168,9 +168,9 @@ void Renderer::DRDirectionalLightPass()
     drLightShader->Activate();
     drLightShader->SetWVP(tWVP);
     drLightShader->SetEyeWorldPos(currentCamera->GetLocation());
-    drLightShader->SetDirectionalLight(dirLight);
-    drLightShader->SetMatSpecularIntensity(0.5f);
-    drLightShader->SetMatSpecularPower(0.5f);
+    //drLightShader->SetDirectionalLight(&dirLight);
+    //drLightShader->SetMatSpecularIntensity(0.5f);
+    //drLightShader->SetMatSpecularPower(0.5f);
     
     quad.DirectRender();
     glBindVertexArray(0);
@@ -198,6 +198,34 @@ void Renderer::DREndLightPass()
 /*
  * End DR
  */
+
+void Renderer::SetDirectionLight(DirectionalLight* _dirLight)
+{
+    dirLight = _dirLight;
+}
+
+void Renderer::AddPointLight(PointLight* pointLight)
+{
+    pointLights.push_back(pointLight);
+}
+
+void Renderer::RemovePointLight(PointLight *pointLight)
+{
+    int index = -1;
+    for (int i = 0; i < pointLights.size(); i++)
+    {
+        if (pointLights[i] == pointLight)
+        {
+            index = i;
+            break;
+        }
+    }
+    
+    if (index != -1)
+    {
+        pointLights.erase(pointLights.begin() + index);
+    }
+}
 
 
 void Renderer::RenderMesh(Mesh* mesh)
@@ -252,11 +280,16 @@ Vector3& Renderer::GetEyePos()
 
 DirectionalLight& Renderer::GetDirLight()
 {
-    return dirLight;
+    return (*dirLight);
 }
 
-PointLight& Renderer::GetPointLight()
+PointLight& Renderer::GetPointLight(int index)
 {
-    return pointLight;
+    return *(pointLights[index]);
+}
+
+int Renderer::GetPointLightCount()
+{
+    return (int)pointLights.size();
 }
 

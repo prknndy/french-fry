@@ -18,6 +18,11 @@ class TestApp : public App
     Vector3 pos;//(0.0f, -50.0f, 200.0f);
     Vector3 rot;//(0.0f, 0.0f, 0.0f);
     Vector3 scale;//(0.25f, 0.25f, 0.25f);
+    
+    DirectionalLight* dirLight;
+    PointLight* pLight1;
+    PointLight* pLight2;
+    PointLight* pLight3;
 protected:
     virtual void PostInitialize();
     virtual void Update();

@@ -10,6 +10,7 @@
 #define __GLFramework__Renderer__
 
 #include <GL/glew.h>
+#include <vector>
 
 #include "Math3D.h"
 #include "GBuffer.h"
@@ -36,9 +37,11 @@ class Renderer
     GBuffer gBuffer;
     DRLightShader drLightShader;
     Mesh quad;
-    // temp
-    DirectionalLight dirLight;
-    PointLight pointLight;
+    
+    // Lights
+    DirectionalLight* dirLight;
+    
+    std::vector<PointLight*> pointLights;
     
     Renderer();
     static Renderer* instance;
@@ -67,6 +70,11 @@ public:
     void DRDirectionalLightPass();
     void DREndLightPass();
     
+    // Lighting
+    void SetDirectionLight(DirectionalLight* _dirLight);
+    void AddPointLight(PointLight* pointLight);
+    void RemovePointLight(PointLight* pointLight);
+    
     void SetWorldTrans(Matrix4f* _worldTrans);
     void SetWorldTrans(Vector3 pos, Vector3 rot, Vector3 scale);
     
@@ -74,7 +82,8 @@ public:
     Matrix4f& GetWorldTrans();
     Vector3& GetEyePos();
     DirectionalLight& GetDirLight();
-    PointLight& GetPointLight();
+    PointLight& GetPointLight(int index);
+    int GetPointLightCount();
     
 };
 

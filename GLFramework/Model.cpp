@@ -198,7 +198,12 @@ void Model::Render(Vector3 pos, Vector3 rot, Vector3 scale)
     {
         StandardShader* s = (StandardShader*) meshes[i].GetMaterial()->GetShader();
         s->SetDirectionalLight(Renderer::GetInstance()->GetDirLight());
-        s->SetPointLight(Renderer::GetInstance()->GetPointLight());
+        int pLCount = Renderer::GetInstance()->GetPointLightCount();
+        s->SetPointLightCount(pLCount);
+        for (int i = 0; i < pLCount; i++)
+        {
+            s->SetPointLight(i, Renderer::GetInstance()->GetPointLight(i));
+        }
         s->SetEyeWorldPos(Renderer::GetInstance()->GetEyePos());
         s->SetMatSpecularIntensity(0.5f);
         s->SetMatSpecularPower(0.5f);

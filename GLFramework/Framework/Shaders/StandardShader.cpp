@@ -6,6 +6,8 @@
 //  Copyright (c) 2016 Peter Kennedy. All rights reserved.
 //
 
+#include <string>
+
 #include "StandardShader.h"
 #include "Renderer.h"
 
@@ -34,13 +36,33 @@ bool StandardShader::Init()
     dirLightLocation.DiffuseIntensity = GetUniformLocation("gDirectionalLight.Base.DiffuseIntensity");
     
     // Point lighting
-    pointLightLocation.Color = GetUniformLocation("gPointLight.Base.Color");
-    pointLightLocation.AmbientIntensity = GetUniformLocation("gPointLight.Base.AmbientIntensity");
-    pointLightLocation.DiffuseIntensity = GetUniformLocation("gPointLight.Base.DiffuseIntensity");
-    pointLightLocation.Position = GetUniformLocation("gPointLight.Position");
-    pointLightLocation.Constant = GetUniformLocation("gPointLight.Atten.Constant");
-    pointLightLocation.Linear = GetUniformLocation("gPointLight.Atten.Linear");
-    pointLightLocation.Exp = GetUniformLocation("gPointLight.Atten.Exp");
+    for (int i = 0; i < MAX_POINT_LIGHTS; i++)
+    {
+        char buffer[128];
+        memset(buffer, 0, sizeof(buffer));
+        
+        sprintf(buffer, "gPointLight[%d].Base.Color", i);
+        pointLightLocation[i].Color = GetUniformLocation(buffer);
+        
+        sprintf(buffer, "gPointLight[%d].Base.AmbientIntensity", i);
+        pointLightLocation[i].AmbientIntensity = GetUniformLocation(buffer);
+        
+        sprintf(buffer, "gPointLight[%d].Base.DiffuseIntensity", i);
+        pointLightLocation[i].DiffuseIntensity = GetUniformLocation(buffer);
+        
+        sprintf(buffer, "gPointLight[%d].Position", i);
+        pointLightLocation[i].Position = GetUniformLocation(buffer);
+        
+        sprintf(buffer, "gPointLight[%d].Atten.Constant", i);
+        pointLightLocation[i].Constant = GetUniformLocation(buffer);
+        
+        sprintf(buffer, "gPointLight[%d].Atten.Linear", i);
+        pointLightLocation[i].Linear = GetUniformLocation(buffer);
+        
+        sprintf(buffer, "gPointLight[%d].Atten.Exp", i);
+        pointLightLocation[i].Exp = GetUniformLocation(buffer);
+    }
+    pointLightCount = GetUniformLocation("gNumPointLights");
     
     return true;
 }
@@ -80,17 +102,22 @@ void StandardShader::SetDirectionalLight(const DirectionalLight& Light)
     glUniform1f(dirLightLocation.DiffuseIntensity, Light.DiffuseIntensity);
 }
 
-void StandardShader::SetPointLight(const PointLight& Light)
+void StandardShader::SetPointLight(int index, const PointLight& Light)
 {
-    glUniform3f(pointLightLocation.Color, Light.Color.x, Light.Color.y, Light.Color.z);
-    glUniform1f(pointLightLocation.AmbientIntensity, Light.AmbientIntensity);
-    glUniform1f(pointLightLocation.DiffuseIntensity, Light.DiffuseIntensity);
+    glUniform3f(pointLightLocation[index].Color, Light.Color.x, Light.Color.y, Light.Color.z);
+    glUniform1f(pointLightLocation[index].AmbientIntensity, Light.AmbientIntensity);
+    glUniform1f(pointLightLocation[index].DiffuseIntensity, Light.DiffuseIntensity);
     
-    glUniform3f(pointLightLocation.Position, Light.Position.x, Light.Position.y, Light.Position.z);
-    glUniform1f(pointLightLocation.Constant, Light.Attenuation.Constant);
-    glUniform1f(pointLightLocation.Linear, Light.Attenuation.Linear);
-    glUniform1f(pointLightLocation.Exp, Light.Attenuation.Exp);
+    glUniform3f(pointLightLocation[index].Position, Light.Position.x, Light.Position.y, Light.Position.z);
+    glUniform1f(pointLightLocation[index].Constant, Light.Attenuation.Constant);
+    glUniform1f(pointLightLocation[index].Linear, Light.Attenuation.Linear);
+    glUniform1f(pointLightLocation[index].Exp, Light.Attenuation.Exp);
     
+}
+
+void StandardShader::SetPointLightCount(int count)
+{
+    glUniform1i(pointLightCount, count);
 }
 
 void StandardShader::Activate()
