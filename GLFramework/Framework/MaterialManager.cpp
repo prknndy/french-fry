@@ -26,7 +26,9 @@ MaterialManager::~MaterialManager()
 
 void MaterialManager::Initialize()
 {
-    defaultShader.CreateShader("./Resources/Shaders/StandardVert.glsl", "./Resources/Shaders/StandardFrag.glsl");
+    //defaultShader.CreateShader("./Resources/Shaders/StandardVert.glsl", "./Resources/Shaders/StandardFrag.glsl");
+    
+    defaultShader.CreateShader("./Resources/Shaders/PBRVert.glsl", "./Resources/Shaders/PBRFrag.glsl");
     
     DRdefaultShader.CreateShader("./Resources/Shaders/DRSimpleVert.glsl", "./Resources/Shaders/DRSimpleFrag.glsl");
     

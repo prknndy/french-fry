@@ -97,6 +97,8 @@ void Renderer::DRBeginGeometryPass()
     glEnable(GL_DEPTH_TEST);
     
     glDisable(GL_BLEND);
+    
+    MaterialManager::GetInstance()->GetDRDefaultShader()->Activate();
 }
 
 void Renderer::DRLightPass()
@@ -253,7 +255,7 @@ void Renderer::RemovePointLight(PointLight *pointLight)
 
 void Renderer::RenderModel(Model* model)
 {
-    
+
 }
 
 
@@ -271,7 +273,7 @@ void Renderer::RenderMesh(Mesh* mesh)
     }
     s->UseMaterial(m);
     s->Activate();
-    m->Bind();
+    //m->Bind();
     
     mesh->Render();
 }

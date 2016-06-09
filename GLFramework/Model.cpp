@@ -206,17 +206,6 @@ void Model::Render(Vector3 pos, Vector3 rot, Vector3 scale)
     Renderer::GetInstance()->SetWorldTrans(pos, rot, scale);
     for (int i = 0; i < meshes.size(); i++)
     {
-        /*StandardShader* s = (StandardShader*) meshes[i].GetMaterial()->GetShader();
-        s->SetDirectionalLight(Renderer::GetInstance()->GetDirLight());
-        int pLCount = Renderer::GetInstance()->GetPointLightCount();
-        s->SetPointLightCount(pLCount);
-        for (int i = 0; i < pLCount; i++)
-        {
-            s->SetPointLight(i, Renderer::GetInstance()->GetPointLight(i));
-        }
-        s->SetEyeWorldPos(Renderer::GetInstance()->GetEyePos());
-
-        meshes[i].Render();*/
         Renderer::GetInstance()->RenderMesh(&meshes[i]);
     }
     glBindVertexArray(0);

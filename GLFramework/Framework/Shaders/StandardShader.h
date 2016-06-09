@@ -24,6 +24,9 @@ protected:
     GLuint Texture0;
     
     GLuint eyeWorldPosLocation;
+    GLuint roughnessLocation;
+    GLuint linearRoughnessLocation;
+    GLuint f0Location;
     GLuint matSpecularIntensityLocation;
     GLuint matSpecularPowerLocation;
     
@@ -57,6 +60,8 @@ public:
     void SetDirectionalLight(const DirectionalLight& Light);
     void SetPointLight(int index, const PointLight& Light);
     void SetPointLightCount(int count);
+    void SetSmoothness(float smoothness);
+    void SetReflectence(float reflectence);
     virtual void UseMaterial(Material * mat);
     
     virtual void Activate();

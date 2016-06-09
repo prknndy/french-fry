@@ -65,6 +65,9 @@
 		202323471CF42A8600C8F63A /* hheli.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023233F1CF42A5700C8F63A /* hheli.mtl */; };
 		202323481CF42A8800C8F63A /* hheli.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323401CF42A5700C8F63A /* hheli.obj */; };
 		2023234A1CF42B7900C8F63A /* white.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323491CF42B6E00C8F63A /* white.png */; };
+		2023234C1CF7E92D00C8F63A /* ground.fbx in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023234B1CF7E92500C8F63A /* ground.fbx */; };
+		2023234F1CFE97E200C8F63A /* PBRFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023234D1CFE97CA00C8F63A /* PBRFrag.glsl */; };
+		202323501CFE97E400C8F63A /* PBRVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023234E1CFE97CA00C8F63A /* PBRVert.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +105,8 @@
 				2023232A1CF061BD00C8F63A /* DRLightSimpleFrag.glsl in CopyFiles */,
 				2023232B1CF061BF00C8F63A /* DRLightSimpleVert.glsl in CopyFiles */,
 				202323171CEEDF6300C8F63A /* DRSimpleFrag.glsl in CopyFiles */,
+				2023234F1CFE97E200C8F63A /* PBRFrag.glsl in CopyFiles */,
+				202323501CFE97E400C8F63A /* PBRVert.glsl in CopyFiles */,
 				2023232E1CF101A900C8F63A /* StandardFrag.glsl in CopyFiles */,
 				2023232F1CF101AC00C8F63A /* StandardVert.glsl in CopyFiles */,
 			);
@@ -139,6 +144,7 @@
 				202323481CF42A8800C8F63A /* hheli.obj in CopyFiles */,
 				202323471CF42A8600C8F63A /* hheli.mtl in CopyFiles */,
 				202323101CEEB12400C8F63A /* jeep.obj in CopyFiles */,
+				2023234C1CF7E92D00C8F63A /* ground.fbx in CopyFiles */,
 				202323001CEDABFC00C8F63A /* spider.obj in CopyFiles */,
 				202322F61CEC2FCF00C8F63A /* phoenix_ugv.md2 in CopyFiles */,
 			);
@@ -230,6 +236,9 @@
 		202323421CF42A5700C8F63A /* monkey.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = monkey.obj; path = Resources/Models/monkey.obj; sourceTree = "<group>"; };
 		202323431CF42A6500C8F63A /* hheli.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = hheli.bmp; path = Resources/Textures/hheli.bmp; sourceTree = "<group>"; };
 		202323491CF42B6E00C8F63A /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white.png; path = Resources/Textures/white.png; sourceTree = "<group>"; };
+		2023234B1CF7E92500C8F63A /* ground.fbx */ = {isa = PBXFileReference; lastKnownFileType = file; name = ground.fbx; path = Resources/Models/ground.fbx; sourceTree = "<group>"; };
+		2023234D1CFE97CA00C8F63A /* PBRFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PBRFrag.glsl; path = Resources/Shaders/PBRFrag.glsl; sourceTree = "<group>"; };
+		2023234E1CFE97CA00C8F63A /* PBRVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PBRVert.glsl; path = Resources/Shaders/PBRVert.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +324,8 @@
 		2023227F1CCAC40A00C8F63A /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				2023234D1CFE97CA00C8F63A /* PBRFrag.glsl */,
+				2023234E1CFE97CA00C8F63A /* PBRVert.glsl */,
 				2023232C1CF100DB00C8F63A /* StandardFrag.glsl */,
 				2023232D1CF100DB00C8F63A /* StandardVert.glsl */,
 				202323281CF061B600C8F63A /* DRLightSimpleFrag.glsl */,
@@ -407,6 +418,7 @@
 		202322F31CEC2FA800C8F63A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2023234B1CF7E92500C8F63A /* ground.fbx */,
 				2023233F1CF42A5700C8F63A /* hheli.mtl */,
 				202323401CF42A5700C8F63A /* hheli.obj */,
 				202323411CF42A5700C8F63A /* monkey.mtl */,

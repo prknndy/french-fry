@@ -41,6 +41,9 @@ uniform PointLight gPointLight[MAX_POINT_LIGHTS];
 uniform vec3 gEyeWorldPos;
 uniform float gMatSpecularIntensity;
 uniform float gMatSpecularPower;
+uniform float gRoughness;
+uniform float gLinearRoughness;
+uniform vec3 gF0;
 
 vec4 CalcLightInternal(BaseLight Light, vec3 LightDirection, vec3 WorldPos, vec3 Normal)
 {
