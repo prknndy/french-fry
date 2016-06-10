@@ -30,7 +30,8 @@ bool StandardShader::Init()
     //matSpecularPowerLocation = GetUniformLocation("gMatSpecularPower");
     roughnessLocation = GetUniformLocation("gRoughness");
     linearRoughnessLocation = GetUniformLocation("gLinearRoughness");
-    f0Location = GetUniformLocation("gF0");
+    metalMaskLocation = GetUniformLocation("gMetalMask");
+    reflectivityLocation = GetUniformLocation("gReflectivity");
     
     // Dir lighting
     dirLightLocation.Color = GetUniformLocation("gDirectionalLight.Base.Color");
@@ -98,8 +99,10 @@ void StandardShader::SetMatSpecularPower(float matPower)
 // roughness = 1.0f - smoothness, linear smoothness = (1 - smoothness)^4
 void StandardShader::SetSmoothness(float smoothness)
 {
-    float roughness = 1.0f - smoothness;
-    float linearRoughness = roughness;//(1.0f - smoothness)*(1.0f - smoothness)*(1.0f - smoothness)*(1.0f - smoothness);
+    float linearRoughness = 1.0f - smoothness;
+    //float linearRoughness = roughness;//(1.0f - smoothness)*(1.0f - smoothness)*(1.0f - smoothness)*(1.0f - smoothness);
+    float roughness = (0.5f + (linearRoughness / 2.0f)) * (0.5f + (linearRoughness / 2.0f));
+    
     glUniform1f(roughnessLocation, roughness);
     glUniform1f(linearRoughnessLocation, linearRoughness);
 }
@@ -107,8 +110,13 @@ void StandardShader::SetSmoothness(float smoothness)
 void StandardShader:: SetReflectence(float reflectence)
 {
     //glUniform3f(f0Location, f0.x, f0.y, f0.z);
-    float f0 = 0.16f * reflectence * reflectence;
-    glUniform3f(f0Location, f0, f0, f0);
+    //float f0 = 0.16f * reflectence * reflectence;
+    glUniform1f(reflectivityLocation, reflectence);
+}
+
+void StandardShader::SetMetalMask(float metalMask)
+{
+    glUniform1f(metalMaskLocation, metalMask);
 }
 
 void StandardShader::SetDirectionalLight(const DirectionalLight& Light)
@@ -168,11 +176,14 @@ void StandardShader::Activate()
 
 void StandardShader::UseMaterial(Material * mat)
 {
-    // FIX
     //SetMatSpecularIntensity(0.5f);
     //SetMatSpecularPower(0.5f);
-    SetReflectence(0.5f);
-    SetSmoothness(0.5f);
+    
+    MaterialParameters* params = mat->GetParameters();
+    
+    SetReflectence(params->reflectivity);
+    SetSmoothness(params->smoothness);
+    SetMetalMask(params->metal);
     
     glUniform1i(Texture0, 0);
 }

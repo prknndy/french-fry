@@ -14,6 +14,11 @@ void Material::Create(Shader* _shader, Texture* _texture)
     this->texture = _texture;
 }
 
+void Material::SetParameters(MaterialParameters mp)
+{
+    parameters = mp;
+}
+
 void Material::SetShader(Shader* _shader)
 {
     this->shader = _shader;

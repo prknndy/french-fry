@@ -26,7 +26,8 @@ protected:
     GLuint eyeWorldPosLocation;
     GLuint roughnessLocation;
     GLuint linearRoughnessLocation;
-    GLuint f0Location;
+    GLuint metalMaskLocation;
+    GLuint reflectivityLocation;
     GLuint matSpecularIntensityLocation;
     GLuint matSpecularPowerLocation;
     
@@ -62,6 +63,7 @@ public:
     void SetPointLightCount(int count);
     void SetSmoothness(float smoothness);
     void SetReflectence(float reflectence);
+    void SetMetalMask(float metalMask);
     virtual void UseMaterial(Material * mat);
     
     virtual void Activate();

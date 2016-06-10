@@ -68,6 +68,19 @@
 		2023234C1CF7E92D00C8F63A /* ground.fbx in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023234B1CF7E92500C8F63A /* ground.fbx */; };
 		2023234F1CFE97E200C8F63A /* PBRFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023234D1CFE97CA00C8F63A /* PBRFrag.glsl */; };
 		202323501CFE97E400C8F63A /* PBRVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023234E1CFE97CA00C8F63A /* PBRVert.glsl */; };
+		20A6CF2A1D09647600A05A3C /* deer texture.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF291D09646700A05A3C /* deer texture.tga */; };
+		20A6CF2B1D09647F00A05A3C /* deer-obj.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF271D09645500A05A3C /* deer-obj.mtl */; };
+		20A6CF2C1D09648100A05A3C /* deer-obj.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF281D09645500A05A3C /* deer-obj.obj */; };
+		20A6CF2E1D09651D00A05A3C /* deer texture.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF2D1D09651000A05A3C /* deer texture.png */; };
+		20A6CF301D096CAB00A05A3C /* Sofa.FBX in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF2F1D096C9D00A05A3C /* Sofa.FBX */; };
+		20A6CF331D096D3400A05A3C /* SoftSofa.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF311D096D2E00A05A3C /* SoftSofa.mtl */; };
+		20A6CF341D096D3600A05A3C /* SoftSofa.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF321D096D2E00A05A3C /* SoftSofa.obj */; };
+		20A6CF3B1D0AABF700A05A3C /* quad.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF351D0AABEF00A05A3C /* quad.mtl */; };
+		20A6CF3C1D0AABF900A05A3C /* quad.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF361D0AABEF00A05A3C /* quad.obj */; };
+		20A6CF3D1D0AABFB00A05A3C /* quad2.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF371D0AABEF00A05A3C /* quad2.mtl */; };
+		20A6CF3E1D0AABFD00A05A3C /* quad2.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF381D0AABEF00A05A3C /* quad2.obj */; };
+		20A6CF3F1D0AABFF00A05A3C /* sphere.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF391D0AABEF00A05A3C /* sphere.mtl */; };
+		20A6CF401D0AAC0200A05A3C /* sphere.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF3A1D0AABEF00A05A3C /* sphere.obj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,9 +137,11 @@
 				202323441CF42A6F00C8F63A /* hheli.bmp in CopyFiles */,
 				202323071CEEAD6F00C8F63A /* engineflare1.jpg in CopyFiles */,
 				2023234A1CF42B7900C8F63A /* white.png in CopyFiles */,
+				20A6CF2A1D09647600A05A3C /* deer texture.tga in CopyFiles */,
 				202323061CEEAD6B00C8F63A /* drkwood2.jpg in CopyFiles */,
 				2023230E1CEEB11D00C8F63A /* jeep_rood.jpg in CopyFiles */,
 				2023230D1CEEB11B00C8F63A /* jeep_army.jpg in CopyFiles */,
+				20A6CF2E1D09651D00A05A3C /* deer texture.png in CopyFiles */,
 				202322E91CEC123D00C8F63A /* sample.png in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,13 +153,24 @@
 			dstSubfolderSpec = 7;
 			files = (
 				202322FF1CEDABFC00C8F63A /* spider.mtl in CopyFiles */,
+				20A6CF2B1D09647F00A05A3C /* deer-obj.mtl in CopyFiles */,
+				20A6CF2C1D09648100A05A3C /* deer-obj.obj in CopyFiles */,
 				202323451CF42A7600C8F63A /* monkey.mtl in CopyFiles */,
 				202323461CF42A7900C8F63A /* monkey.obj in CopyFiles */,
+				20A6CF301D096CAB00A05A3C /* Sofa.FBX in CopyFiles */,
 				2023230F1CEEB12100C8F63A /* jeep.mtl in CopyFiles */,
 				202323481CF42A8800C8F63A /* hheli.obj in CopyFiles */,
 				202323471CF42A8600C8F63A /* hheli.mtl in CopyFiles */,
 				202323101CEEB12400C8F63A /* jeep.obj in CopyFiles */,
 				2023234C1CF7E92D00C8F63A /* ground.fbx in CopyFiles */,
+				20A6CF3D1D0AABFB00A05A3C /* quad2.mtl in CopyFiles */,
+				20A6CF3E1D0AABFD00A05A3C /* quad2.obj in CopyFiles */,
+				20A6CF3F1D0AABFF00A05A3C /* sphere.mtl in CopyFiles */,
+				20A6CF3B1D0AABF700A05A3C /* quad.mtl in CopyFiles */,
+				20A6CF401D0AAC0200A05A3C /* sphere.obj in CopyFiles */,
+				20A6CF3C1D0AABF900A05A3C /* quad.obj in CopyFiles */,
+				20A6CF331D096D3400A05A3C /* SoftSofa.mtl in CopyFiles */,
+				20A6CF341D096D3600A05A3C /* SoftSofa.obj in CopyFiles */,
 				202323001CEDABFC00C8F63A /* spider.obj in CopyFiles */,
 				202322F61CEC2FCF00C8F63A /* phoenix_ugv.md2 in CopyFiles */,
 			);
@@ -239,6 +265,19 @@
 		2023234B1CF7E92500C8F63A /* ground.fbx */ = {isa = PBXFileReference; lastKnownFileType = file; name = ground.fbx; path = Resources/Models/ground.fbx; sourceTree = "<group>"; };
 		2023234D1CFE97CA00C8F63A /* PBRFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PBRFrag.glsl; path = Resources/Shaders/PBRFrag.glsl; sourceTree = "<group>"; };
 		2023234E1CFE97CA00C8F63A /* PBRVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PBRVert.glsl; path = Resources/Shaders/PBRVert.glsl; sourceTree = "<group>"; };
+		20A6CF271D09645500A05A3C /* deer-obj.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "deer-obj.mtl"; path = "Resources/Models/deer-obj.mtl"; sourceTree = "<group>"; };
+		20A6CF281D09645500A05A3C /* deer-obj.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "deer-obj.obj"; path = "Resources/Models/deer-obj.obj"; sourceTree = "<group>"; };
+		20A6CF291D09646700A05A3C /* deer texture.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = "deer texture.tga"; path = "Resources/Textures/deer texture.tga"; sourceTree = "<group>"; };
+		20A6CF2D1D09651000A05A3C /* deer texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "deer texture.png"; path = "Resources/Textures/deer texture.png"; sourceTree = "<group>"; };
+		20A6CF2F1D096C9D00A05A3C /* Sofa.FBX */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sofa.FBX; path = Resources/Models/Sofa.FBX; sourceTree = "<group>"; };
+		20A6CF311D096D2E00A05A3C /* SoftSofa.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SoftSofa.mtl; path = Resources/Models/SoftSofa.mtl; sourceTree = "<group>"; };
+		20A6CF321D096D2E00A05A3C /* SoftSofa.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SoftSofa.obj; path = Resources/Models/SoftSofa.obj; sourceTree = "<group>"; };
+		20A6CF351D0AABEF00A05A3C /* quad.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = quad.mtl; path = Resources/Models/quad.mtl; sourceTree = "<group>"; };
+		20A6CF361D0AABEF00A05A3C /* quad.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = quad.obj; path = Resources/Models/quad.obj; sourceTree = "<group>"; };
+		20A6CF371D0AABEF00A05A3C /* quad2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = quad2.mtl; path = Resources/Models/quad2.mtl; sourceTree = "<group>"; };
+		20A6CF381D0AABEF00A05A3C /* quad2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = quad2.obj; path = Resources/Models/quad2.obj; sourceTree = "<group>"; };
+		20A6CF391D0AABEF00A05A3C /* sphere.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sphere.mtl; path = Resources/Models/sphere.mtl; sourceTree = "<group>"; };
+		20A6CF3A1D0AABEF00A05A3C /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sphere.obj; path = Resources/Models/sphere.obj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,6 +440,8 @@
 		202322E61CEC11EB00C8F63A /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				20A6CF2D1D09651000A05A3C /* deer texture.png */,
+				20A6CF291D09646700A05A3C /* deer texture.tga */,
 				202323491CF42B6E00C8F63A /* white.png */,
 				202323431CF42A6500C8F63A /* hheli.bmp */,
 				2023230B1CEEB11100C8F63A /* jeep_army.jpg */,
@@ -418,6 +459,17 @@
 		202322F31CEC2FA800C8F63A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				20A6CF351D0AABEF00A05A3C /* quad.mtl */,
+				20A6CF361D0AABEF00A05A3C /* quad.obj */,
+				20A6CF371D0AABEF00A05A3C /* quad2.mtl */,
+				20A6CF381D0AABEF00A05A3C /* quad2.obj */,
+				20A6CF391D0AABEF00A05A3C /* sphere.mtl */,
+				20A6CF3A1D0AABEF00A05A3C /* sphere.obj */,
+				20A6CF311D096D2E00A05A3C /* SoftSofa.mtl */,
+				20A6CF321D096D2E00A05A3C /* SoftSofa.obj */,
+				20A6CF2F1D096C9D00A05A3C /* Sofa.FBX */,
+				20A6CF271D09645500A05A3C /* deer-obj.mtl */,
+				20A6CF281D09645500A05A3C /* deer-obj.obj */,
 				2023234B1CF7E92500C8F63A /* ground.fbx */,
 				2023233F1CF42A5700C8F63A /* hheli.mtl */,
 				202323401CF42A5700C8F63A /* hheli.obj */,

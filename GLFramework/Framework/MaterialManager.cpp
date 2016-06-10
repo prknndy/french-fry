@@ -34,8 +34,16 @@ void MaterialManager::Initialize()
     
     defaultTexture.Create("./Resources/Textures/white.png");
     
+    MaterialParameters mp = MaterialParameters();
+    mp.smoothness = 0.9f;
+    mp.reflectivity = 0.9f;
+    mp.metal = 0.0f;
+    
     defaultMaterial.Create(&defaultShader, &defaultTexture);
+    defaultMaterial.SetParameters(mp);
+    
     DRdefaultMaterial.Create(&DRdefaultShader, &defaultTexture);
+    DRdefaultMaterial.SetParameters(mp);
 }
 
 void MaterialManager::DRInitialize()

@@ -31,6 +31,9 @@ public:
     void Render();
     void Render(Matrix4f* transform);
     void Render(Vector3 pos, Vector3 rot, Vector3 scale);
+    
+    // Util
+    bool CreateQuad();
 };
 
 #endif /* defined(__GLFramework__Model__) */

@@ -18,6 +18,6 @@ void main()
     gl_Position = gWVP * vec4(position, 1.0);
     Color = color;
     Texcoord = texcoord;
-    Normal = (gWorld * vec4(normal, 0.0)).xyz;
+    Normal = normalize((gWorld * vec4(normal, 0.0)).xyz);
     WorldPos = (gWorld * vec4(position, 1.0)).xyz;
 }

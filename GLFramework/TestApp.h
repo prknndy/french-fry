@@ -23,10 +23,20 @@ class TestApp : public App
     Vector3 pos2;
     Vector3 scale2;
     
+    Model* model3;
+    Mesh* mesh;
+    Vector3 pos3;
+    Vector3 rot3;
+    Vector3 scale3;
+    
     DirectionalLight* dirLight;
     PointLight* pLight1;
     PointLight* pLight2;
     PointLight* pLight3;
+    
+    bool mouseMove;
+    Vector2 lastMousePos;
+    Vector3 cameraRot;
 protected:
     virtual void PostInitialize();
     virtual void Update();
