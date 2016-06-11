@@ -81,7 +81,72 @@ void Mesh::CreateQuad()
 
 }
 
-
+void Mesh::CreateCube()
+{
+    float vertices[] = {
+        // Front
+        1.0f,  1.0f, -1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,  0.0f, 0.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,  0.0f, 0.0f, -1.0f,
+         -1.0f, -1.0f, -1.0f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,  0.0f, 0.0f, -1.0f,
+         -1.0f,  1.0f, -1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,  0.0f, 0.0f, -1.0f,
+        // Back
+        -1.0f,  1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,  0.0f, 0.0f, 1.0f,
+        -1.0f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,  0.0f, 0.0f, 1.0f,
+         1.0f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,  0.0f, 0.0f, 1.0f,
+         1.0f,  1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,  0.0f, 0.0f, 1.0f,
+        // Left
+        -1.0f,  1.0f, -1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,  -1.0f, 0.0f, 0.0f,
+        -1.0f, -1.0f, -1.0f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,  -1.0f, 0.0f, 0.0f,
+        -1.0f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,  -1.0f, 0.0f, 0.0f,
+        -1.0f,  1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,  -1.0f, 0.0f, 0.0f,
+        // Right
+        1.0f,  1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,  1.0f, 0.0f, 0.0f,
+        1.0f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,  1.0f, 0.0f, 0.0f,
+        1.0f, -1.0f, -1.0f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,  1.0f, 0.0f, 0.0f,
+        1.0f,  1.0f, -1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,  1.0f, 0.0f, 0.0f,
+        // Top
+        1.0f,  1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,  0.0f, 1.0f, 0.0f,
+        1.0f, 1.0f, -1.0f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,  0.0f, 1.0f, 0.0f,
+        -1.0f, 1.0f, -1.0f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,  0.0f, 1.0f, 0.0f,
+        -1.0f,  1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,  0.0f, 1.0f, 0.0f,
+        // Bottom
+        1.0f,  -1.0f, -1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 0.0f,  0.0f, -1.0f, 0.0f,
+        1.0f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  1.0f, 0.0f,  0.0f, -1.0f, 0.0f,
+        -1.0f, -1.0f, 1.0f,  1.0f, 1.0f, 1.0f,  1.0f, 1.0f,  0.0f, -1.0f, 0.0f,
+        -1.0f,  -1.0f, -1.0f,  1.0f, 1.0f, 1.0f,  0.0f, 1.0f,  0.0f, -1.0f, 0.0f,
+    };
+    
+    glGenBuffers(1, &vbo); // Generate 1 buffer
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    
+    numIndices = 36;
+    
+    GLuint indices[] = {
+        0, 1, 2,
+        2, 3, 0,
+        
+        4, 5, 6,
+        6, 7, 4,
+        
+        8, 9, 10,
+        10, 11, 8,
+        
+        12, 13, 14,
+        14, 15, 12,
+        
+        16, 17, 18,
+        18, 19, 16,
+        
+        20, 21, 22,
+        22, 23, 20
+        
+    };
+    
+    glGenBuffers(1, &ibo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+}
 
 void Mesh::Create(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices)
 {

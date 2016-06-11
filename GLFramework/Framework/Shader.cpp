@@ -14,6 +14,8 @@
 
 bool Shader::CompileShader(const char* vertFilename, const char* fragFilename)
 {
+    
+    
     GLint status;
     
     // Load vertex shader
@@ -112,6 +114,9 @@ void Shader::Validate()
 
 bool Shader::CreateShader(const char* vertFilename, const char* fragFilename)
 {
+    LogDebug("Creating Shader:");
+    LogDebug(fragFilename);
+    
     if (!CompileShader(vertFilename, fragFilename))
     {
         return false;

@@ -17,6 +17,7 @@
 #include "Texture.h"
 #include "Model.h"
 #include "Lighting.h"
+#include "Skybox.h"
 
 #include "Renderer.h"
 #include "MaterialManager.h"

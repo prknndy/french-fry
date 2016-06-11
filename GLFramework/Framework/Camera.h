@@ -23,6 +23,21 @@ public:
     Vector3 GetUp() { return up; };
     Vector3 GetForward() { return forward; };
     
+    void SetLocation(Vector3 _location)
+    {
+        location = _location;
+    }
+    
+    void SetUp(Vector3 _up)
+    {
+        up = _up;
+    }
+    
+    void SetForward(Vector3 _forward)
+    {
+        forward = _forward;
+    }
+    
 };
 
 #endif /* defined(__GLFramework__Camera__) */

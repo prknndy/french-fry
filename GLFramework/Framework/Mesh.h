@@ -29,6 +29,7 @@ public:
     ~Mesh();
     void Create();
     void CreateQuad();
+    void CreateCube();
     void Create(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices);
     
     void Render(Material* mat);

@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 Peter Kennedy. All rights reserved.
 //
 
+#include "CubeTexture.h"
 #include "MaterialManager.h"
 #include "Util.h"
 
@@ -32,11 +33,13 @@ void MaterialManager::Initialize()
     
     DRdefaultShader.CreateShader("./Resources/Shaders/DRSimpleVert.glsl", "./Resources/Shaders/DRSimpleFrag.glsl");
     
+    skyboxShader.CreateShader("./Resources/Shaders/SkyboxVert.glsl", "./Resources/Shaders/SkyboxFrag.glsl");
+    
     defaultTexture.Create("./Resources/Textures/white.png");
     
     MaterialParameters mp = MaterialParameters();
-    mp.smoothness = 0.9f;
-    mp.reflectivity = 0.9f;
+    mp.smoothness = 0.98f;
+    mp.reflectivity = 0.2f;
     mp.metal = 0.0f;
     
     defaultMaterial.Create(&defaultShader, &defaultTexture);
@@ -81,6 +84,17 @@ Texture* MaterialManager::CreateTexture(std::string filename)
     return t;
 }
 
+CubeTexture* MaterialManager::CreateCubeTexture(std::string name, std::vector<const char*> filenames)
+{
+    CubeTexture* t = new CubeTexture();
+    if (!t->Create(name.c_str(), filenames))
+    {
+        return NULL;
+    }
+    
+    return t;
+}
+
 Material* MaterialManager::GetMaterial(std::string matID)
 {
     auto it = materials.find(matID);
@@ -118,6 +132,24 @@ Material* MaterialManager::CreateMaterial(string name, string filename)
     
     Material* mat = new Material();
     mat->Create(&defaultShader, tex);
+    
+    return mat;
+}
+
+Material* MaterialManager::CreateSkyboxMaterial(std::string name, std::vector<const char*> filenames)
+{
+    LogDebug("Creating Skybox Material:");
+    LogDebug(name.c_str());
+    
+    CubeTexture* tex = CreateCubeTexture(name, filenames);
+    if (tex == NULL)
+    {
+        LogError("Failed Creating Material", name.c_str());
+        return NULL;
+    }
+    
+    Material* mat = new Material();
+    mat->Create(&skyboxShader, tex);
     
     return mat;
 }

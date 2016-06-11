@@ -29,6 +29,8 @@ class TestApp : public App
     Vector3 rot3;
     Vector3 scale3;
     
+    Skybox* skybox;
+    
     DirectionalLight* dirLight;
     PointLight* pLight1;
     PointLight* pLight2;
@@ -37,6 +39,7 @@ class TestApp : public App
     bool mouseMove;
     Vector2 lastMousePos;
     Vector3 cameraRot;
+    float cameraOffset;
 protected:
     virtual void PostInitialize();
     virtual void Update();

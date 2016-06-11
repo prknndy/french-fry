@@ -15,8 +15,6 @@
 		202322791CCABA3A00C8F63A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 202322781CCABA3A00C8F63A /* Cocoa.framework */; };
 		2023227B1CCABA4100C8F63A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2023227A1CCABA4100C8F63A /* IOKit.framework */; };
 		2023227D1CCABA4700C8F63A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2023227C1CCABA4700C8F63A /* CoreVideo.framework */; };
-		202322C21CCAE1CF00C8F63A /* SimpleFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322841CCAD02C00C8F63A /* SimpleFrag.glsl */; };
-		202322C31CCAE1CF00C8F63A /* SimpleVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322831CCAD02000C8F63A /* SimpleVert.glsl */; };
 		202322C71CE58AF500C8F63A /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202322C51CE58AF500C8F63A /* Camera.cpp */; };
 		202322CB1CE58E3E00C8F63A /* Math3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202322CA1CE58E3E00C8F63A /* Math3D.cpp */; };
 		202322CE1CE6D07500C8F63A /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202322CC1CE6D07500C8F63A /* Renderer.cpp */; };
@@ -26,61 +24,24 @@
 		202322DA1CEACAD200C8F63A /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202322D81CEACAD200C8F63A /* Util.cpp */; };
 		202322E31CEAE76B00C8F63A /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202322E11CEAE76B00C8F63A /* Texture.cpp */; };
 		202322E51CEAF35900C8F63A /* libassimpd.3.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 202322E41CEAF35900C8F63A /* libassimpd.3.2.0.dylib */; };
-		202322E91CEC123D00C8F63A /* sample.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322E71CEC11F800C8F63A /* sample.png */; };
 		202322EF1CEC1A1100C8F63A /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 202322EE1CEC1A1100C8F63A /* libSOIL.a */; };
 		202322F21CEC1EEE00C8F63A /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202322F01CEC1EEE00C8F63A /* Model.cpp */; };
-		202322F61CEC2FCF00C8F63A /* phoenix_ugv.md2 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322F41CEC2FB500C8F63A /* phoenix_ugv.md2 */; };
 		202322F91CED97E000C8F63A /* MaterialManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202322F71CED97E000C8F63A /* MaterialManager.cpp */; };
-		202322FB1CEDA9B900C8F63A /* phoenix.pcx in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322FA1CEDA9A100C8F63A /* phoenix.pcx */; };
-		202322FF1CEDABFC00C8F63A /* spider.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322FD1CEDABF000C8F63A /* spider.mtl */; };
-		202323001CEDABFC00C8F63A /* spider.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322FE1CEDABF000C8F63A /* spider.obj */; };
-		202323011CEDAC0600C8F63A /* SpiderTex.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202322FC1CEDABE500C8F63A /* SpiderTex.jpg */; };
-		202323061CEEAD6B00C8F63A /* drkwood2.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323021CEEAD5400C8F63A /* drkwood2.jpg */; };
-		202323071CEEAD6F00C8F63A /* engineflare1.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323031CEEAD5400C8F63A /* engineflare1.jpg */; };
-		202323081CEEAD7500C8F63A /* wal67ar_small.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323041CEEAD5400C8F63A /* wal67ar_small.jpg */; };
-		2023230D1CEEB11B00C8F63A /* jeep_army.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023230B1CEEB11100C8F63A /* jeep_army.jpg */; };
-		2023230E1CEEB11D00C8F63A /* jeep_rood.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023230C1CEEB11100C8F63A /* jeep_rood.jpg */; };
-		2023230F1CEEB12100C8F63A /* jeep.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323091CEEB10400C8F63A /* jeep.mtl */; };
-		202323101CEEB12400C8F63A /* jeep.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023230A1CEEB10400C8F63A /* jeep.obj */; };
 		202323141CEECFD700C8F63A /* GBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323121CEECFD700C8F63A /* GBuffer.cpp */; };
-		202323171CEEDF6300C8F63A /* DRSimpleFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323161CEED91600C8F63A /* DRSimpleFrag.glsl */; };
-		202323191CEEDF6E00C8F63A /* DRSimpleVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323151CEED82700C8F63A /* DRSimpleVert.glsl */; };
 		2023231E1CF0051C00C8F63A /* DRLightShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2023231C1CF0051C00C8F63A /* DRLightShader.cpp */; };
 		202323221CF00EF500C8F63A /* StandardShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323201CF00EF500C8F63A /* StandardShader.cpp */; };
 		202323251CF0122700C8F63A /* Lighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323231CF0122700C8F63A /* Lighting.cpp */; };
-		202323261CF01A7A00C8F63A /* DRLightVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023231A1CF0024200C8F63A /* DRLightVert.glsl */; };
-		202323271CF01A8200C8F63A /* DRDirLightFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023231B1CF0024200C8F63A /* DRDirLightFrag.glsl */; };
-		2023232A1CF061BD00C8F63A /* DRLightSimpleFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323281CF061B600C8F63A /* DRLightSimpleFrag.glsl */; };
-		2023232B1CF061BF00C8F63A /* DRLightSimpleVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323291CF061B600C8F63A /* DRLightSimpleVert.glsl */; };
-		2023232E1CF101A900C8F63A /* StandardFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023232C1CF100DB00C8F63A /* StandardFrag.glsl */; };
-		2023232F1CF101AC00C8F63A /* StandardVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023232D1CF100DB00C8F63A /* StandardVert.glsl */; };
 		202323321CF1060200C8F63A /* UnlitShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323301CF1060200C8F63A /* UnlitShader.cpp */; };
 		202323351CF2912100C8F63A /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323331CF2912100C8F63A /* App.cpp */; };
 		202323381CF2961800C8F63A /* TestApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323361CF2961800C8F63A /* TestApp.cpp */; };
 		2023233B1CF29EDD00C8F63A /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202323391CF29EDD00C8F63A /* Time.cpp */; };
 		2023233E1CF2A13400C8F63A /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2023233C1CF2A13400C8F63A /* Input.cpp */; };
-		202323441CF42A6F00C8F63A /* hheli.bmp in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323431CF42A6500C8F63A /* hheli.bmp */; };
-		202323451CF42A7600C8F63A /* monkey.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323411CF42A5700C8F63A /* monkey.mtl */; };
-		202323461CF42A7900C8F63A /* monkey.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323421CF42A5700C8F63A /* monkey.obj */; };
-		202323471CF42A8600C8F63A /* hheli.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023233F1CF42A5700C8F63A /* hheli.mtl */; };
-		202323481CF42A8800C8F63A /* hheli.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323401CF42A5700C8F63A /* hheli.obj */; };
-		2023234A1CF42B7900C8F63A /* white.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 202323491CF42B6E00C8F63A /* white.png */; };
-		2023234C1CF7E92D00C8F63A /* ground.fbx in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023234B1CF7E92500C8F63A /* ground.fbx */; };
-		2023234F1CFE97E200C8F63A /* PBRFrag.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023234D1CFE97CA00C8F63A /* PBRFrag.glsl */; };
-		202323501CFE97E400C8F63A /* PBRVert.glsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2023234E1CFE97CA00C8F63A /* PBRVert.glsl */; };
-		20A6CF2A1D09647600A05A3C /* deer texture.tga in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF291D09646700A05A3C /* deer texture.tga */; };
-		20A6CF2B1D09647F00A05A3C /* deer-obj.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF271D09645500A05A3C /* deer-obj.mtl */; };
-		20A6CF2C1D09648100A05A3C /* deer-obj.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF281D09645500A05A3C /* deer-obj.obj */; };
-		20A6CF2E1D09651D00A05A3C /* deer texture.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF2D1D09651000A05A3C /* deer texture.png */; };
-		20A6CF301D096CAB00A05A3C /* Sofa.FBX in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF2F1D096C9D00A05A3C /* Sofa.FBX */; };
-		20A6CF331D096D3400A05A3C /* SoftSofa.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF311D096D2E00A05A3C /* SoftSofa.mtl */; };
-		20A6CF341D096D3600A05A3C /* SoftSofa.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF321D096D2E00A05A3C /* SoftSofa.obj */; };
-		20A6CF3B1D0AABF700A05A3C /* quad.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF351D0AABEF00A05A3C /* quad.mtl */; };
-		20A6CF3C1D0AABF900A05A3C /* quad.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF361D0AABEF00A05A3C /* quad.obj */; };
-		20A6CF3D1D0AABFB00A05A3C /* quad2.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF371D0AABEF00A05A3C /* quad2.mtl */; };
-		20A6CF3E1D0AABFD00A05A3C /* quad2.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF381D0AABEF00A05A3C /* quad2.obj */; };
-		20A6CF3F1D0AABFF00A05A3C /* sphere.mtl in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF391D0AABEF00A05A3C /* sphere.mtl */; };
-		20A6CF401D0AAC0200A05A3C /* sphere.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF3A1D0AABEF00A05A3C /* sphere.obj */; };
+		20A6CF431D0BE83D00A05A3C /* CubeTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20A6CF411D0BE83D00A05A3C /* CubeTexture.cpp */; };
+		20A6CF451D0BECFA00A05A3C /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 20A6CF441D0BECE700A05A3C /* Models */; };
+		20A6CF4A1D0BEF3900A05A3C /* Models in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF441D0BECE700A05A3C /* Models */; };
+		20A6CF4F1D0BEF8900A05A3C /* Shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF4B1D0BEF5800A05A3C /* Shaders */; };
+		20A6CF501D0BEF9200A05A3C /* Textures in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20A6CF4D1D0BEF6600A05A3C /* Textures */; };
+		20A6CF531D0BFC8400A05A3C /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20A6CF511D0BFC8400A05A3C /* Skybox.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,75 +65,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		202322C11CCAE1BE00C8F63A /* CopyFiles */ = {
+		20A6CF491D0BEF3300A05A3C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = Resources/Shaders;
+			dstPath = Resources;
 			dstSubfolderSpec = 7;
 			files = (
-				202322C21CCAE1CF00C8F63A /* SimpleFrag.glsl in CopyFiles */,
-				202323271CF01A8200C8F63A /* DRDirLightFrag.glsl in CopyFiles */,
-				202322C31CCAE1CF00C8F63A /* SimpleVert.glsl in CopyFiles */,
-				202323261CF01A7A00C8F63A /* DRLightVert.glsl in CopyFiles */,
-				202323191CEEDF6E00C8F63A /* DRSimpleVert.glsl in CopyFiles */,
-				2023232A1CF061BD00C8F63A /* DRLightSimpleFrag.glsl in CopyFiles */,
-				2023232B1CF061BF00C8F63A /* DRLightSimpleVert.glsl in CopyFiles */,
-				202323171CEEDF6300C8F63A /* DRSimpleFrag.glsl in CopyFiles */,
-				2023234F1CFE97E200C8F63A /* PBRFrag.glsl in CopyFiles */,
-				202323501CFE97E400C8F63A /* PBRVert.glsl in CopyFiles */,
-				2023232E1CF101A900C8F63A /* StandardFrag.glsl in CopyFiles */,
-				2023232F1CF101AC00C8F63A /* StandardVert.glsl in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		202322E81CEC122F00C8F63A /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = Resources/Textures;
-			dstSubfolderSpec = 7;
-			files = (
-				202323011CEDAC0600C8F63A /* SpiderTex.jpg in CopyFiles */,
-				202322FB1CEDA9B900C8F63A /* phoenix.pcx in CopyFiles */,
-				202323081CEEAD7500C8F63A /* wal67ar_small.jpg in CopyFiles */,
-				202323441CF42A6F00C8F63A /* hheli.bmp in CopyFiles */,
-				202323071CEEAD6F00C8F63A /* engineflare1.jpg in CopyFiles */,
-				2023234A1CF42B7900C8F63A /* white.png in CopyFiles */,
-				20A6CF2A1D09647600A05A3C /* deer texture.tga in CopyFiles */,
-				202323061CEEAD6B00C8F63A /* drkwood2.jpg in CopyFiles */,
-				2023230E1CEEB11D00C8F63A /* jeep_rood.jpg in CopyFiles */,
-				2023230D1CEEB11B00C8F63A /* jeep_army.jpg in CopyFiles */,
-				20A6CF2E1D09651D00A05A3C /* deer texture.png in CopyFiles */,
-				202322E91CEC123D00C8F63A /* sample.png in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		202322F51CEC2FBE00C8F63A /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = Resources/Models;
-			dstSubfolderSpec = 7;
-			files = (
-				202322FF1CEDABFC00C8F63A /* spider.mtl in CopyFiles */,
-				20A6CF2B1D09647F00A05A3C /* deer-obj.mtl in CopyFiles */,
-				20A6CF2C1D09648100A05A3C /* deer-obj.obj in CopyFiles */,
-				202323451CF42A7600C8F63A /* monkey.mtl in CopyFiles */,
-				202323461CF42A7900C8F63A /* monkey.obj in CopyFiles */,
-				20A6CF301D096CAB00A05A3C /* Sofa.FBX in CopyFiles */,
-				2023230F1CEEB12100C8F63A /* jeep.mtl in CopyFiles */,
-				202323481CF42A8800C8F63A /* hheli.obj in CopyFiles */,
-				202323471CF42A8600C8F63A /* hheli.mtl in CopyFiles */,
-				202323101CEEB12400C8F63A /* jeep.obj in CopyFiles */,
-				2023234C1CF7E92D00C8F63A /* ground.fbx in CopyFiles */,
-				20A6CF3D1D0AABFB00A05A3C /* quad2.mtl in CopyFiles */,
-				20A6CF3E1D0AABFD00A05A3C /* quad2.obj in CopyFiles */,
-				20A6CF3F1D0AABFF00A05A3C /* sphere.mtl in CopyFiles */,
-				20A6CF3B1D0AABF700A05A3C /* quad.mtl in CopyFiles */,
-				20A6CF401D0AAC0200A05A3C /* sphere.obj in CopyFiles */,
-				20A6CF3C1D0AABF900A05A3C /* quad.obj in CopyFiles */,
-				20A6CF331D096D3400A05A3C /* SoftSofa.mtl in CopyFiles */,
-				20A6CF341D096D3600A05A3C /* SoftSofa.obj in CopyFiles */,
-				202323001CEDABFC00C8F63A /* spider.obj in CopyFiles */,
-				202322F61CEC2FCF00C8F63A /* phoenix_ugv.md2 in CopyFiles */,
+				20A6CF4F1D0BEF8900A05A3C /* Shaders in CopyFiles */,
+				20A6CF4A1D0BEF3900A05A3C /* Models in CopyFiles */,
+				20A6CF501D0BEF9200A05A3C /* Textures in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,8 +89,6 @@
 		202322781CCABA3A00C8F63A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2023227A1CCABA4100C8F63A /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		2023227C1CCABA4700C8F63A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		202322831CCAD02000C8F63A /* SimpleVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleVert.glsl; path = Resources/Shaders/SimpleVert.glsl; sourceTree = "<group>"; };
-		202322841CCAD02C00C8F63A /* SimpleFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleFrag.glsl; path = Resources/Shaders/SimpleFrag.glsl; sourceTree = "<group>"; };
 		202322891CCAE02E00C8F63A /* GLApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		202322A91CCAE02E00C8F63A /* GLAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GLAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		202322C51CE58AF500C8F63A /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Camera.cpp; path = Framework/Camera.cpp; sourceTree = "<group>"; };
@@ -212,40 +111,19 @@
 		202322E11CEAE76B00C8F63A /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Texture.cpp; path = Framework/Texture.cpp; sourceTree = "<group>"; };
 		202322E21CEAE76B00C8F63A /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Texture.h; path = Framework/Texture.h; sourceTree = "<group>"; };
 		202322E41CEAF35900C8F63A /* libassimpd.3.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimpd.3.2.0.dylib; path = "../../Library/assimp-3.2/lib/Debug/libassimpd.3.2.0.dylib"; sourceTree = "<group>"; };
-		202322E71CEC11F800C8F63A /* sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sample.png; path = Resources/Textures/sample.png; sourceTree = "<group>"; };
 		202322EE1CEC1A1100C8F63A /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSOIL.a; sourceTree = "<group>"; };
 		202322F01CEC1EEE00C8F63A /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
 		202322F11CEC1EEE00C8F63A /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
-		202322F41CEC2FB500C8F63A /* phoenix_ugv.md2 */ = {isa = PBXFileReference; lastKnownFileType = file; name = phoenix_ugv.md2; path = Resources/Models/phoenix_ugv.md2; sourceTree = "<group>"; };
 		202322F71CED97E000C8F63A /* MaterialManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MaterialManager.cpp; path = Framework/MaterialManager.cpp; sourceTree = "<group>"; };
 		202322F81CED97E000C8F63A /* MaterialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MaterialManager.h; path = Framework/MaterialManager.h; sourceTree = "<group>"; };
-		202322FA1CEDA9A100C8F63A /* phoenix.pcx */ = {isa = PBXFileReference; lastKnownFileType = file; name = phoenix.pcx; path = Resources/Textures/phoenix.pcx; sourceTree = "<group>"; };
-		202322FC1CEDABE500C8F63A /* SpiderTex.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = SpiderTex.jpg; path = Resources/Textures/SpiderTex.jpg; sourceTree = "<group>"; };
-		202322FD1CEDABF000C8F63A /* spider.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = spider.mtl; path = Resources/Models/spider.mtl; sourceTree = "<group>"; };
-		202322FE1CEDABF000C8F63A /* spider.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = spider.obj; path = Resources/Models/spider.obj; sourceTree = "<group>"; };
-		202323021CEEAD5400C8F63A /* drkwood2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = drkwood2.jpg; path = Resources/Textures/drkwood2.jpg; sourceTree = "<group>"; };
-		202323031CEEAD5400C8F63A /* engineflare1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = engineflare1.jpg; path = Resources/Textures/engineflare1.jpg; sourceTree = "<group>"; };
-		202323041CEEAD5400C8F63A /* wal67ar_small.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = wal67ar_small.jpg; path = Resources/Textures/wal67ar_small.jpg; sourceTree = "<group>"; };
-		202323091CEEB10400C8F63A /* jeep.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = jeep.mtl; path = Resources/Models/jeep.mtl; sourceTree = "<group>"; };
-		2023230A1CEEB10400C8F63A /* jeep.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = jeep.obj; path = Resources/Models/jeep.obj; sourceTree = "<group>"; };
-		2023230B1CEEB11100C8F63A /* jeep_army.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = jeep_army.jpg; path = Resources/Textures/jeep_army.jpg; sourceTree = "<group>"; };
-		2023230C1CEEB11100C8F63A /* jeep_rood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = jeep_rood.jpg; path = Resources/Textures/jeep_rood.jpg; sourceTree = "<group>"; };
 		202323121CEECFD700C8F63A /* GBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GBuffer.cpp; path = Framework/DeferredRendering/GBuffer.cpp; sourceTree = "<group>"; };
 		202323131CEECFD700C8F63A /* GBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBuffer.h; path = Framework/DeferredRendering/GBuffer.h; sourceTree = "<group>"; };
-		202323151CEED82700C8F63A /* DRSimpleVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRSimpleVert.glsl; path = Resources/Shaders/DRSimpleVert.glsl; sourceTree = "<group>"; };
-		202323161CEED91600C8F63A /* DRSimpleFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRSimpleFrag.glsl; path = Resources/Shaders/DRSimpleFrag.glsl; sourceTree = "<group>"; };
-		2023231A1CF0024200C8F63A /* DRLightVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRLightVert.glsl; path = Resources/Shaders/DRLightVert.glsl; sourceTree = "<group>"; };
-		2023231B1CF0024200C8F63A /* DRDirLightFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRDirLightFrag.glsl; path = Resources/Shaders/DRDirLightFrag.glsl; sourceTree = "<group>"; };
 		2023231C1CF0051C00C8F63A /* DRLightShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DRLightShader.cpp; path = Framework/DeferredRendering/DRLightShader.cpp; sourceTree = "<group>"; };
 		2023231D1CF0051C00C8F63A /* DRLightShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRLightShader.h; path = Framework/DeferredRendering/DRLightShader.h; sourceTree = "<group>"; };
 		202323201CF00EF500C8F63A /* StandardShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StandardShader.cpp; path = Framework/Shaders/StandardShader.cpp; sourceTree = "<group>"; };
 		202323211CF00EF500C8F63A /* StandardShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StandardShader.h; path = Framework/Shaders/StandardShader.h; sourceTree = "<group>"; };
 		202323231CF0122700C8F63A /* Lighting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Lighting.cpp; path = Framework/Lighting.cpp; sourceTree = "<group>"; };
 		202323241CF0122700C8F63A /* Lighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Lighting.h; path = Framework/Lighting.h; sourceTree = "<group>"; };
-		202323281CF061B600C8F63A /* DRLightSimpleFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRLightSimpleFrag.glsl; path = Resources/Shaders/DRLightSimpleFrag.glsl; sourceTree = "<group>"; };
-		202323291CF061B600C8F63A /* DRLightSimpleVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DRLightSimpleVert.glsl; path = Resources/Shaders/DRLightSimpleVert.glsl; sourceTree = "<group>"; };
-		2023232C1CF100DB00C8F63A /* StandardFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = StandardFrag.glsl; path = Resources/Shaders/StandardFrag.glsl; sourceTree = "<group>"; };
-		2023232D1CF100DB00C8F63A /* StandardVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = StandardVert.glsl; path = Resources/Shaders/StandardVert.glsl; sourceTree = "<group>"; };
 		202323301CF1060200C8F63A /* UnlitShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UnlitShader.cpp; path = Framework/Shaders/UnlitShader.cpp; sourceTree = "<group>"; };
 		202323311CF1060200C8F63A /* UnlitShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnlitShader.h; path = Framework/Shaders/UnlitShader.h; sourceTree = "<group>"; };
 		202323331CF2912100C8F63A /* App.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = App.cpp; path = Framework/App.cpp; sourceTree = "<group>"; };
@@ -256,28 +134,13 @@
 		2023233A1CF29EDD00C8F63A /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Time.h; path = Framework/Time.h; sourceTree = "<group>"; };
 		2023233C1CF2A13400C8F63A /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Input.cpp; path = Framework/Input.cpp; sourceTree = "<group>"; };
 		2023233D1CF2A13400C8F63A /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Input.h; path = Framework/Input.h; sourceTree = "<group>"; };
-		2023233F1CF42A5700C8F63A /* hheli.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hheli.mtl; path = Resources/Models/hheli.mtl; sourceTree = "<group>"; };
-		202323401CF42A5700C8F63A /* hheli.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hheli.obj; path = Resources/Models/hheli.obj; sourceTree = "<group>"; };
-		202323411CF42A5700C8F63A /* monkey.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = monkey.mtl; path = Resources/Models/monkey.mtl; sourceTree = "<group>"; };
-		202323421CF42A5700C8F63A /* monkey.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = monkey.obj; path = Resources/Models/monkey.obj; sourceTree = "<group>"; };
-		202323431CF42A6500C8F63A /* hheli.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = hheli.bmp; path = Resources/Textures/hheli.bmp; sourceTree = "<group>"; };
-		202323491CF42B6E00C8F63A /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white.png; path = Resources/Textures/white.png; sourceTree = "<group>"; };
-		2023234B1CF7E92500C8F63A /* ground.fbx */ = {isa = PBXFileReference; lastKnownFileType = file; name = ground.fbx; path = Resources/Models/ground.fbx; sourceTree = "<group>"; };
-		2023234D1CFE97CA00C8F63A /* PBRFrag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PBRFrag.glsl; path = Resources/Shaders/PBRFrag.glsl; sourceTree = "<group>"; };
-		2023234E1CFE97CA00C8F63A /* PBRVert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PBRVert.glsl; path = Resources/Shaders/PBRVert.glsl; sourceTree = "<group>"; };
-		20A6CF271D09645500A05A3C /* deer-obj.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "deer-obj.mtl"; path = "Resources/Models/deer-obj.mtl"; sourceTree = "<group>"; };
-		20A6CF281D09645500A05A3C /* deer-obj.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "deer-obj.obj"; path = "Resources/Models/deer-obj.obj"; sourceTree = "<group>"; };
-		20A6CF291D09646700A05A3C /* deer texture.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = "deer texture.tga"; path = "Resources/Textures/deer texture.tga"; sourceTree = "<group>"; };
-		20A6CF2D1D09651000A05A3C /* deer texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "deer texture.png"; path = "Resources/Textures/deer texture.png"; sourceTree = "<group>"; };
-		20A6CF2F1D096C9D00A05A3C /* Sofa.FBX */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sofa.FBX; path = Resources/Models/Sofa.FBX; sourceTree = "<group>"; };
-		20A6CF311D096D2E00A05A3C /* SoftSofa.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SoftSofa.mtl; path = Resources/Models/SoftSofa.mtl; sourceTree = "<group>"; };
-		20A6CF321D096D2E00A05A3C /* SoftSofa.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SoftSofa.obj; path = Resources/Models/SoftSofa.obj; sourceTree = "<group>"; };
-		20A6CF351D0AABEF00A05A3C /* quad.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = quad.mtl; path = Resources/Models/quad.mtl; sourceTree = "<group>"; };
-		20A6CF361D0AABEF00A05A3C /* quad.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = quad.obj; path = Resources/Models/quad.obj; sourceTree = "<group>"; };
-		20A6CF371D0AABEF00A05A3C /* quad2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = quad2.mtl; path = Resources/Models/quad2.mtl; sourceTree = "<group>"; };
-		20A6CF381D0AABEF00A05A3C /* quad2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = quad2.obj; path = Resources/Models/quad2.obj; sourceTree = "<group>"; };
-		20A6CF391D0AABEF00A05A3C /* sphere.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sphere.mtl; path = Resources/Models/sphere.mtl; sourceTree = "<group>"; };
-		20A6CF3A1D0AABEF00A05A3C /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sphere.obj; path = Resources/Models/sphere.obj; sourceTree = "<group>"; };
+		20A6CF411D0BE83D00A05A3C /* CubeTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CubeTexture.cpp; path = Framework/CubeTexture.cpp; sourceTree = "<group>"; };
+		20A6CF421D0BE83D00A05A3C /* CubeTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CubeTexture.h; path = Framework/CubeTexture.h; sourceTree = "<group>"; };
+		20A6CF441D0BECE700A05A3C /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Models; path = Resources/Models; sourceTree = "<group>"; };
+		20A6CF4B1D0BEF5800A05A3C /* Shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Shaders; path = Resources/Shaders; sourceTree = "<group>"; };
+		20A6CF4D1D0BEF6600A05A3C /* Textures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Textures; path = Resources/Textures; sourceTree = "<group>"; };
+		20A6CF511D0BFC8400A05A3C /* Skybox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Skybox.cpp; sourceTree = "<group>"; };
+		20A6CF521D0BFC8400A05A3C /* Skybox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skybox.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,30 +216,11 @@
 		2023227E1CCAC3EC00C8F63A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				202322F31CEC2FA800C8F63A /* Models */,
-				202322E61CEC11EB00C8F63A /* Textures */,
-				2023227F1CCAC40A00C8F63A /* Shaders */,
+				20A6CF441D0BECE700A05A3C /* Models */,
+				20A6CF4D1D0BEF6600A05A3C /* Textures */,
+				20A6CF4B1D0BEF5800A05A3C /* Shaders */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		2023227F1CCAC40A00C8F63A /* Shaders */ = {
-			isa = PBXGroup;
-			children = (
-				2023234D1CFE97CA00C8F63A /* PBRFrag.glsl */,
-				2023234E1CFE97CA00C8F63A /* PBRVert.glsl */,
-				2023232C1CF100DB00C8F63A /* StandardFrag.glsl */,
-				2023232D1CF100DB00C8F63A /* StandardVert.glsl */,
-				202323281CF061B600C8F63A /* DRLightSimpleFrag.glsl */,
-				202323291CF061B600C8F63A /* DRLightSimpleVert.glsl */,
-				2023231A1CF0024200C8F63A /* DRLightVert.glsl */,
-				2023231B1CF0024200C8F63A /* DRDirLightFrag.glsl */,
-				202323161CEED91600C8F63A /* DRSimpleFrag.glsl */,
-				202323151CEED82700C8F63A /* DRSimpleVert.glsl */,
-				202322841CCAD02C00C8F63A /* SimpleFrag.glsl */,
-				202322831CCAD02000C8F63A /* SimpleVert.glsl */,
-			);
-			name = Shaders;
 			sourceTree = "<group>";
 		};
 		202322C41CE58AB000C8F63A /* Framework */ = {
@@ -414,6 +258,10 @@
 				2023233A1CF29EDD00C8F63A /* Time.h */,
 				2023233C1CF2A13400C8F63A /* Input.cpp */,
 				2023233D1CF2A13400C8F63A /* Input.h */,
+				20A6CF411D0BE83D00A05A3C /* CubeTexture.cpp */,
+				20A6CF421D0BE83D00A05A3C /* CubeTexture.h */,
+				20A6CF511D0BFC8400A05A3C /* Skybox.cpp */,
+				20A6CF521D0BFC8400A05A3C /* Skybox.h */,
 			);
 			name = Framework;
 			sourceTree = "<group>";
@@ -435,53 +283,6 @@
 				202322761CCAB8C200C8F63A /* libglfw3.a */,
 			);
 			name = Lib;
-			sourceTree = "<group>";
-		};
-		202322E61CEC11EB00C8F63A /* Textures */ = {
-			isa = PBXGroup;
-			children = (
-				20A6CF2D1D09651000A05A3C /* deer texture.png */,
-				20A6CF291D09646700A05A3C /* deer texture.tga */,
-				202323491CF42B6E00C8F63A /* white.png */,
-				202323431CF42A6500C8F63A /* hheli.bmp */,
-				2023230B1CEEB11100C8F63A /* jeep_army.jpg */,
-				2023230C1CEEB11100C8F63A /* jeep_rood.jpg */,
-				202323021CEEAD5400C8F63A /* drkwood2.jpg */,
-				202323031CEEAD5400C8F63A /* engineflare1.jpg */,
-				202323041CEEAD5400C8F63A /* wal67ar_small.jpg */,
-				202322FC1CEDABE500C8F63A /* SpiderTex.jpg */,
-				202322FA1CEDA9A100C8F63A /* phoenix.pcx */,
-				202322E71CEC11F800C8F63A /* sample.png */,
-			);
-			name = Textures;
-			sourceTree = "<group>";
-		};
-		202322F31CEC2FA800C8F63A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				20A6CF351D0AABEF00A05A3C /* quad.mtl */,
-				20A6CF361D0AABEF00A05A3C /* quad.obj */,
-				20A6CF371D0AABEF00A05A3C /* quad2.mtl */,
-				20A6CF381D0AABEF00A05A3C /* quad2.obj */,
-				20A6CF391D0AABEF00A05A3C /* sphere.mtl */,
-				20A6CF3A1D0AABEF00A05A3C /* sphere.obj */,
-				20A6CF311D096D2E00A05A3C /* SoftSofa.mtl */,
-				20A6CF321D096D2E00A05A3C /* SoftSofa.obj */,
-				20A6CF2F1D096C9D00A05A3C /* Sofa.FBX */,
-				20A6CF271D09645500A05A3C /* deer-obj.mtl */,
-				20A6CF281D09645500A05A3C /* deer-obj.obj */,
-				2023234B1CF7E92500C8F63A /* ground.fbx */,
-				2023233F1CF42A5700C8F63A /* hheli.mtl */,
-				202323401CF42A5700C8F63A /* hheli.obj */,
-				202323411CF42A5700C8F63A /* monkey.mtl */,
-				202323421CF42A5700C8F63A /* monkey.obj */,
-				202323091CEEB10400C8F63A /* jeep.mtl */,
-				2023230A1CEEB10400C8F63A /* jeep.obj */,
-				202322FD1CEDABF000C8F63A /* spider.mtl */,
-				202322FE1CEDABF000C8F63A /* spider.obj */,
-				202322F41CEC2FB500C8F63A /* phoenix_ugv.md2 */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		202323111CEECFC200C8F63A /* DeferredRendering */ = {
@@ -516,9 +317,7 @@
 				202322621CCAB77200C8F63A /* Sources */,
 				202322631CCAB77200C8F63A /* Frameworks */,
 				202322641CCAB77200C8F63A /* CopyFiles */,
-				202322C11CCAE1BE00C8F63A /* CopyFiles */,
-				202322E81CEC122F00C8F63A /* CopyFiles */,
-				202322F51CEC2FBE00C8F63A /* CopyFiles */,
+				20A6CF491D0BEF3300A05A3C /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -603,6 +402,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20A6CF451D0BECFA00A05A3C /* Models in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,8 +425,10 @@
 				202322C71CE58AF500C8F63A /* Camera.cpp in Sources */,
 				202322CB1CE58E3E00C8F63A /* Math3D.cpp in Sources */,
 				202322E31CEAE76B00C8F63A /* Texture.cpp in Sources */,
+				20A6CF531D0BFC8400A05A3C /* Skybox.cpp in Sources */,
 				202322D71CE7C31A00C8F63A /* Mesh.cpp in Sources */,
 				202322D11CE7A7F900C8F63A /* Material.cpp in Sources */,
+				20A6CF431D0BE83D00A05A3C /* CubeTexture.cpp in Sources */,
 				202323221CF00EF500C8F63A /* StandardShader.cpp in Sources */,
 				202322D41CE7A81600C8F63A /* Shader.cpp in Sources */,
 				202323321CF1060200C8F63A /* UnlitShader.cpp in Sources */,

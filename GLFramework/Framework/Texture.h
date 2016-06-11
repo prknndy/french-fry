@@ -14,14 +14,15 @@
 
 class Texture
 {
+protected:
     GLuint texID;
     std::string name;
 public:
     Texture();
     ~Texture();
     std::string GetName();
-    bool Create(const char* filename);
-    void Bind(GLenum textureUnit);
+    virtual bool Create(const char* filename);
+    virtual void Bind(GLenum textureUnit);
 };
 
 #endif /* defined(__GLFramework__Texture__) */

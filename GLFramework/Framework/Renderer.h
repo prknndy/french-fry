@@ -64,6 +64,8 @@ public:
     void RenderModel(Model* model);
     void RenderMesh(Mesh* mesh);
     
+    void RenderSkybox(Mesh* mesh);
+    
     // Forward Rendering
     void BeginRender();
     void EndRender();

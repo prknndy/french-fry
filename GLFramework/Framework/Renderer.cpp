@@ -278,6 +278,21 @@ void Renderer::RenderMesh(Mesh* mesh)
     mesh->Render();
 }
 
+void Renderer::RenderSkybox(Mesh* mesh)
+{
+    SetWorldTrans(currentCamera->GetLocation(), Vector3(), Vector3(1000.0f, 1000.0f, 1000.0f));
+    glCullFace(GL_FRONT);
+    glDepthFunc(GL_LEQUAL);
+    Material* m = mesh->GetMaterial();
+    Shader* s;
+    s = m->GetShader();
+    s->UseMaterial(m);
+    s->Activate();
+    mesh->Render();
+    glDepthFunc(GL_LESS);
+    glCullFace(GL_BACK);
+}
+
 void Renderer::SetCamera(Camera* camera)
 {
     this->currentCamera = camera;

@@ -18,6 +18,7 @@
 #include "StandardShader.h"
 #include "DRLightShader.h"
 #include "UnlitShader.h"
+#include "CubeTexture.h"
 
 class MaterialManager
 {
@@ -30,6 +31,7 @@ class MaterialManager
     Material DRdefaultMaterial;
     StandardShader defaultShader;
     UnlitShader DRdefaultShader;
+    UnlitShader skyboxShader;
     Texture defaultTexture;
     
     DRLightShader DRlightShader;
@@ -51,10 +53,12 @@ public:
     
     Texture* GetTexture(std::string filename);
     Texture* CreateTexture(std::string filename);
+    CubeTexture* CreateCubeTexture(std::string name, std::vector<const char*> filenames);
     
     Material* GetMaterial(std::string matID);
     Material* GetDefaultMaterial();
     Material* CreateMaterial(std::string name, std::string filename);
+    Material* CreateSkyboxMaterial(std::string name, std::vector<const char*> filenames);
     
     Shader* GetDRLightShader();
     Shader* GetDRDefaultShader() {

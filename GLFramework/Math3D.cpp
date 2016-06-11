@@ -9,6 +9,12 @@
 #include <math.h>
 #include "Math3D.h"
 
+
+void Vector3::Rotate(float angle, const Vector3& axis)
+{
+    // TODO
+}
+
 void Matrix4f::CreateIdentity()
 {
     m[0][0] = 1.0f; m[0][1] = 0.0f; m[0][2] = 0.0f; m[0][3] = 0.0f;
