@@ -13,13 +13,13 @@ bool UnlitShader::Init()
 {
     Shader::Init();
     
-    //posAttrib = GetAttributeLocation("position");
-    //uvAttrib = GetAttributeLocation("texcoord");
-    //colorAttrib = GetAttributeLocation("color");
-    //normalAttrib = GetAttributeLocation("normal");
+    posAttrib = GetAttributeLocation("position");
+    uvAttrib = GetAttributeLocation("texcoord");
+    colorAttrib = GetAttributeLocation("color");
+    normalAttrib = GetAttributeLocation("normal");
     
     WVPLocation = GetUniformLocation("gWVP");
-    //WorldLocation = GetUniformLocation("gWorld");
+    WorldLocation = GetUniformLocation("gWorld");
     Texture0 = GetUniformLocation("tex");
     
     return true;
@@ -40,7 +40,7 @@ void UnlitShader::Activate()
     Shader::Activate();
     
     SetWVP(Renderer::GetInstance()->GetWVP());
-    //SetWorld(Renderer::GetInstance()->GetWorldTrans());
+    SetWorld(Renderer::GetInstance()->GetWorldTrans());
     
 }
 

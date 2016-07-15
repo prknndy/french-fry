@@ -38,7 +38,7 @@ void Skybox::CreateSkybox(std::string name, std::vector<const char*> filenames)
 void Skybox::Render()
 {
     //glBindVertexArray(vao);
-    Renderer::GetInstance()->SetWorldTrans(Vector3(0.0f, 0.0f, 0.0f), Vector3(0.0f, 0.0f, 0.0f), Vector3(20.0f, 20.0f, 20.0f));
+    //Renderer::GetInstance()->SetWorldTrans(Vector3(0.0f, 0.0f, 0.0f), Vector3(0.0f, 0.0f, 0.0f), Vector3(20.0f, 20.0f, 20.0f));
     for (int i = 0; i < meshes.size(); i++)
     {
         //Renderer::GetInstance()->RenderSkybox(&meshes[i], MaterialManager::GetInstance()->GetDefaultMaterial());

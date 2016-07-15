@@ -300,7 +300,8 @@ void Renderer::RenderMesh(Mesh* mesh, Material* m)
 
 void Renderer::RenderSkybox(Mesh* mesh, Material* mat)
 {
-    SetWorldTrans(currentCamera->GetLocation(), Vector3(), Vector3(1000.0f, 1000.0f, 1000.0f));
+    Vector3 cameraLoc = currentCamera->GetLocation();
+    SetWorldTrans(Vector3(-cameraLoc.x, -cameraLoc.y, -cameraLoc.z), Vector3(), Vector3(1000.0f, 1000.0f, 1000.0f));
     glCullFace(GL_FRONT);
     glDepthFunc(GL_LEQUAL);
     RenderMesh(mesh, mat);
