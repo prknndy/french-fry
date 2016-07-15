@@ -21,14 +21,14 @@ void TestApp::PostInitialize()
     scale = Vector3(0.09f, 0.09f, 0.09f);
     
     pos2 = Vector3(-40.0f, 10.0f, 50.0f);
-    scale2 = Vector3(5.0f, 5.0f, 5.0f);
+    scale2 = Vector3(0.25f, 0.25f, 0.25f);
     
     model2 = new Model();
     //model2->LoadModel("./Resources/Models/ground.fbx");
-    //model2->LoadModel("./Resources/Models/hheli.obj");
+    model2->LoadModel("./Resources/Models/hheli.obj");
     //model2->LoadModel("./Resources/Models/monkey.obj");
     //model2->LoadModel("./Resources/Models/spider.obj");
-    model2->LoadModel("./Resources/Models/sphere.obj");
+    //model2->LoadModel("./Resources/Models/sphere.obj");
     
     model = new Model();
     //model->LoadModel("./Resources/Models/jeep.obj");
@@ -98,7 +98,7 @@ void TestApp::PostInitialize()
 
 void TestApp::Update()
 {
-    // Rotate camera
+    // Rotate + zoom camera
     if (Input::GetInstance()->IsMousePressed(0))
     {
         Vector2 curPos = Input::GetInstance()->GetMousePosition();
@@ -117,7 +117,6 @@ void TestApp::Update()
         Vector2 curPos = Input::GetInstance()->GetMousePosition();
         if (mouseMove)
         {
-            float deltaX = curPos.x - lastMousePos.x;
             float deltaY = curPos.y - lastMousePos.y;
             cameraOffset += deltaY;
         }
@@ -155,7 +154,8 @@ void TestApp::Update()
     
     Renderer::GetInstance()->BeginRender();
     
-    skybox->Render();
+    //skybox->Render();
+    
     model3->Render(pos3, rot3, scale3);
     model2->Render(pos2, rot, scale2);
     model->Render(pos, rot, scale);

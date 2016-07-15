@@ -38,7 +38,7 @@ void MaterialManager::Initialize()
     defaultTexture.Create("./Resources/Textures/white.png");
     
     MaterialParameters mp = MaterialParameters();
-    mp.smoothness = 0.98f;
+    mp.smoothness = 0.15f;
     mp.reflectivity = 0.2f;
     mp.metal = 0.0f;
     
@@ -131,7 +131,23 @@ Material* MaterialManager::CreateMaterial(string name, string filename)
     }
     
     Material* mat = new Material();
-    mat->Create(&defaultShader, tex);
+    
+    if (name.compare("hheli.bmp") == 0)
+    {
+        Shader* s = new StandardShader();
+        s->CreateShader("./Resources/Shaders/PBRVert.glsl", "./Resources/Shaders/PBRFrag.glsl");
+        MaterialParameters mp = MaterialParameters();
+        mp.smoothness = 0.9f;
+        mp.reflectivity = 0.7f;
+        mp.metal = 1.0f;
+        mat->Create(s, tex);
+        //mat->Create(&defaultShader, tex);
+        mat->SetParameters(mp);
+    }
+    else
+    {
+        mat->Create(&defaultShader, tex);
+    }
     
     return mat;
 }

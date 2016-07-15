@@ -12,10 +12,11 @@
 #include "Material.h"
 #include "Mesh.h"
 
-class Skybox
+class Skybox : public Model
 {
-    GLuint vao;
-    Mesh box;
+    //GLuint vao;
+    //Mesh box;
+    Material* mat;
 public:
     void CreateSkybox(std::string name, std::vector<const char*> filenames);
     void Render();

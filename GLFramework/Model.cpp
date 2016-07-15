@@ -149,8 +149,9 @@ Material* Model::CreateMaterial(const aiMaterial* pMaterial)
 
 bool Model::LoadModel(const std::string& filename)
 {
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
+    //glGenVertexArrays(1, &vao);
+    //glBindVertexArray(vao);
+
     bool ret = false;
     
     Assimp::Importer importer;
@@ -165,7 +166,7 @@ bool Model::LoadModel(const std::string& filename)
         LogError("Failed to open model file");
     }
     
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), 0);
+    /*glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), 0);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(3*sizeof(float)));
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(6*sizeof(float)));
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(8*sizeof(float)));
@@ -175,7 +176,7 @@ bool Model::LoadModel(const std::string& filename)
     glEnableVertexAttribArray(2);
     glEnableVertexAttribArray(3);
     
-    glBindVertexArray(0);
+    glBindVertexArray(0);*/
     
     return ret;
     
@@ -184,14 +185,14 @@ bool Model::LoadModel(const std::string& filename)
 bool Model::CreateQuad()
 {
     bool ret = true;
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
+    //glGenVertexArrays(1, &vao);
+    //glBindVertexArray(vao);
     
     meshes.resize(1);
     meshes[0].CreateQuad();
     meshes[0].SetMaterial(MaterialManager::GetInstance()->GetDefaultMaterial());
     
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), 0);
+    /*glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), 0);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(3*sizeof(float)));
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(6*sizeof(float)));
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, 11*sizeof(float), (void*)(8*sizeof(float)));
@@ -200,7 +201,8 @@ bool Model::CreateQuad()
     glEnableVertexAttribArray(1);
     glEnableVertexAttribArray(2);
     glEnableVertexAttribArray(3);
-    glBindVertexArray(0);
+    
+    glBindVertexArray(0);*/
     return ret;
 }
 
@@ -214,22 +216,22 @@ void Model::Render()
 
 void Model::Render(Matrix4f* transform)
 {
-    glBindVertexArray(vao);
+    //glBindVertexArray(vao);
     Renderer::GetInstance()->SetWorldTrans(transform);
     for (int i = 0; i < meshes.size(); i++)
     {
         meshes[i].Render();
     }
-    glBindVertexArray(0);
+    //glBindVertexArray(0);
 }
 
 void Model::Render(Vector3 pos, Vector3 rot, Vector3 scale)
 {
-    glBindVertexArray(vao);
+    //glBindVertexArray(vao);
     Renderer::GetInstance()->SetWorldTrans(pos, rot, scale);
     for (int i = 0; i < meshes.size(); i++)
     {
         Renderer::GetInstance()->RenderMesh(&meshes[i]);
     }
-    glBindVertexArray(0);
+    //glBindVertexArray(0);
 }

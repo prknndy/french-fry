@@ -13,10 +13,10 @@ bool DRLightShader::Init()
 {
     Shader::Init();
     
-    posAttrib = GetAttributeLocation("position");
-    uvAttrib = GetAttributeLocation("texcoord");
-    colorAttrib = GetAttributeLocation("color");
-    normalAttrib = GetAttributeLocation("normal");
+    //posAttrib = GetAttributeLocation("position");
+    //uvAttrib = GetAttributeLocation("texcoord");
+    //colorAttrib = GetAttributeLocation("color");
+    //normalAttrib = GetAttributeLocation("normal");
 
     colorTextureUnitLocation = GetUniformLocation("gColorMap");
     posTextureUnitLocation = GetUniformLocation("gPositionMap");
@@ -90,6 +90,7 @@ void DRLightShader::SetScreenSize(float width, float height)
 
 void DRLightShader::Activate()
 {
+    Shader::Activate();
     //SetWVP(Renderer::GetInstance()->GetWVP());
     /*SetDirectionalLight(Renderer::GetInstance()->GetDirLight());
     int pLCount = Renderer::GetInstance()->GetPointLightCount();
@@ -103,7 +104,7 @@ void DRLightShader::Activate()
     SetMatSpecularIntensity(0.5f);
     SetMatSpecularPower(0.5f);
     
-    Shader::Activate();
+    
 }
 
 void DRLightShader::UseMaterial(Material * mat)

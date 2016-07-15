@@ -17,8 +17,8 @@ class Material;
 class Shader
 {
     // Progams
-    GLuint vertexShader;
-    GLuint fragmentShader;
+    //GLuint vertexShader;
+    //GLuint fragmentShader;
     GLuint shaderProgram;
     
 protected:
@@ -33,7 +33,9 @@ protected:
     
 public:
     bool CreateShader(const char* vertFilename, const char* fragFilename);
-    bool CompileShader(const char* vertFilename, const char* fragFilename);
+    GLuint AddProgram(GLenum shaderType, const char* filename);
+    bool CompileShader();
+    //bool CompileShader(const char* vertFilename, const char* fragFilename);
     void Validate();
     virtual bool Init();
     virtual void Activate();

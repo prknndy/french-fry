@@ -23,8 +23,8 @@ void Renderer::Initialize(int _screenWidth, int _screenHeight)
     
     projTrans.CreateProj(screenWidth, screenHeight, 60.0f, 0.5f, 10000.0f);
     
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
+    //glGenVertexArrays(1, &vao);
+    //glBindVertexArray(vao);
     
     
 }
@@ -271,24 +271,39 @@ void Renderer::RenderMesh(Mesh* mesh)
     {
         s = MaterialManager::GetInstance()->GetDRDefaultShader();
     }
-    s->UseMaterial(m);
+    
     s->Activate();
+    s->UseMaterial(m);
     //m->Bind();
     
     mesh->Render();
 }
 
-void Renderer::RenderSkybox(Mesh* mesh)
+void Renderer::RenderMesh(Mesh* mesh, Material* m)
+{
+    Shader* s;
+    if (!isInDR)
+    {
+        s = m->GetShader();
+    }
+    else
+    {
+        s = MaterialManager::GetInstance()->GetDRDefaultShader();
+    }
+    
+    s->Activate();
+    s->UseMaterial(m);
+    //m->Bind();
+    
+    mesh->Render(m);
+}
+
+void Renderer::RenderSkybox(Mesh* mesh, Material* mat)
 {
     SetWorldTrans(currentCamera->GetLocation(), Vector3(), Vector3(1000.0f, 1000.0f, 1000.0f));
     glCullFace(GL_FRONT);
     glDepthFunc(GL_LEQUAL);
-    Material* m = mesh->GetMaterial();
-    Shader* s;
-    s = m->GetShader();
-    s->UseMaterial(m);
-    s->Activate();
-    mesh->Render();
+    RenderMesh(mesh, mat);
     glDepthFunc(GL_LESS);
     glCullFace(GL_BACK);
 }

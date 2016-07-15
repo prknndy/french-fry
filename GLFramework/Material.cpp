@@ -31,6 +31,5 @@ Shader* Material::GetShader()
 
 void Material::Bind()
 {
-    //shader->Activate();
     texture->Bind(GL_TEXTURE0);
 }
