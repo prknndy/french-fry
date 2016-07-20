@@ -9,6 +9,7 @@
 #include <string>
 
 #include "StandardShader.h"
+#include "ShaderUniforms.h"
 #include "Renderer.h"
 
 bool StandardShader::Init()
@@ -20,18 +21,14 @@ bool StandardShader::Init()
     colorAttrib = GetAttributeLocation("color");
     normalAttrib = GetAttributeLocation("normal");
     
-    WVPLocation = GetUniformLocation("gWVP");
-    WorldLocation = GetUniformLocation("gWorld");
-    Texture0 = GetUniformLocation("tex");
+    AddUniform(WVP_LOCATION);
+    AddUniform(WORLD_LOCATION);
+    AddUniform(EYE_WORLD_POS_LOCATION);
     
-    // Lighting
-    eyeWorldPosLocation = GetUniformLocation("gEyeWorldPos");
-    //matSpecularIntensityLocation = GetUniformLocation("gMatSpecularIntensity");
-    //matSpecularPowerLocation = GetUniformLocation("gMatSpecularPower");
-    roughnessLocation = GetUniformLocation("gRoughness");
-    linearRoughnessLocation = GetUniformLocation("gLinearRoughness");
-    metalMaskLocation = GetUniformLocation("gMetalMask");
-    reflectivityLocation = GetUniformLocation("gReflectivity");
+    AddUniform(ROUGHNESS_LOCATION);
+    AddUniform(LINEAR_ROUGHNESS_LOCATION);
+    AddUniform(METAL_MASK_LOCATION);
+    AddUniform(REFLECTIVITY_LOCATION);
     
     // Dir lighting
     dirLightLocation.Color = GetUniformLocation("gDirectionalLight.Base.Color");
@@ -71,31 +68,6 @@ bool StandardShader::Init()
     return true;
 }
 
-void StandardShader::SetWVP(const Matrix4f& WVP)
-{
-    glUniformMatrix4fv(WVPLocation, 1, GL_TRUE, (const GLfloat*)WVP.m);
-}
-
-void StandardShader::SetWorld(const Matrix4f& world)
-{
-    glUniformMatrix4fv(WorldLocation, 1, GL_TRUE, (const GLfloat*)world.m);
-}
-
-void StandardShader::SetEyeWorldPos(const Vector3 eyeWorldPos)
-{
-    glUniform3f(eyeWorldPosLocation, eyeWorldPos.x, eyeWorldPos.y, eyeWorldPos.z);
-}
-
-void StandardShader::SetMatSpecularIntensity(float matIntensity)
-{
-    glUniform1f(matSpecularIntensityLocation, matIntensity);
-}
-
-void StandardShader::SetMatSpecularPower(float matPower)
-{
-    glUniform1f(matSpecularPowerLocation, matPower);
-}
-
 // roughness = 1.0f - smoothness, linear smoothness = (1 - smoothness)^4
 void StandardShader::SetSmoothness(float smoothness)
 {
@@ -103,20 +75,8 @@ void StandardShader::SetSmoothness(float smoothness)
     //float linearRoughness = roughness;//(1.0f - smoothness)*(1.0f - smoothness)*(1.0f - smoothness)*(1.0f - smoothness);
     float roughness = (0.5f + (linearRoughness / 2.0f)) * (0.5f + (linearRoughness / 2.0f));
     
-    glUniform1f(roughnessLocation, roughness);
-    glUniform1f(linearRoughnessLocation, linearRoughness);
-}
-
-void StandardShader:: SetReflectence(float reflectence)
-{
-    //glUniform3f(f0Location, f0.x, f0.y, f0.z);
-    //float f0 = 0.16f * reflectence * reflectence;
-    glUniform1f(reflectivityLocation, reflectence);
-}
-
-void StandardShader::SetMetalMask(float metalMask)
-{
-    glUniform1f(metalMaskLocation, metalMask);
+    SetUniform1f(ROUGHNESS_LOCATION, roughness);
+    SetUniform1f(LINEAR_ROUGHNESS_LOCATION, linearRoughness);
 }
 
 void StandardShader::SetDirectionalLight(const DirectionalLight& Light)
@@ -151,8 +111,14 @@ void StandardShader::Activate()
 {
     Shader::Activate();
     
-    SetWVP(Renderer::GetInstance()->GetWVP());
-    SetWorld(Renderer::GetInstance()->GetWorldTrans());
+    //SetWVP(Renderer::GetInstance()->GetWVP());
+    //SetWorld(Renderer::GetInstance()->GetWorldTrans());
+     //SetEyeWorldPos(Renderer::GetInstance()->GetEyePos());
+    
+    SetUniformMat(WVP_LOCATION, Renderer::GetInstance()->GetWVP());
+    SetUniformMat(WORLD_LOCATION, Renderer::GetInstance()->GetWorldTrans());
+    SetUniform3f(EYE_WORLD_POS_LOCATION, Renderer::GetInstance()->GetEyePos());
+    
     SetDirectionalLight(Renderer::GetInstance()->GetDirLight());
     int pLCount = Renderer::GetInstance()->GetPointLightCount();
     SetPointLightCount(pLCount);
@@ -160,7 +126,7 @@ void StandardShader::Activate()
     {
         SetPointLight(i, Renderer::GetInstance()->GetPointLight(i));
     }
-    SetEyeWorldPos(Renderer::GetInstance()->GetEyePos());
+   
     
 }
 
@@ -168,9 +134,10 @@ void StandardShader::UseMaterial(Material * mat)
 {
     MaterialParameters* params = mat->GetParameters();
     
-    SetReflectence(params->reflectivity);
     SetSmoothness(params->smoothness);
-    SetMetalMask(params->metal);
+    
+    SetUniform1f(REFLECTIVITY_LOCATION, params->reflectivity);
+    SetUniform1f(METAL_MASK_LOCATION, params->metal);
     
     glUniform1i(Texture0, 0);
 }

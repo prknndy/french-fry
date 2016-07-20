@@ -7,6 +7,7 @@
 //
 
 #include "DRLightShader.h"
+#include "ShaderUniforms.h"
 #include "Renderer.h"
 
 bool DRLightShader::Init()
@@ -23,12 +24,13 @@ bool DRLightShader::Init()
     normalTextureUnitLocation = GetUniformLocation("gNormalMap");
     screenSizeLocation = GetUniformLocation("gScreenSize");
     
-    WVPLocation = GetUniformLocation("gWVP");
+    AddUniform(WVP_LOCATION);
+    AddUniform(WORLD_LOCATION);
+    AddUniform(EYE_WORLD_POS_LOCATION);
     
     // Lighting
-    eyeWorldPosLocation = GetUniformLocation("gEyeWorldPos");
-    matSpecularIntensityLocation = GetUniformLocation("gMatSpecularIntensity");
-    matSpecularPowerLocation = GetUniformLocation("gMatSpecularPower");
+    AddUniform(MAT_SPECULAR_INTENSITY_LOCATION);
+    AddUniform(MAT_SPECULAR_POWER_LOCATION);
     
     // Dir lighting
     dirLightLocation.Color = GetUniformLocation("gDirectionalLight.Base.Color");
@@ -101,15 +103,14 @@ void DRLightShader::Activate()
     }
     SetEyeWorldPos(Renderer::GetInstance()->GetEyePos());*/
     
-    SetMatSpecularIntensity(0.5f);
-    SetMatSpecularPower(0.5f);
-    
-    
+    SetUniform1f(MAT_SPECULAR_INTENSITY_LOCATION, 0.5f);
+    SetUniform1f(MAT_SPECULAR_POWER_LOCATION, 0.5f);
+
 }
 
 void DRLightShader::UseMaterial(Material * mat)
 {
     // FIX
-    SetMatSpecularIntensity(0.5f);
-    SetMatSpecularPower(0.5f);
+    SetUniform1f(MAT_SPECULAR_INTENSITY_LOCATION, 0.5f);
+    SetUniform1f(MAT_SPECULAR_POWER_LOCATION, 0.5f);
 }

@@ -145,6 +145,40 @@ GLint Shader::GetAttributeLocation(const char* pAttribName)
     return location;
 }
 
+void Shader::AddUniform(const char* uniformName)
+{
+    GLuint location = GetUniformLocation(uniformName);
+    
+    if (location != INVALID_UNIFORM_LOCATION)
+    {
+        uniforms[uniformName] = location;
+    }
+}
+
+bool Shader::HasUniform(const char* uniformName)
+{
+    if (uniforms.find(uniformName) != uniforms.end())
+    {
+        return true;
+    }
+    return false;
+}
+
+void Shader::SetUniform1f(const char* uniformName, float value)
+{
+    glUniform1f(uniforms[uniformName], value);
+}
+
+void Shader::SetUniform3f(const char* uniformName, Vector3 value)
+{
+    glUniform3f(uniforms[uniformName], value.x, value.y, value.z);
+}
+
+void Shader::SetUniformMat(const char* uniformName, const Matrix4f& value)
+{
+    glUniformMatrix4fv(uniforms[uniformName], 1, GL_TRUE, (const GLfloat*)value.m);
+}
+
 
 void Shader::Activate()
 {

@@ -11,17 +11,13 @@
 
 #include "Shader.h"
 
+
 class UnlitShader : public Shader
 {
-    // Uniforms
-    GLuint WVPLocation;
-    GLuint WorldLocation;
     GLuint Texture0;
 
 public:
     virtual bool Init();
-    void SetWVP(const Matrix4f& WVP);
-    void SetWorld(const Matrix4f &world);
     
     virtual void Activate();
     virtual void UseMaterial(Material * mat);

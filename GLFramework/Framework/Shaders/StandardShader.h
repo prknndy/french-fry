@@ -19,17 +19,7 @@ public:
     
 protected:
     // Uniforms
-    GLuint WVPLocation;
-    GLuint WorldLocation;
     GLuint Texture0;
-    
-    GLuint eyeWorldPosLocation;
-    GLuint roughnessLocation;
-    GLuint linearRoughnessLocation;
-    GLuint metalMaskLocation;
-    GLuint reflectivityLocation;
-    GLuint matSpecularIntensityLocation;
-    GLuint matSpecularPowerLocation;
     
     struct {
         GLuint Color;
@@ -52,18 +42,13 @@ protected:
 public:
     
     virtual bool Init();
-    void SetWVP(const Matrix4f& WVP);
-    void SetWorld(const Matrix4f &world);
-    
-    void SetEyeWorldPos(const Vector3 eyeWorldPos);
-    void SetMatSpecularIntensity(float matIntensity);
-    void SetMatSpecularPower(float matPower);
+
     void SetDirectionalLight(const DirectionalLight& Light);
     void SetPointLight(int index, const PointLight& Light);
     void SetPointLightCount(int count);
+    
     void SetSmoothness(float smoothness);
-    void SetReflectence(float reflectence);
-    void SetMetalMask(float metalMask);
+
     virtual void UseMaterial(Material * mat);
     
     virtual void Activate();

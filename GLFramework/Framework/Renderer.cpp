@@ -7,6 +7,7 @@
 //
 
 #include "Renderer.h"
+#include "ShaderUniforms.h"
 #include "MaterialManager.h"
 
 Renderer* Renderer::instance = NULL;
@@ -163,8 +164,9 @@ void Renderer::DRDirectionalLightPass()
 
     DRLightShader* drLightShader = (DRLightShader*) MaterialManager::GetInstance()->GetDRLightShader();
     drLightShader->Activate();
-    drLightShader->SetWVP(tWVP);
-    drLightShader->SetEyeWorldPos(currentCamera->GetLocation());
+    //drLightShader->SetWVP(tWVP);
+    //drLightShader->SetEyeWorldPos(currentCamera->GetLocation());
+    
     //drLightShader->SetDirectionalLight(&dirLight);
     //drLightShader->SetMatSpecularIntensity(0.5f);
     //drLightShader->SetMatSpecularPower(0.5f);
@@ -198,8 +200,8 @@ void Renderer::DRPointLightPass()
     
     DRLightShader* drLightShader = (DRLightShader*) MaterialManager::GetInstance()->GetDRLightShader();
     drLightShader->Activate();
-    drLightShader->SetWVP(tWVP);
-    drLightShader->SetEyeWorldPos(currentCamera->GetLocation());
+    drLightShader->SetUniformMat(WVP_LOCATION, tWVP);
+    drLightShader->SetUniform3f(EYE_WORLD_POS_LOCATION, currentCamera->GetLocation());
     
     drLightShader->SetDirectionalLight(GetDirLight());
     

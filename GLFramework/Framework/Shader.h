@@ -9,8 +9,11 @@
 #ifndef __GLFramework__Shader__
 #define __GLFramework__Shader__
 
+#include <map>
+
 #include <GL/glew.h>
 #include "Math3D.h"
+#include "Lighting.h"
 
 class Material;
 
@@ -28,8 +31,14 @@ protected:
     GLint colorAttrib;
     GLint normalAttrib;
     
+    std::map<const char*, GLint> uniforms;
+    
     GLint GetUniformLocation(const char* pUniformName);
     GLint GetAttributeLocation(const char* pAttribName);
+    
+    void AddUniform(const char* uniformName);
+    void AddPointLightUniform(const char* uniformName, int index);
+    void AddDirectionalLightUniform(const char* uniformName, int index);
     
 public:
     bool CreateShader(const char* vertFilename, const char* fragFilename);
@@ -40,6 +49,12 @@ public:
     virtual bool Init();
     virtual void Activate();
     virtual void UseMaterial(Material * mat) {}
+    
+    void SetUniform1f(const char* uniformName, float value);
+    void SetUniform3f(const char* uniformName, Vector3 value);
+    void SetUniformMat(const char* uniformName, const Matrix4f& value);
+    
+    bool HasUniform(const char* uniformName);
 };
 
 #endif /* defined(__GLFramework__Shader__) */

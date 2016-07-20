@@ -141,6 +141,7 @@
 		20A6CF4D1D0BEF6600A05A3C /* Textures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Textures; path = Resources/Textures; sourceTree = "<group>"; };
 		20A6CF511D0BFC8400A05A3C /* Skybox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Skybox.cpp; sourceTree = "<group>"; };
 		20A6CF521D0BFC8400A05A3C /* Skybox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skybox.h; sourceTree = "<group>"; };
+		20ADB8A51D3F37FA006F9EB7 /* ShaderUniforms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShaderUniforms.h; path = Framework/Shaders/ShaderUniforms.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +304,7 @@
 				202323211CF00EF500C8F63A /* StandardShader.h */,
 				202323301CF1060200C8F63A /* UnlitShader.cpp */,
 				202323311CF1060200C8F63A /* UnlitShader.h */,
+				20ADB8A51D3F37FA006F9EB7 /* ShaderUniforms.h */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";

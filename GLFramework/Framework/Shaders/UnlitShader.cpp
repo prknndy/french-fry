@@ -8,6 +8,9 @@
 
 #include "UnlitShader.h"
 #include "Renderer.h"
+#include "ShaderUniforms.h"
+
+
 
 bool UnlitShader::Init()
 {
@@ -18,29 +21,23 @@ bool UnlitShader::Init()
     colorAttrib = GetAttributeLocation("color");
     normalAttrib = GetAttributeLocation("normal");
     
-    WVPLocation = GetUniformLocation("gWVP");
-    WorldLocation = GetUniformLocation("gWorld");
+    AddUniform(WVP_LOCATION);
+    AddUniform(WORLD_LOCATION);
+    
     Texture0 = GetUniformLocation("tex");
     
     return true;
-}
-
-void UnlitShader::SetWVP(const Matrix4f& WVP)
-{
-    glUniformMatrix4fv(WVPLocation, 1, GL_TRUE, (const GLfloat*)WVP.m);
-}
-
-void UnlitShader::SetWorld(const Matrix4f& world)
-{
-    glUniformMatrix4fv(WorldLocation, 1, GL_TRUE, (const GLfloat*)world.m);
 }
 
 void UnlitShader::Activate()
 {
     Shader::Activate();
     
-    SetWVP(Renderer::GetInstance()->GetWVP());
-    SetWorld(Renderer::GetInstance()->GetWorldTrans());
+    SetUniformMat(WVP_LOCATION, Renderer::GetInstance()->GetWVP());
+    SetUniformMat(WORLD_LOCATION, Renderer::GetInstance()->GetWorldTrans());
+    
+    //SetWVP(Renderer::GetInstance()->GetWVP());
+    //SetWorld(Renderer::GetInstance()->GetWorldTrans());
     
 }
 
